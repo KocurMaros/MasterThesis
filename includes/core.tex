@@ -1,62 +1,66 @@
 \section{Úvod}
-Únava je bežnou súčasťou ľudského života a môže mať významný vplyv na našu bezpečnosť, produktivitu a celkovú pohodu. Obzvlášť v náročných pracovných prostrediach, ako je doprava alebo priemysel, môže únava viesť k vážnym následkom, vrátane nehôd a zranení. Cieľom tejto práce je vyvinúť systém na automatickú detekciu únavy na základe analýzy výrazov tváre. Takýto systém by mohol byť využitý v rôznych oblastiach, od monitorovania vodičov až po zlepšenie pracovného prostredia v priemyselných podnikoch.
+S rozvojom umelej inteligencie a strojového učenia sa otvárajú nové možnosti pre interakciu medzi človekom a strojom. Jednou z najdôležitejších oblastí výskumu je rozpoznávanie emócií na základe výrazu tváre, ktoré umožňuje strojom porozumieť emocionálnemu stavu používateľa. V kontexte robotických systémov je dôležité, aby roboty boli schopné rozoznať emócie človeka, čo môže zlepšiť komunikáciu, kooperáciu a bezpečnosť pri spoločnej práci. \cite{SAXENA202239}
+
+Emócie zohrávajú dôležitú úlohu v procese rozhodovania, riadenia a interakcie. Schopnosť robotického systému porozumieť emocionálnemu stavu používateľa umožňuje jeho prispôsobenie konkrétnym podmienkam a potrebám operátora. Napríklad v priemysle môžu robotické systémy identifikovať stres alebo únavu operátora, čím prispievajú k zvýšeniu bezpečnosti a efektivity​. Okrem toho, v oblasti zdravotnej starostlivosti môže rozpoznávanie emócií pomôcť monitorovať psychický stav pacientov a prispieť k ich lepšej starostlivosti​. \cite{9674818} \cite{8718656} 
+
+Rozpoznávanie emócií je možné dosiahnuť rôznymi metódami, ktoré zahŕňajú spracovanie obrazu, analýzu textu, reč a gestá​. Výraz tváre je však najvýznamnejším a najpresnejším indikátorom emócií, pretože vyjadruje okamžitý emocionálny stav človeka. Emócie, ako sú šťastie, smútok, hnev alebo prekvapenie, sú viditeľné prostredníctvom zmien vo svaloch tváre, ktoré sú merateľné a analyzovateľné pomocou technológií strojového učenia, najmä pomocou hlbokých neurónových sietí (CNN).\cite{SAXENA202239}
+
+Súčasné metódy na rozpoznávanie emócií zahŕňajú viacero prístupov. Tradičné prístupy, ako napríklad metódy založené na geometrických črtách a textúrach, boli doplnené modernými metódami založenými na hlbokom učení, ktoré dosahujú vysokú presnosť. Neurónové siete sú schopné automaticky extrahovať črty tváre bez potreby manuálneho zásahu, čo výrazne zvyšuje efektivitu systému​. Tieto pokročilé modely dosahujú vysokú mieru úspešnosti v rôznych aplikáciách, ako sú zdravotná starostlivosť, priemyselná automatizácia alebo monitorovanie únavy vodičov​. \cite{9674818} \cite{Martinez2016}
+
 \subsection{Motivácia}
-\textit{Chcem tu este hodit ake typy emocii sa daju rozpoznat a preco je to dolezite.}
-\textbf{Prečo je analýza emócií dôležitá v kontexte interakcie človeka s robotom?}
-
-Únava, najmä v kritických profesiách a každodenných činnostiach, predstavuje značné riziko pre jednotlivcov aj spoločnosť. Detekcia únavy je kľúčová, pretože môže zabrániť nehodám, zvýšiť produktivitu a celkovo prispieť k zlepšeniu kvality života. Pre ľudí v náročných pracovných prostrediach, ako sú vodiči, operátori strojov alebo zdravotnícki pracovníci, môže únava spôsobiť významný pokles výkonnosti a zvýšenie rizika chýb, ktoré môžu mať fatálne dôsledky.
-\subsection{Bezpečnosť}
-\textbf{Doprava: Zníženie počtu nehôd spôsobených únavou vodičov}
-
-Jedným z najdôležitejších dôvodov pre detekciu únavy je prevencia dopravných nehôd. Únava vodiča spôsobuje spomalenie reakčných časov, zníženú koncentráciu a vyššiu pravdepodobnosť mikrospánku. Podľa štatistík je únava zodpovedná za približne 20 \% všetkých dopravných nehôd. Systémy detekcie únavy, ktoré analyzujú fyziologické alebo behaviorálne signály vodiča, môžu v reálnom čase varovať pred rizikom mikrospánku alebo strate koncentrácie a tak potenciálne zachrániť ľudské životy a znížiť škody na majetku.
-
-\textbf{Priemysel: Zníženie rizika úrazov v náročných pracovných prostrediach}
-
-V priemyselných odvetviach, kde sú pracovníci vystavení vysokému fyzickému a psychickému zaťaženiu (napr. ťažký priemysel, nočné smeny, manipulácia s nebezpečnými materiálmi), únava môže viesť k chybám, ktoré môžu mať vážne následky. Monitorovanie únavy pomocou technológií by mohlo byť účinným spôsobom, ako predchádzať pracovným úrazom, zvýšiť bezpečnosť na pracovisku a znížiť počet nehôd spôsobených ľudskou chybou.
-\subsection{Produktivita}
-\textbf{Zvýšenie efektivity a výkonnosti}
-
-Únava má priamy vplyv na zníženie koncentrácie, rýchlosti rozhodovania a celkového výkonu. Zamestnanci, ktorí pracujú unavení, sú menej produktívni, robia viac chýb a potrebujú viac času na vykonanie úloh. Systémy na monitorovanie únavy môžu pomôcť identifikovať okamihy, keď je výkon pracovníkov znížený, a navrhnúť prestávky alebo zmeny v pracovnom režime. Tým sa môže optimalizovať pracovný čas a zvýšiť celková efektivita pracovného procesu.
-
-\textbf{Optimalizácia pracovného času}
-
-Moderné technológie umožňujú monitorovanie úrovne únavy v reálnom čase a poskytujú zamestnávateľom a manažérom možnosť upraviť pracovné zaťaženie podľa aktuálnej úrovne únavy jednotlivých zamestnancov. Takáto optimalizácia môže znížiť riziko chýb, zvýšiť efektivitu a zároveň podporiť lepšiu pracovnú pohodu zamestnancov.
-
-\subsection{Ďalšie aspekty}
-
-\textbf{Zdravie prevencia zdravotných problémov}
-People sometimes are on medications that create drowsiness or have physical ailments that cause these issues.
-
-Chronická únava môže viesť k rôznym zdravotným problémom, ako sú depresia, úzkosť, oslabenie imunitného systému a zvýšené riziko kardiovaskulárnych ochorení. Monitorovanie únavy a zavádzanie preventívnych opatrení, ako sú pravidelné prestávky alebo úprava pracovných podmienok, môžu pomôcť predchádzať týmto problémom a zlepšiť celkové zdravie jednotlivcov.
-
-Dostatok odpočinku je nevyhnutný pre udržanie duševnej a fyzickej pohody. Chronická únava znižuje kvalitu života, ovplyvňuje medziľudské vzťahy a môže viesť k problémom v osobnom a profesionálnom živote. Systémy na detekciu únavy môžu pomôcť jednotlivcom lepšie si plánovať odpočinok a dosiahnuť rovnováhu medzi pracovným a osobným životom.
-
-\textbf{Sociálne dôsledky únavy}
-
-Únava ovplyvňuje nielen pracovný výkon, ale aj medziludské vzťahy. Unavení ľudia majú často problémy s komunikáciou, trpia podráždenosťou a môžu sa vyhýbať spoločenským interakciám. Chronická únava môže viesť k sociálnej izolácii, čo má negatívny vplyv na kvalitu života.
-
-\textbf{Ekonomické dôsledky únavy}
-
-Únava má významné ekonomické dôsledky. Nehody spôsobené únavou vedú k veľkým finančným stratám v dôsledku škôd na majetku, zdravotných výdavkov a zníženej produktivity. Únava na pracovisku znižuje výkon a zvyšuje počet chýb, čo môže viesť k zníženiu kvality produktov a služieb, a tým aj k strate zákazníkov.
+Motiváciou pre rozpoznávanie emócií tváre je jeho potenciál zlepšiť interakciu medzi človekom a počítačom, zlepšiť monitorovanie duševného zdravia a vytvoriť adaptívne systémy pre rôzne oblasti, ako je vzdelávanie, marketing a robotika. \cite{CANAL2022593}
 \subsection{Ciele práce}
-Cieľom práce je vytvoriť systém, ktorý bude schopný rozpoznať emócie v reálnom čase.
+Táto práca sa zameriava na návrh systému na rozpoznávanie emócií operátora pomocou RGB kamery, ktorý umožní robotickým systémom analyzovať a prispôsobiť sa emocionálnemu stavu používateľa v reálnom čase. Systém bude testovaný na simulovaných aj reálnych dátach a integrovaný do robotických platforiem cez ROS2 pre jeho nasadenie v priemyselných a zdravotných aplikáciách.
 
-\section{Štruktúra práce}
-Práca je rozdelená do niekoľkých kapitol. V prvej kapitole sa zameriame na analýzu emócií. V druhej kapitole sa zameriame na analýzu dát. V tretej kapitole sa zameriame na návrh riešenia. V štvrtej kapitole sa zameriame na implementáciu riešenia. V piatej kapitole sa zameriame na vyhodnotenie riešenia. V šiestej kapitole sa zameriame na záver.
+Cieľom práce je vytvoriť systém, ktorý bude schopný rozpoznať emócie v reálnom čase.
 
 \section{Teoretické základy}
 \subsection{Emócie a ich prejav}
-Definícia emócií, univerzálne emócie, kultúrne rozdiely v prejave emócií, výrazy tváre ako indikátor emócií.
+Emócie sú komplexné psychologické stavy, ktoré zahŕňajú subjektívne zážitky, fyziologické reakcie a behaviorálne prejavy. V priebehu výskumu boli emócie definované rôznymi spôsobmi, ale všeobecne sa považujú za reakcie na podnety, ktoré ovplyvňujú ľudské správanie a myslenie. Emócie môžu byť pozitívne alebo negatívne a ovplyvňujú naše rozhodovanie, pamäť a vnímanie sveta okolo nás. \cite{CANAL2022593}
+\subsubsection{Univerzálne emócie}
+Jednou z najvýznamnejších teórií o emóciách je teória univerzálnych emócií, ktorú vyvinul psychológ Paul Ekman. Podľa tejto teórie existuje šesť základných emócií, ktoré sú univerzálne rozpoznateľné na základe výrazu tváre: radosť, smútok, hnev, prekvapenie, strach a odpor​. Tieto emócie sú nezávislé od kultúrnych vplyvov a prejavujú sa podobným spôsobom naprieč rôznymi kultúrami a etnickými skupinami. \cite{9674818}
+\subsubsection{Kultúrne rozdiely v prejave emócií}
+Napriek existencii univerzálnych emócií existujú významné kultúrne rozdiely v tom, ako sú emócie prejavované a vnímané. Niektoré kultúry, ako napríklad západné, sú viac orientované na individualizmus, kde je prejav emócií otvorenejší a priamy, zatiaľ čo v kolektivistických kultúrach, ako sú východné ázijské krajiny, sú emócie častejšie potláčané alebo prejavované menej intenzívne​. \cite{CANAL2022593}
+\subsubsection{Výrazy tváre ako indikátory emócií}
+Výraz tváre je jedným z hlavných spôsobov, ako sú emócie vonkajšie prejavované. Svalové pohyby tváre, ktoré zahŕňajú zmeny v oblasti očí, obočia, úst a líc, sú kľúčovými indikátormi emočných stavov. Tento typ neverbálnej komunikácie je extrémne efektívny, pretože umožňuje okamžitý a intuitívny prenos emocionálnych informácií​ \cite{8614755}. Výskum ukázal, že až 55 \% emočných informácií je prenášaných prostredníctvom výrazov tváre, čo zdôrazňuje ich význam v sociálnej interakcii​. \cite{9674818}
 \subsection{Analýza obrazu}
-Základné pojmy z oblasti analýzy obrazu, detekcia tváre, extrakcia príznakov, klasifikácia.
+Analýza obrazu je kľúčová pre proces rozpoznávania emócií na základe tváre. Tento proces zahŕňa detekciu tváre, extrakciu príznakov a následnú klasifikáciu emócií​
+\subsubsection{Detekcia tváre}
+Detekcia tváre je prvým krokom v procese rozpoznávania emócií. Tento krok zahŕňa lokalizáciu tváre v obraze a je rozhodujúci pre ďalšie spracovanie. Moderné metódy detekcie tváre, ako je algoritmus Viola-Jones, používajú rýchle a efektívne prístupy k lokalizácii tvárových oblastí, čo je nevyhnutné pre následné kroky​. Vývoj hlbokých neurónových sietí, ako sú konvolučné neurónové siete (CNN), výrazne zlepšil presnosť detekcie tváre, čo umožnilo rozpoznávať tváre aj v rôznych svetelných podmienkach a uhloch​.\cite{9674818}
+\subsubsection{Extrakcia príznakov}
+Po detekcii tváre nasleduje extrakcia príznakov, kde sú identifikované kľúčové črty tváre, ako sú oči, nos, ústa a obočie. Tieto črty sú dôležité pre analýzu výrazov tváre, pretože zmeny v ich polohe alebo napätí súvisia s rôznymi emočnými stavmi​. \cite{8614755} Typické algoritmy používané pri extrakcii príznakov zahŕňajú Gaborove filtre a histogramy orientovaných gradientov (HOG), ktoré zameriavajú pozornosť na zmeny v textúre a tvaroch​.\cite{9674818}.
+\subsubsection{Klasifikácia}
+Klasifikácia emócií je záverečným krokom, kde sú extrahované príznaky spracované a priradené k určitým emočným kategóriám. Moderné metódy klasifikácie používajú algoritmy strojového učenia, ako sú Support Vector Machines (SVM), ale najúčinnejšie sú konvolučné neurónové siete (CNN), ktoré dokážu automaticky klasifikovať výrazy do kategórií, ako sú šťastie, smútok alebo hnev​. \cite{8614755} \cite{9674818}
+
 \subsection{Biometria}
-Princípy biometrických systémov, identifikácia vs. verifikácia.
+Biometria sa zaoberá rozpoznávaním osôb na základe jedinečných fyziologických alebo behaviorálnych charakteristík. V oblasti rozpoznávania tváre ide o identifikáciu alebo verifikáciu osôb na základe tvárových čŕt​. \cite{8614755} \cite{9674818}
+\subsubsection{Princípy biometrických systémov}
+Biometrické systémy sú založené na zhromažďovaní a analýze údajov, ktoré sú pre jednotlivca jedinečné, ako sú odtlačky prstov, dúhovka alebo tvár. Tieto systémy musia byť schopné spoľahlivo identifikovať alebo overiť osobu na základe týchto údajov. V kontexte rozpoznávania tváre systém spracováva obraz tváre, extrahuje relevantné črty a porovnáva ich s uloženými údajmi​. \cite{CANAL2022593}
+\subsubsection{Identifikácia vs. verifikácia}
+Identifikácia a verifikácia sú dva hlavné prístupy v biometrických systémoch. Identifikácia zahŕňa určenie identity osoby na základe údajov o tvári v porovnaní s databázou, zatiaľ čo verifikácia porovnáva údaje jednej osoby s predtým zaznamenanými údajmi, aby potvrdila, či ide o tú istú osobu​\cite{8614755}. Rozpoznávanie tváre je často používané v aplikáciách na bezpečnosť, kde verifikácia hrá kľúčovú úlohu pri autentifikácii používateľov, zatiaľ čo identifikácia sa používa na vyhľadávanie osôb v rozsiahlych databázach.\cite{9674818}
 
 \section{Existujúce metody analýzy emócií}
+V oblasti rozpoznávania emócií na základe výrazu tváre existuje mnoho prístupov, ktoré môžeme rozdeliť na manuálne a automatizované metódy. Kým tradičné manuálne prístupy spočívajú v ručnom označovaní výrazov tváre, moderné metódy využívajú automatické algoritmy, často založené na neurónových sieťach (NN).
 \subsection{Ručne značenie}
+Ručne značenie (manuálna anotácia) spočíva v označovaní kľúčových bodov na tvári a následnom priradení výrazov tváre k určitým emočným kategóriám. Tento proces je časovo náročný a vyžaduje expertov na interpretáciu dát. Avšak, ručné značenie je stále dôležité pre tvorbu datasetov, ktoré sú nevyhnutné na trénovanie automatických systémov. Dôležité datasetové projekty, ako sú Cohn-Kanade alebo AffectNet, sa opierajú o ručné značenie výrazov tváre​. Manuálna anotácia má významnú úlohu v počiatočných fázach výskumu, ale pre aplikácie, ktoré vyžadujú veľké množstvo dát, je neefektívna. \cite{CANAL2022593}
 \subsection{Automatická analýza emócií}
+Automatická analýza emócií využíva pokročilé algoritmy počítačového videnia a strojového učenia, aby bola schopná rozpoznať emócie na základe výrazu tváre bez potreby manuálneho zásahu. Moderné systémy rozpoznávania emócií sa vo veľkej miere spoliehajú na neurónové siete (NN), najmä na konvolučné neurónové siete (CNN), ktoré dokážu automaticky extrahovať a klasifikovať príznaky výrazu tváre.
+\subsubsection{Konvolučné neurónové siete}
+Neurónové siete sú inšpirované biologickými mozgovými štruktúrami a sú schopné učiť sa z obrovských množstiev dát. Pre úlohy rozpoznávania obrazu, vrátane rozpoznávania emócií, sú najbežnejšie využívané konvolučné neurónové siete (CNN)​. CNN majú schopnosť automaticky extrahovať črty tváre bez potreby manuálnej definície a v kombinácii s ďalšími typmi sietí, ako sú rekurentné neurónové siete (RNN) alebo dlhodobé pamäte (LSTM), umožňujú ešte lepšiu interpretáciu časovo premenlivých dát, ako sú sekvencie výrazov tváre. \cite{CANAL2022593} \cite{roy2024resemotenetbridgingaccuracyloss}
+\subsubsection{Typy vhodných neurónových sietí}
+Pre aplikácie rozpoznávania emócií sa osvedčili rôzne typy neurónových sietí:
+
+\textbf{Konvolučné neurónové siete (CNN):} CNN sa často používajú na extrakciu priestorových príznakov z obrazov tváre, ako sú oči, ústa a obočie​. CNN sú obzvlášť účinné pri identifikácii týchto príznakov z rôznych uhlov a svetelných podmienok. \cite{electronics12173595}
+
+\textbf{Rekurentné neurónové siete (RNN) a LSTM: }Tieto siete sú vhodné pre analýzu sekvencií, ako sú videozáznamy alebo opakujúce sa výrazy tváre. Použitím týchto sietí je možné zohľadniť časové zmeny v tvári, čo je dôležité pre interpretáciu dynamických emócií​. \cite{s18020401}
+
+\textbf{Deep Convolutional Neural Networks (DCNN): } DCNN je špeciálny typ CNN, ktorý dosahuje vysokú presnosť v úlohách rozpoznávania emócií, najmä pri kombinácii s technológiami počítačového videnia.
+\subsubsection{Príklady použitia počítačového videnia}
+ozpoznávanie emócií je úzko prepojené s oblasťou počítačového videnia. Počítačové videnie používa algoritmy na interpretáciu vizuálnych informácií. V súčasnosti sa CNN často kombinujú s technológiami, ako sú techniky extrakcie príznakov (napr. HOG alebo SIFT), aby sa zlepšila presnosť rozpoznávania výrazu tváre. Tieto systémy sú schopné identifikovať a klasifikovať tvárové príznaky aj v náročných podmienkach, ako sú premenlivé svetelné podmienky alebo čiastočné zakrytie tváre.\cite{Huang2023}
+
 
 \section{Návrh riešenia}
+
 \subsection{Architektúra systému}
 \subsection{Výber dát}
 \subsection{Extrakcia príznakov}
@@ -68,15 +72,16 @@ Princípy biometrických systémov, identifikácia vs. verifikácia.
 \subsection{Implementácia jednotlivých komponentov}Podrobný popis implementácie.
 \subsection{Vizualizácia výsledkov}Vizualizácia výsledkov analýzy. Grafy, tabuľky.
 
+
+\section{Implementácia v ROS2}
+\subsection{Konverzia modelu}Konverzia trénovaného modelu do formátu vhodného pre ROS2.
+\subsection{Integrácia do robotického systému}Popis integrácie do ROS2, komunikácia s ostatnými modulmi.
+
 \section{Exprerimenty a vyhodnotenie}
 \subsection{Dátová sada} Popis použitého dataset-u (veľkosť, rozdelenie tried, kvalita).
 \subsection{Metriky} Výber vhodných metrik (presnosť, úplnosť, F1-skóre, ROC krivka).
 \subsection{Výsledky} Vyhodnotenie výsledkov experimentov. Prehľadné zhrnutie výsledkov, porovnanie s inými prácami.
 \subsection{Analýza výsledkov} Analýza výsledkov, príčiny chýb, možné zlepšenia.
-
-\section{Implementácia v ROS2}
-\subsection{Konverzia modelu}Konverzia trénovaného modelu do formátu vhodného pre ROS2.
-\subsection{Integrácia do robotického systému}Popis integrácie do ROS2, komunikácia s ostatnými modulmi.
 
 \section{Záver}
 \subsection{Zhodnotenie práce}Zhodnotenie dosiahnutých výsledkov.

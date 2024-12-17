@@ -30,13 +30,16 @@
 \bibliography{includes/bibliography.bib}
 
 \iffalse \input{includes/glossary} \fi
-
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+\newunicodechar{​}{}
 \begin{document}
 \frontmatter
 
 \FEIpdfInfo
 \FEIcover
 \FEItitlePage
+\FEIassignment{includes/assignment.pdf}
 % \FEIassignment{includes/assignment.jpeg}
 % \FEIassignment{includes/assignment_part2.jpeg}
 \FEIabstract{includes/abstract}
