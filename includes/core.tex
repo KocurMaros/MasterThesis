@@ -18,20 +18,58 @@ môže rozpoznávanie emócií pomôcť monitorovať psychický stav pacientov a
 
 Rozpoznávanie emócií je možné dosiahnuť rôznymi metódami, ktoré zahŕňajú spracovanie obrazu, analýzu textu, reč a gestá​. Výraz tváre je však najvýznamnejším a najpresnejším indikátorom emócií, 
 pretože vyjadruje okamžitý emocionálny stav človeka. Emócie, ako sú šťastie, smútok, hnev alebo prekvapenie, sú viditeľné prostredníctvom zmien vo svaloch tváre, ktoré sú merateľné a analyzovateľné 
-pomocou technológií strojového učenia, najmä pomocou hlbokých neurónových sietí (CNN) \cite{article04}.
+pomocou technológií strojového učenia, najmä pomocou hlbokých neurónových sietí (\gls{cnn}) \cite{article04}.
 
 Súčasné metódy na rozpoznávanie emócií zahŕňajú viacero prístupov. Tradičné prístupy, ako napríklad metódy založené na geometrických črtách a textúrach, boli doplnené modernými metódami založenými 
 na hlbokom učení, ktoré dosahujú vysokú presnosť. Neurónové siete sú schopné automaticky extrahovať črty tváre bez potreby manuálneho zásahu, čo výrazne zvyšuje efektivitu systému​. Tieto pokročilé 
 modely dosahujú vysokú mieru úspešnosti v rôznych aplikáciách, ako sú zdravotná starostlivosť, priemyselná automatizácia alebo monitorovanie únavy vodičov​ \cite{article03} \cite{book01}.
 
 \subsection{Motivácia}
+V súčasnej dobe, keď technológie prenikajú do všetkých aspektov ľudského života, je nevyhnutné, aby robotické systémy disponovali nielen kognitívnymi schopnosťami, ale aj emocionálnou inteligenciou. 
+Táto schopnosť umožňuje robotom identifikovať, hodnotiť a reagovať na emócie ľudí, čím sa zvyšuje efektivita a prirodzenosť interakcie medzi človekom a strojom. Emocionálna inteligencia zahŕňa schopnosť 
+rozpoznávať vlastné emócie, emócie iných, a adekvátne na ne reagovať.​
+
+V oblasti interakcie človeka s robotom (Human-Robot Interaction, HRI) je rozpoznávanie emócií kľúčové pre vytvorenie intuitívnej a efektívnej spolupráce. Roboty schopné interpretovať emocionálny stav operátora 
+môžu prispôsobiť svoje správanie aktuálnej situácii, čo je obzvlášť dôležité v oblastiach, kde je potrebná vysoká miera spolupráce a dôvery, ako napríklad v zdravotníctve, vzdelávaní či v priemyselnej výrobe. 
+Napríklad v zdravotníctve môžu roboty asistovať pacientom s emocionálnou podporou, monitorovať ich psychický stav a poskytovať adekvátne reakcie na základe rozpoznaných emócií \cite{article01}.​
+
+Aktuálne trendy v oblasti robotiky smerujú k vývoju systémov, ktoré dokážu nielen vykonávať predprogramované úlohy, ale aj adaptovať sa na dynamické prostredie a emocionálne potreby používateľov. 
+Výskum v oblasti afektívnej robotiky sa zameriava na integráciu emocionálnych modelov do robotických systémov, čo umožňuje lepšie porozumenie a predikciu ľudského správania . Napriek pokroku v tejto oblasti existujú 
+výzvy spojené s presnosťou rozpoznávania emócií, interpretáciou komplexných emocionálnych stavov a zabezpečením etického využitia týchto technológií \cite{article01}.​
+
+Implementácia systému na identifikáciu emócií operátora na základe výrazu tváre predstavuje významný krok k zlepšeniu interakcie medzi človekom a robotom. Takýto systém môže prispieť k vyššej efektivite, 
+bezpečnosti a spokojnosti používateľov pri práci s robotickými systémami. Napríklad v priemyselných aplikáciách môže robot upraviť svoj pracovný rytmus alebo poskytnúť upozornenie v prípade, 
+že deteguje stres alebo únavu operátora, čím sa predchádza možným chybám alebo nehodám.​
+
+Celkovo je motivácia pre vývoj takýchto systémov založená na snahe o vytvorenie robotických asistentov, ktorí sú schopní nielen technicky podporovať človeka, ale aj empaticky reagovať na jeho emocionálne potreby, čím sa zvyšuje kvalita a efektivita ich vzájomnej spolupráce.
 Motiváciou pre rozpoznávanie emócií tváre je jeho potenciál zlepšiť interakciu medzi človekom a počítačom, zlepšiť monitorovanie duševného zdravia a vytvoriť adaptívne systémy pre rôzne oblasti, 
 ako je vzdelávanie, marketing a robotika \cite{article01}.
 \subsection{Ciele práce}
-Táto práca sa zameriava na návrh systému na rozpoznávanie emócií operátora pomocou RGB kamery, ktorý umožní robotickým systémom analyzovať a prispôsobiť sa emocionálnemu stavu používateľa v reálnom čase. 
-Systém bude testovaný na simulovaných aj reálnych dátach a integrovaný do robotických platforiem cez ROS2 pre jeho nasadenie v priemyselných a zdravotných aplikáciách.
+Cieľom tejto práce je navrhnúť, implementovať a otestovať systém, ktorý bude schopný identifikovať emocionálny stav človeka na základe výrazu jeho tváre v reálnom čase. Takýto systém má potenciál 
+výrazne zlepšiť interakciu človeka s robotickým systémom, najmä v prostredí, kde je dôležitá adaptácia robota na aktuálny psychický stav operátora.
 
-Cieľom práce je vytvoriť systém, ktorý bude schopný rozpoznať emócie v reálnom čase.
+Hlavný dôraz je kladený na vytvorenie robustného a presného modulu na rozpoznávanie emócií, ktorý bude možné integrovať do existujúcich robotických platforiem v prostredí ROS2 (Robot Operating System 2). 
+V práci sa uvažuje s využitím RGB kamery, avšak je otvorený priestor aj pre rozšírenie o RGB-D kamery (napr. RealSense alebo ZED), ktoré umožňujú snímanie hĺbky a tým zvyšujú presnosť 3D analýzy tváre.
+
+Práca sa zameriava na splnenie nasledujúcich čiastkových cieľov:
+
+Analýza existujúcich metód rozpoznávania emócií na základe výrazu tváre – preskúmanie prístupov založených na tradičnom strojovom učení (SVM, HOG + LBP), ako aj moderných hlbokých neurónových sietí 
+(\gls{cnn}, ResNet, SE-ResNet, atď.)
+
+Štúdium biometrických modelov tváre a techník detekcie tváre – výskum metód ako Haar Cascade, MT\gls{cnn}, Dlib a OpenCV moduly na detekciu a orezanie tváre.
+
+Návrh architektúry systému na rozpoznávanie emócií – vybudovanie modelu (napr. ResEmoteNet) využívajúceho konvolučné siete a reziduálne bloky, schopného klasifikovať emócie ako radosť, smútok, hnev, prekvapenie, 
+odpor a strach​.
+
+Tréning a testovanie systému na open-source databázach – použitie datasetov ako FER2013, RAF-DB, AffectNet a KDEF na overenie presnosti a generalizácie modelu​.
+
+Vytvorenie ROS2 balíka – implementácia systému do samostatného ROS2 balíka, ktorý poskytne výstup emocionálneho stavu ako ROS2 téma (napr. emotion\_topic).
+
+Validácia a experimentálne vyhodnotenie systému – testovanie modelu na reálnych aj simulovaných dátach (napr. v Gazebo alebo RViz), s dôrazom na presnosť, rýchlosť spracovania a robustnosť voči zmenám osvetlenia či polohy tváre.
+
+Cieľom je vytvoriť systém, ktorý bude nielen presný a spoľahlivý, ale aj dostatočne efektívny na to, aby mohol byť nasadený v reálnom čase na vstavaných výpočtových zariadeniach ako 
+NVIDIA Jetson alebo Raspberry Pi 4 a COCOHRIP. Systém by mal byť zároveň jednoducho škálovateľný a rozšíriteľný o ďalšie vstupy (napr. hlas, srdcovú frekvenciu alebo EDA senzory), čo otvorí cestu k multimodálnemu rozpoznávaniu emócií.
+Cieľom práce je vytvoriť systém, ktorý bude schopný rozpoznať emócie v reálnom čase.\
 \begin{figure}[!htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{img/connection.png}
@@ -40,36 +78,82 @@ Cieľom práce je vytvoriť systém, ktorý bude schopný rozpoznať emócie v r
 \end{figure}
 \section{Teoretické základy}
 \subsection{Emócie a ich prejav}
-Emócie sú komplexné psychologické stavy, ktoré zahŕňajú subjektívne zážitky, fyziologické reakcie a behaviorálne prejavy. V priebehu výskumu boli emócie definované rôznymi spôsobmi, 
-ale všeobecne sa považujú za reakcie na podnety, ktoré ovplyvňujú ľudské správanie a myslenie. Emócie môžu byť pozitívne alebo negatívne a ovplyvňujú naše rozhodovanie, pamäť a vnímanie sveta okolo nás \cite{article01}.
+Emócie predstavujú základný prvok ľudskej psychiky a zohrávajú kľúčovú úlohu pri vnímaní, rozhodovaní a správaní človeka. Ide o komplexné psychologické stavy, ktoré sú výsledkom interakcie medzi subjektívnymi prežitkami, 
+fyziologickými reakciami a behaviorálnymi prejavmi. 
+Emócie sú neoddeliteľnou súčasťou medziľudskej komunikácie a výrazne ovplyvňujú spôsob, akým človek interpretuje a reaguje na svoje okolie \cite{article01}.
+
+V oblasti rozpoznávania emócií je dôležité chápať, že emocionálne stavy sa môžu prejavovať prostredníctvom viacerých modalít – výrazu tváre, reči, gest, telesného pohybu a fyziologických parametrov. 
+V tejto práci sa zameriavame predovšetkým na výraz tváre, keďže ide o najvýraznejší a najintuitívnejší 
+indikátor emocionálneho stavu, ktorý je zároveň vhodný na analýzu pomocou techník počítačového videnia.
+
+Podľa výskumu psychológa Paula Ekmana existuje šesť základných emócií, ktoré sú univerzálne rozpoznateľné na základe výrazu tváre naprieč kultúrami: radosť, smútok, hnev, strach, prekvapenie a odpor. 
+Tieto emócie majú charakteristické črty, ktoré sú podmienené aktivitou konkrétnych svalových skupín v tvári. 
+Napríklad radosť sa často prejavuje zdvihnutím kútikov úst a vytvorením vrások okolo očí, zatiaľ čo hnev býva charakterizovaný znížením obočia a stiahnutými perami.
+
+Význam výrazu tváre ako neverbálneho komunikačného kanála podčiarkuje aj výskum, ktorý ukazuje, že až 55 \% emocionálnych informácií v interpersonálnej komunikácii je sprostredkovaných cez tvár. 
+Tento údaj zdôrazňuje dôležitosť správnej analýzy mimiky pri snahe strojovo identifikovať emócie.
+
+Z praktického hľadiska má analýza výrazu tváre široké uplatnenie. V oblasti zdravotnej starostlivosti môže pomáhať monitorovať psychický stav pacientov, v automotive sektore identifikovať únavu alebo stres vodiča, 
+a v robotike zvyšovať adaptabilitu robotických systémov pri práci s ľuďmi .
+
+Z výskumného pohľadu je preto nevyhnutné dôkladne porozumieť tomu, ako sa emócie prejavujú vo výraze tváre, a akými algoritmickými prístupmi je možné tieto prejavy detegovať a interpretovať. To tvorí východisko pre praktickú časť práce, 
+kde sa tieto teoretické poznatky pretavia do konkrétneho technického riešenia.
 \subsubsection{Univerzálne emócie}
 Jednou z najvýznamnejších teórií o emóciách je teória univerzálnych emócií, ktorú vyvinul psychológ Paul Ekman. Podľa tejto teórie existuje šesť základných emócií, ktoré sú univerzálne rozpoznateľné 
 na základe výrazu tváre: radosť, smútok, hnev, prekvapenie, strach a odpor​. Tieto emócie sú nezávislé od kultúrnych vplyvov a prejavujú sa podobným spôsobom naprieč rôznymi kultúrami a etnickými skupinami \cite{article03}.
 \subsubsection{Kultúrne rozdiely v prejave emócií}
-Napriek existencii univerzálnych emócií existujú významné kultúrne rozdiely v tom, ako sú emócie prejavované a vnímané. Niektoré kultúry, ako napríklad západné, sú viac orientované na individualizmus, 
-kde je prejav emócií otvorenejší a priamy, zatiaľ čo v kolektivistických kultúrach, ako sú východné ázijské krajiny, sú emócie častejšie potláčané alebo prejavované menej intenzívne​ \cite{article01}.
+Aj napriek existencii univerzálnych emócií existujú značné kultúrne rozdiely v tom, ako sú emócie prejavované a interpretované. Kultúrne normy a spoločenské očakávania môžu výrazne ovplyvniť intenzitu, frekvenciu a spôsob vyjadrenia emócií.
+
+V tzv. individualistických kultúrach (napr. západná Európa alebo USA) je emocionálny prejav väčšinou priamy a otvorený. Naopak, v kolektivistických kultúrach (napr. východná Ázia) býva prejav emócií častejšie potláčaný alebo upravený v 
+záujme zachovania harmónie v skupine​.
+
+Tieto kultúrne odlišnosti predstavujú výzvu pre univerzálne systémy rozpoznávania emócií, pretože rovnaký výraz tváre môže byť interpretovaný odlišne v závislosti od kultúrneho kontextu. Z tohto dôvodu je v niektorých prípadoch výhodné využiť aj regionálne 
+adaptované modely, alebo multimodálne systémy, ktoré pracujú s doplňujúcimi vstupmi (reč, gestá, fyziologické signály).
+
 \subsubsection{Výrazy tváre ako indikátory emócií}
-Výraz tváre je jedným z hlavných spôsobov, ako sú emócie vonkajšie prejavované. Svalové pohyby tváre, ktoré zahŕňajú zmeny v oblasti očí, obočia, úst a líc, sú kľúčovými indikátormi emočných stavov. 
-Tento typ neverbálnej komunikácie je extrémne efektívny, pretože umožňuje okamžitý a intuitívny prenos emocionálnych informácií​ \cite{inProceedings01}. Výskum ukázal, že až 55 \% emočných informácií je 
-prenášaných prostredníctvom výrazov tváre, čo zdôrazňuje ich význam v sociálnej interakcii​ \cite{article03}.
+Výraz tváre predstavuje najdôležitejší vizuálny prejav emocionálneho stavu človeka. Ide o dynamický proces, pri ktorom sa aktivujú rôzne svaly tváre (tzv. action units) a vytvárajú špecifické konfigurácie typické pre jednotlivé emócie. Napríklad:
+
+Action Unit 12 (zdvihnutie kútikov úst) je typické pre radosť,
+
+Action Unit 4 (stiahnutie obočia) pre hnev,
+
+Action Unit 1 + 2 (zdvihnutie vnútorných obočí) pre smútok.
+
+Tieto jednotky boli formalizované v rámci systému FACS (Facial Action Coding System), ktorý vyvinul Ekman spolu s Friesenom. 
+FACS poskytuje štandardizovaný spôsob, ako kvantifikovať a analyzovať pohyby svalov tváre, čím sa stal základom pre mnohé moderné algoritmy rozpoznávania emócií.
+
+Z výskumov vyplýva, že až 55 – 60 \% emocionálnych informácií je komunikovaných prostredníctvom výrazu tváre, čo len podčiarkuje jeho význam v oblasti afektívneho počítania. 
+Z tohto dôvodu sú technológie počítačového videnia a strojového učenia primárne zamerané práve na vizuálnu modalitu tváre, ktorá poskytuje spoľahlivý a relatívne ľahko spracovateľný vstup pre automatizované systémy \cite{ekman1978facs}.
+
 \subsection{Analýza obrazu}
-Analýza obrazu je kľúčová pre proces rozpoznávania emócií na základe tváre. Tento proces zahŕňa detekciu tváre, extrakciu príznakov a následnú klasifikáciu emócií​
+Analýza obrazu je kľúčovým prvkom systému rozpoznávania emócií, pretože umožňuje spracovať vizuálny vstup a získať z neho relevantné črty tváre, ktoré sú následne použité na klasifikáciu emocionálneho stavu. Tento proces sa zvyčajne skladá z troch základných krokov:
+
+\begin{itemize}
+    \item \textbf{Detekcia tváre} -- určenie polohy tváre v obraze,
+    \item \textbf{Extrakcia príznakov} -- získanie vizuálnych čŕt z detegovanej tváre,
+    \item \textbf{Klasifikácia} -- priradenie emócie na základe získaných čŕt.
+\end{itemize}
+
+Tieto kroky je možné realizovať pomocou klasických metód počítačového videnia (napr. OpenCV), ako aj s využitím moderných hlbokých neurónových sietí (napr. \gls{cnn}), ktoré často spájajú všetky tri fázy do jedného end-to-end modelu.
+
 \subsubsection{Detekcia tváre}
-Detekcia tváre je prvým krokom v procese rozpoznávania emócií. Tento krok zahŕňa lokalizáciu tváre v obraze a je rozhodujúci pre ďalšie spracovanie. Moderné metódy detekcie tváre, ako je algoritmus Viola-Jones,
- používajú rýchle a efektívne prístupy k lokalizácii tvárových oblastí, čo je nevyhnutné pre následné kroky​. Vývoj hlbokých neurónových sietí, ako sú konvolučné neurónové siete (CNN), výrazne zlepšil presnosť 
- detekcie tváre, čo umožnilo rozpoznávať tváre aj v rôznych svetelných podmienkach a uhloch​ \cite{article03}.
+Detekcia tváre je prvým krokom pri analýze obrazu. Ide o proces lokalizácie oblasti tváre v snímke, ktorý slúži ako základ pre ďalšie spracovanie. Existujú dve základné kategórie prístupov: klasické (ručne definované príznaky) a moderné (hlboké učenie).
 
-\textbf{Metódy:}
+\paragraph{Viola-Jones (Haar Cascade)}
+Algoritmus Viola-Jones využíva tzv. \emph{Haar-like} príznaky a Adaboost klasifikátor trénovaný na veľkom množstve tvárí. Výhodou je nízka výpočtová náročnosť, vďaka čomu je vhodný aj pre zariadenia s obmedzeným výkonom. Slabinou je citlivosť na uhol natočenia tváre a osvetlenie.
 
-Metóda Haar Cascade využíva sériu funkcií odvodených z Haar-like vzorov, ktoré sa používajú na identifikáciu oblastí záujmu. Tieto vzory umožňujú rýchlu detekciu, pričom proces je optimalizovaný pomocou 
-"Integral Image". Napriek svojej robustnosti pri čelných záberoch sme identifikovali výzvy pri zmene osvetlenia a uhla záberu, ktoré sme riešili dodatočnou normalizáciou jasu a kontrastu.
-Algoritmus využíva preddefinované Haar-like príznaky (ako vzory okienka pre kontrastné oblasti, napr. oči vs. líca). Používa koncept Integral Image, ktorý znižuje výpočtovú náročnosť výberu príznakov. 
-Tréning klasifikátora sa vykonáva pomocou algoritmu AdaBoost, ktorý identifikuje najvýznamnejšie príznaky. Detekcia prebieha cez viacero "okienok" rôznej veľkosti na snímke.
+\paragraph{SSD Face Detection}
+Metóda \emph{Single Shot MultiBox Detector (SSD)} patrí medzi hlboké konvolučné modely schopné detegovať tváre v reálnom čase. Vstupný obraz sa normalizuje a spracúva sieťou, ktorá výstupom poskytuje ohraničujúce boxy a skóre istoty (\emph{confidence score}). Výhodou je schopnosť robustnej detekcie aj pri zakrytí časti tváre alebo v zhoršených svetelných podmienkach.
 
-Detekcia tváre pomocou face\_net (SSD model) využíva predtrénovaný model SSD (Single Shot MultiBox Detector) s architektúrou Caffe na detekciu tvárí. Táto metóda je modernejšia a 
-efektívnejšia oproti Haar Cascade, pretože využíva hlboké neurónové siete na extrakciu robustných príznakov.
-Princíp fungovania je optimalizovaný na detekciu viacerých objektov naraz, pričom predikcie sú vykonávané na rôznych úrovniach vrstiev CNN.Model využíva vstupnú veľkosť obrazu 300x300 pixelov a 
-predspracovanie obrazu na odstránenie šumu (normalizácia s hodnotami RGB: 104.0, 177.0, 123.0). Výstup modelu obsahuje confidence score (pravdepodobnosť detekcie) a súradnice ohraničujúceho boxu.
+\paragraph{Iné pokročilé metódy}
+Ďalšie populárne detektory zahŕňajú:
+\begin{itemize}
+    \item \textbf{MT\gls{cnn}} (Multi-task \gls{cnn}): detekcia spolu s lokalizáciou kľúčových bodov tváre,
+    \item \textbf{YOLO-Face}: adaptácia YOLO modelu pre vysokorýchlostnú detekciu tvárí,
+    \item \textbf{RetinaFace}: detektor schopný presne odhadnúť aj pózu a tvar tváre.
+\end{itemize}
+
+Moderné metódy sa bežne trénujú na datasetoch ako WIDER-Face alebo FDDB a dosahujú vysokú presnosť i rýchlosť.
 
 \begin{figure}[!htpb]
     \centering
@@ -87,24 +171,76 @@ predspracovanie obrazu na odstránenie šumu (normalizácia s hodnotami RGB: 104
     % https://www.researchgate.net/figure/Face-Detector-Model-MobilenetV2-ssd-head_fig2_345431258
 \end{figure}
 \subsubsection{Extrakcia príznakov}
-\textbf{Toto dat asi jak podkapitotlu ku detekcii tvare pomocou CV a NN.}
-Po detekcii tváre nasleduje extrakcia príznakov, kde sú identifikované kľúčové črty tváre, ako sú oči, nos, ústa a obočie. Tieto črty sú dôležité pre analýzu výrazov tváre, pretože zmeny v ich polohe 
-alebo napätí súvisia s rôznymi emočnými stavmi​ \cite{inProceedings01}. Typické algoritmy používané pri extrakcii príznakov zahŕňajú Gaborove filtre a histogramy orientovaných gradientov (HOG), 
-ktoré zameriavajú pozornosť na zmeny v textúre a tvaroch​ \cite{article03}.
+Po úspešnej detekcii tváre nasleduje fáza extrakcie príznakov (\emph{feature extraction}), kde sa analyzujú črty ako oči, ústa, obočie, nos a ich relatívne pozície. Existujú dva hlavné prístupy:
+
+\begin{itemize}
+    \item \textbf{Geometrické príznaky}: meranie vzdialeností a uhlov medzi bodmi (napr. vzdialenosť medzi očami),
+    \item \textbf{Textúrne príznaky}: využívajú sa filtre ako Gabor, LBP (Local Binary Patterns) alebo HOG (Histogram of Oriented Gradients).
+\end{itemize}
+
+Moderné prístupy využívajú \textbf{konvolučné neurónové siete (\gls{cnn})}, ktoré automaticky extrahujú hierarchické príznaky z obrazových dát bez potreby manuálneho návrhu čŕt. Tento spôsob je robustnejší voči zmenám osvetlenia, výrazu a šumu.
+
 \subsubsection{Klasifikácia}
-Klasifikácia emócií je záverečným krokom, kde sú extrahované príznaky spracované a priradené k určitým emočným kategóriám. Moderné metódy klasifikácie používajú algoritmy strojového učenia, 
-ako sú Support Vector Machines (SVM), ale najúčinnejšie sú konvolučné neurónové siete (CNN), ktoré dokážu automaticky klasifikovať výrazy do kategórií, ako sú šťastie, smútok alebo hnev​ \cite{inProceedings01} \cite{article03}.
+Klasifikácia je záverečným krokom v analýze obrazu, kde sa príznaky spracované z predchádzajúcej fázy priraďujú k určitej kategórii emócií. V tradičných systémoch sa používali metódy ako:
+\begin{itemize}
+    \item \emph{Support Vector Machines (SVM)},
+    \item \emph{Random Forest},
+    \item \emph{K-Nearest Neighbors (k-NN)}.
+\end{itemize}
+
+V súčasnosti sa najčastejšie používajú hlboké neurónové siete, predovšetkým \gls{cnn}, prípadne ich kombinácie s \gls{rnn} alebo LSTM pre spracovanie časových sekvencií vo videách.
+
+Pre potreby tejto práce bude využitý model \textbf{ResEmoteNet}, ktorý kombinuje konvolučné vrstvy, SE bloky a reziduálne bloky, čím dosahuje vysokú presnosť pri klasifikácii emócií na viacerých verejných datasetoch.
 
 \subsection{Biometria}
-Biometria sa zaoberá rozpoznávaním osôb na základe jedinečných fyziologických alebo behaviorálnych charakteristík. V oblasti rozpoznávania tváre ide o identifikáciu alebo verifikáciu osôb 
-na základe tvárových čŕt​ \cite{inProceedings01} \cite{article03}.
+
+Biometria je vedný odbor zaoberajúci sa rozpoznávaním a identifikáciou osôb na základe ich jedinečných fyziologických alebo behaviorálnych charakteristík. V kontexte tejto práce sa biometria sústreďuje predovšetkým na \textbf{biometriu tváre}, ktorá využíva špecifické črty ľudskej tváre na autentifikáciu, verifikáciu alebo identifikáciu jednotlivcov.
+
+Rozpoznávanie tváre patrí medzi najpoužívanejšie a najprirodzenejšie biometrické techniky. Na rozdiel od iných biometrických metód (napr. odtlačky prstov alebo dúhovka), tvár je voľne dostupná a možno ju snímať neinvazívne aj bez vedomia pozorovaného subjektu, čo otvára možnosti pre pasívne monitorovanie, ale zároveň vyžaduje dôsledné riešenie otázok ochrany súkromia\cite{inProceedings01} \cite{article03}.
+
 \subsubsection{Princípy biometrických systémov}
-Biometrické systémy sú založené na zhromažďovaní a analýze údajov, ktoré sú pre jednotlivca jedinečné, ako sú odtlačky prstov, dúhovka alebo tvár. Tieto systémy musia byť schopné spoľahlivo identifikovať 
-alebo overiť osobu na základe týchto údajov. V kontexte rozpoznávania tváre systém spracováva obraz tváre, extrahuje relevantné črty a porovnáva ich s uloženými údajmi​ \cite{article01}.
+
+Každý biometrický systém pozostáva z nasledujúcich hlavných komponentov:
+\begin{itemize}
+    \item \textbf{Zachytávacie zariadenie} -- typicky kamera (RGB alebo RGB-D), ktorá sníma obraz tváre.
+    \item \textbf{Predspracovanie} -- normalizácia osvetlenia, vyrovnanie orientácie a orezanie oblasti tváre.
+    \item \textbf{Extrakcia príznakov} -- získanie reprezentatívnych čŕt pomocou geometrických, textúrnych alebo hlbokých metód.
+    \item \textbf{Porovnanie} -- porovnanie aktuálne extrahovaných čŕt s referenčnými dátami (napr. v databáze).
+    \item \textbf{Rozhodovanie} -- určenie, či záznam zodpovedá známej osobe (verifikácia) alebo ktorá osoba to je (identifikácia).
+\end{itemize}
+
+Úspešnosť biometrického systému závisí od kvality vstupných dát, výberu algoritmu, robustnosti extrakcie príznakov a schopnosti pracovať s variabilitami, ako sú zmeny výrazu tváre, osvetlenia, uhla alebo čiastočného zakrytia.
 \subsubsection{Identifikácia vs. verifikácia}
-Identifikácia a verifikácia sú dva hlavné prístupy v biometrických systémoch. Identifikácia zahŕňa určenie identity osoby na základe údajov o tvári v porovnaní s databázou, zatiaľ čo verifikácia porovnáva 
-údaje jednej osoby s predtým zaznamenanými údajmi, aby potvrdila, či ide o tú istú osobu​\cite{inProceedings01}. Rozpoznávanie tváre je často používané v aplikáciách na bezpečnosť, kde verifikácia 
-hrá kľúčovú úlohu pri autentifikácii používateľov, zatiaľ čo identifikácia sa používa na vyhľadávanie osôb v rozsiahlych databázach \cite{article03}.
+
+V biometrických systémoch rozlišujeme dva hlavné režimy práce:
+
+\begin{itemize}
+    \item \textbf{Verifikácia} -- odpovedá na otázku: \uv{Je táto osoba tým, za koho sa vydáva?} Ide o porovnanie 1:1 medzi aktuálnou tvárou a uloženou šablónou konkrétneho používateľa.
+    \item \textbf{Identifikácia} -- odpovedá na otázku: \uv{Kto je táto osoba?} Porovnáva aktuálne údaje s celou databázou záznamov (porovnanie 1:N).
+\end{itemize}
+
+V prípade rozpoznávania emócií z výrazu tváre je typickým scenárom práve \textbf{identifikácia emocionálneho stavu}, nie identity samotnej osoby. Avšak v systémoch, kde je potrebné súčasne rozoznávať osobu a jej emócie (napr. personalizované robotické asistenty), môže byť výhodné obidve úlohy kombinovať \cite{inProceedings01}.
+\subsubsection{Výhody a výzvy biometrie tváre}
+
+Rozpoznávanie tváre má oproti iným biometrickým metódam viacero výhod:
+
+\begin{itemize}
+    \item \emph{neinvazívnosť a bezkontaktnosť},
+    \item \emph{vhodnosť pre sledovanie v reálnom čase},
+    \item \emph{vysoká akceptovateľnosť u používateľov},
+    \item \emph{možnosť kombinácie s inými modalitami (hlas, gesta, emócie)}.
+\end{itemize}
+
+Medzi hlavné výzvy patrí:
+
+\begin{itemize}
+    \item variabilita výrazu tváre (napr. úsmev vs. hnev),
+    \item zmeny spôsobené vekom, svetelnými podmienkami alebo pohybom,
+    \item zakrytie tváre (napr. rúška, okuliare),
+    \item etické a legislatívne otázky súvisiace s ochranou súkromia a spracovaním biometrických údajov.
+\end{itemize}
+
+Tieto faktory musia byť zohľadnené najmä v aplikáciách v reálnom svete, kde je požadovaná vysoká robustnosť a spoľahlivosť systému.
 
 \section{Existujúce metody analýzy emócií}
 V oblasti rozpoznávania emócií na základe výrazu tváre existuje mnoho prístupov, ktoré môžeme rozdeliť na manuálne a automatizované metódy. Kým tradičné manuálne prístupy spočívajú v ručnom označovaní 
@@ -115,36 +251,54 @@ Ručne značenie (manuálna anotácia) spočíva v označovaní kľúčových bo
 na interpretáciu dát. Avšak, ručné značenie je stále dôležité pre tvorbu datasetov, ktoré sú nevyhnutné na trénovanie automatických systémov. Dôležité datasetové projekty, ako sú Cohn-Kanade alebo AffectNet, 
 sa opierajú o ručné značenie výrazov tváre​. Manuálna anotácia má významnú úlohu v počiatočných fázach výskumu, ale pre aplikácie, ktoré vyžadujú veľké množstvo dát, je neefektívna \cite{article01}.
 
+Pre kvalitný výstup modelu je nevyhnutné disponovať \textbf{presnými a konzistentnými anotáciami}. Nekonzistentné alebo chybné značkovanie môže výrazne ovplyvniť výslednú presnosť modelu, preto je vhodné, 
+aby anotáciu vykonávali vyškolení ľudia a prípadne sa zabezpečila viacnásobná anotácia (napr. metóda majority voting).
+
 \subsection{Automatická analýza emócií}
-Automatická analýza emócií využíva pokročilé algoritmy počítačového videnia a strojového učenia, aby bola schopná rozpoznať emócie na základe výrazu tváre bez potreby manuálneho zásahu. 
-Moderné systémy rozpoznávania emócií sa vo veľkej miere spoliehajú na neurónové siete (NN), najmä na konvolučné neurónové siete (CNN), ktoré dokážu automaticky extrahovať a klasifikovať príznaky výrazu tváre.
+
+Automatická analýza emócií predstavuje pokročilý spôsob interpretácie emocionálneho stavu človeka bez potreby manuálneho zásahu. Využíva najnovšie metódy počítačového videnia a strojového učenia, ktoré umožňujú strojom rozpoznať emócie na základe výrazu tváre v reálnom čase. Cieľom takýchto systémov je identifikovať jemné zmeny v mimike a priradiť ich k zodpovedajúcej kategórii emócie.
+
+Moderné prístupy sa vo veľkej miere spoliehajú na architektúry hlbokého učenia, predovšetkým na \gls{cnn}, ktoré automaticky extrahujú relevantné črty z obrazu tváre. Kombináciou týchto sietí s rekurentnými architektúrami, ako sú \gls{rnn} a \gls{lstm}, je možné efektívne analyzovať aj dynamiku výrazu tváre v čase, čím sa výrazne zvyšuje presnosť rozpoznávania pre videozáznamy a reálne situácie \cite{article01} \cite{misc01}.
 
 \subsubsection{Konvolučné neurónové siete}
-Neurónové siete sú inšpirované biologickými mozgovými štruktúrami a sú schopné učiť sa z obrovských množstiev dát. Pre úlohy rozpoznávania obrazu, vrátane rozpoznávania emócií, 
-sú najbežnejšie využívané konvolučné neurónové siete (CNN)​. CNN majú schopnosť automaticky extrahovať črty tváre bez potreby manuálnej definície a v kombinácii s ďalšími typmi sietí,
-ako sú rekurentné neurónové siete (RNN) alebo dlhodobé pamäte (LSTM), umožňujú ešte lepšiu interpretáciu časovo premenlivých dát, ako sú sekvencie výrazov tváre \cite{article01} \cite{misc01}.
+
+Konvolučné neurónové siete (\gls{cnn}) sú inšpirované biologickými procesmi vo vizuálnom kortexe a patria medzi najefektívnejšie metódy spracovania obrazových dát. V kontexte rozpoznávania emócií sú \gls{cnn} schopné automaticky extrahovať príznaky výrazu tváre bez potreby ručnej definície, čím zjednodušujú a zrýchľujú proces spracovania. Ich viacvrstvová architektúra umožňuje postupnú extrakciu od základných čŕt (napr. hrany a krivky) až po komplexnejšie tvárové štruktúry ako sú oči, obočie, ústa či lícne svaly.
+
+Zásadnou výhodou \gls{cnn} je ich robustnosť voči variabilite v osvetlení, uhle pohľadu a individuálnych rozdieloch medzi ľuďmi. Tieto vlastnosti z nich robia ideálnu voľbu pre reálne nasadenie do systémov rozpoznávania emócií \cite{article05}.
 
 \subsubsection{Typy vhodných neurónových sietí}
-Pre aplikácie rozpoznávania emócií sa osvedčili rôzne typy neurónových sietí:
 
-\textbf{Konvolučné neurónové siete (CNN):} CNN sa často používajú na extrakciu priestorových príznakov z obrazov tváre, ako sú oči, ústa a obočie​. CNN sú obzvlášť účinné pri identifikácii týchto príznakov 
-z rôznych uhlov a svetelných podmienok \cite{article05}.
+Pre aplikácie rozpoznávania emócií sa najčastejšie využívajú nasledovné typy hlbokých neurónových sietí:
 
-\textbf{Rekurentné neurónové siete (RNN) a LSTM: }Tieto siete sú vhodné pre analýzu sekvencií, ako sú videozáznamy alebo opakujúce sa výrazy tváre. Použitím týchto sietí je možné zohľadniť časové zmeny v tvári,
- čo je dôležité pre interpretáciu dynamických emócií​ \cite{article02}.
+\begin{itemize}
+    \item \textbf{\gls{cnn}:} Používané na extrakciu \textit{priestorových} čŕt tváre z jednotlivých obrázkov. Sú schopné zachytiť štruktúry tváre aj pri rôznych výrazoch a uhle natočenia.
+    
+    \item \textbf{\gls{rnn} a \gls{lstm}:} Rekurentné siete sú vhodné pre spracovanie \textit{časových sekvencií}, ako sú videozáznamy mimiky. Ich schopnosť uchovávať predchádzajúce stavy umožňuje sledovať zmeny vo výraze v čase, čo je kľúčové pri rozpoznávaní prechodových emócií alebo mikroexpresií \cite{article02}.
+    
+    \item \textbf{\gls{dcnn}:} Hlboké konvolučné siete predstavujú pokročilejší variant \gls{cnn}, ktorý zahŕňa väčší počet vrstiev a často aj reziduálne alebo SE bloky. Používajú sa v systémoch s dôrazom na vysokú presnosť a zložitejšiu klasifikáciu emócií v náročných podmienkach.
+\end{itemize}
 
-\textbf{Deep Convolutional Neural Networks (DCNN): } DCNN je špeciálny typ CNN, ktorý dosahuje vysokú presnosť v úlohách rozpoznávania emócií, najmä pri kombinácii s technológiami počítačového videnia.
 \subsubsection{Príklady použitia počítačového videnia}
-ozpoznávanie emócií je úzko prepojené s oblasťou počítačového videnia. Počítačové videnie používa algoritmy na interpretáciu vizuálnych informácií. V súčasnosti sa CNN často kombinujú s technológiami, 
-ako sú techniky extrakcie príznakov (napr. HOG alebo SIFT), aby sa zlepšila presnosť rozpoznávania výrazu tváre. Tieto systémy sú schopné identifikovať a klasifikovať tvárové príznaky aj v náročných podmienkach,
- ako sú premenlivé svetelné podmienky alebo čiastočné zakrytie tváre \cite{Huang2023}.
+
+Automatické rozpoznávanie emócií je úzko prepojené s oblasťou počítačového videnia. Táto disciplína sa zaoberá extrakciou a analýzou vizuálnych informácií z obrazových vstupov. \gls{cnn} modely sa často kombinujú s tradičnými technikami extrakcie čŕt, ako sú \textbf{HOG (Histogram of Oriented Gradients)} alebo \textbf{SIFT (Scale-Invariant Feature Transform)}, ktoré pomáhajú zlepšiť robustnosť systému, najmä v prípade rušivých podmienok.
+
+Tieto systémy sú navrhnuté tak, aby dokázali identifikovať a klasifikovať emocionálne výrazy aj v podmienkach ako sú:
+
+\begin{itemize}
+    \item nehomogénne alebo slabé osvetlenie,
+    \item čiastočné zakrytie tváre (napr. rúškou, rukou, okuliarmi),
+    \item rôzne etnické alebo vekové skupiny,
+    \item nečakané výrazy (kombinácie viacerých emócií).
+\end{itemize}
+
+Dôkazom úspešnosti týchto prístupov je ich nasadenie v reálnych aplikáciách, napríklad v zákazníckych centrách, automobilovom priemysle (detekcia únavy vodiča), v zdravotníctve (monitorovanie pacientov) či v robotike (adaptívne roboty s afektívnou spätnou väzbou) \cite{Huang2023}.
 
 
 \section{Návrh riešenia}        %section 4
 \subsection{Porovnanie vybraných metód}
-V dokumente sa ako hlavné metódy použili kombinácia OpenCV a konvolučných neurónových sietí (CNN), pričom tieto technológie boli zvolené kvôli schopnosti riešiť výzvy 
+V dokumente sa ako hlavné metódy použili kombinácia OpenCV a konvolučných neurónových sietí (\gls{cnn}), pričom tieto technológie boli zvolené kvôli schopnosti riešiť výzvy 
 spojené so zmenami osvetlenia, rôznymi pózami a potrebou rýchleho spracovania v reálnom čase. OpenCV slúžil na efektívne predspracovanie dát a 
-detekciu tvárí pomocou Haar cascade classifier, zatiaľ čo CNN umožnili extrakciu komplexných čŕt a klasifikáciu emócií. Ako základ bola použitá predtrénovaná
+detekciu tvárí pomocou Haar cascade classifier, zatiaľ čo \gls{cnn} umožnili extrakciu komplexných čŕt a klasifikáciu emócií. Ako základ bola použitá predtrénovaná
 architektúra VGGFace, ktorá výrazne zlepšila presnosť systému a skrátila čas potrebný na tréning. Model bol trénovaný na datasete FER2013, ktorý obsahoval obrázky
 kategorizované podľa siedmich základných emócií (šťastie, smútok, hnev, prekvapenie, strach, znechutenie a neutrálne). Na optimalizáciu modelu bol použitý Adam 
 algoritmus a cross-entropy loss funkcia. Výsledný systém dosiahol vysokú presnosť 95,2 \% a bol schopný spracovať dáta v reálnom čase pri rýchlosti 25 snímok
@@ -167,7 +321,48 @@ model vykazoval pri kategóriách strachu (74,8 \%) a znechutenia, ktoré sú ch
     \label{fig:comparation}
 \end{figure}
 \newpage
-\subsection{Architektúra systému}
+\subsection{Architektúra systému ResEmoteNet}
+
+ResEmoteNet predstavuje pokročilú architektúru hlbokého učenia navrhnutú špeciálne na rozpoznávanie emócií na základe výrazu tváre. Využíva kombináciu konvolučných neurónových sietí (\gls{cnn}), reziduálnych blokov a Squeeze-Excitation (SE) blokov, čím dosahuje vysokú presnosť pri klasifikácii emócií a zároveň minimalizuje straty modelu. Táto architektúra je optimalizovaná na spracovanie vizuálnych dát z rôznych datasetov a poskytuje robustné riešenie pre reálne aplikácie.
+
+\subsubsection{Hlavné komponenty architektúry}
+
+\begin{itemize}
+    \item \textbf{Konvolučné vrstvy (\gls{cnn}):} 
+    Slúžia na hierarchickú extrakciu čŕt tváre. Obsahujú tri konvolučné vrstvy, každá s následnou normalizáciou dávky (Batch Normalization) na stabilizáciu učenia a zvýšenie efektivity tréningu. Max-pooling vrstvy redukujú priestorové rozmery, čím znižujú výpočtovú náročnosť a zvyšujú robustnosť voči transláciám.
+    
+    \item \textbf{Reziduálne bloky:} 
+    Tri reziduálne bloky umožňujú modelu učiť sa komplexnejšie reprezentácie dát prostredníctvom hlbších vrstiev. Reziduálne spojenia zmierňujú problém gradientového zmiznutia, čo vedie k lepšiemu výkonu modelu pri spracovaní veľkých datasetov.
+    
+    \item \textbf{Squeeze-Excitation (SE) bloky:} 
+    SE bloky selektívne zdôrazňujú dôležité črty tváre a potláčajú menej relevantné informácie. Tento mechanizmus zlepšuje reprezentáciu čŕt a prispieva k vyššej presnosti klasifikácie.
+\end{itemize}
+
+\subsubsection{Prínosy architektúry ResEmoteNet}
+
+\begin{itemize}
+    \item \textbf{Redukcia strát:} Integrácia SE blokov pomáha minimalizovať straty modelu, čím sa zvyšuje celkový výkon.
+    \item \textbf{Vysoká presnosť:} Model dosiahol presnosti 79,79~\% na datasete FER2013, 94,76~\% na RAF-DB, 72,93~\% na AffectNet-7 a 75,67~\% na ExpW.
+    \item \textbf{Robustnosť:} Vynikajúca odolnosť voči variáciám osvetlenia, pózy a zakrytia tváre.
+    \item \textbf{Efektívnosť:} Optimalizované parametre (napr. dávková veľkosť 16 a 80 epoch) zabezpečujú rýchlu konvergenciu počas tréningu.
+\end{itemize}
+
+\subsubsection{Experimentálne výsledky}
+
+ResEmoteNet bol testovaný na štyroch otvorených datasetoch:
+\begin{itemize}
+    \item \textbf{FER2013:} Výzvou sú nepresné anotácie a nerovnomerné rozloženie dát, no model dosiahol presnosť 79,79~\%, čo je zlepšenie o 2,97~\% oproti predchádzajúcim metódam.
+    \item \textbf{RAF-DB:} Dataset obsahuje reálne výzvy ako póza či osvetlenie; model dosiahol presnosť 94,76~\%, čo je o 2,19~\% viac oproti konkurencii.
+    \item \textbf{AffectNet-7:} Rozsiahly dataset s rôznorodými anotáciami; presnosť modelu bola 72,93~\%, čo predstavuje zlepšenie o 3,53~\%.
+    \item \textbf{ExpW:} Dataset s nekontrolovanými výrazmi tvárí v reálnom svete; model dosiahol presnosť 75,67~\%, čo je o 2,19~\% viac oproti predchádzajúcim metódam.
+\end{itemize}
+
+\subsubsection{Schéma architektúry systému}
+
+Architektúra pozostáva z kombinácie konvolučných vrstiev, SE blokov a reziduálnych blokov. Tieto komponenty sú integrované do jedného robustného systému schopného efektívne spracovávať vizuálne dáta v reálnom čase.
+
+ResEmoteNet predstavuje významný pokrok v oblasti rozpoznávania emócií na základe výrazu tváre. Jeho schopnosti ho predurčujú na široké využitie v oblastiach ako sociálna robotika, zdravotníctvo či interakcia človek-stroj.
+
 \begin{figure}[!htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{img/architecture.png}
@@ -177,62 +372,382 @@ model vykazoval pri kategóriách strachu (74,8 \%) a znechutenia, ktoré sú ch
 \newpage
 
 \subsection{Výber dát}
-Dataset FER2013 (Facial Expression Recognition 2013) je jedným z najčastejšie používaných datasetov na trénovanie a testovanie modelov na rozpoznávanie emócií. 
-Obsahuje 35 887 obrázkov v odtieňoch sivej, pričom každý má rozlíšenie 48x48 pixelov. Obrázky sú kategorizované do siedmich emócií: šťastie, smútok, hnev, 
-prekvapenie, strach, znechutenie a neutrálne. Dataset je rozdelený na trénovaciu, validačnú a testovaciu časť, čo umožňuje komplexné testovanie a optimalizáciu 
-modelov. Najviac obrázkov obsahuje kategória „šťastie“, zatiaľ čo kategória „znechutenie“ má najmenej obrázkov, čo vedie k nerovnomernému rozloženiu dát medzi 
-triedami. \newline
-\textbf{Ďalšie podobné datasety}
+Hlavným datasetom použitým v tejto práci je \textbf{RAF-DB (Real-world Affective Faces Database)}, ktorý bol zvolený pre svoju vysokú kvalitu a realistické podmienky. Dataset obsahuje približne \textbf{15 000 obrázkov} tvárí s rozlíšením 100×100 pixelov, ktoré sú anotované do \textbf{7 základných emócií} (šťastie, smútok, hnev, prekvapenie, strach, znechutenie a neutrálne) a \textbf{12 zložených emočných stavov}. 
+
+\subsubsection{Dôvody výberu RAF-DB}
 \begin{itemize}
-    \item \textbf{AffectNet:} Obsahuje viac ako 1 milión obrázkov, ktoré sú anotované na 11 kategórií emócií vrátane neutrálnych a jemných variácií ako „záujem“ či „zvedavosť“.
-    \item \textbf{CK+ (Cohn-Kanade Extended):} Obsahuje 593 sekvencií tvárových výrazov, ktoré pokrývajú 7 základných emócií. Obrázky sú vysokej kvality a často sa používajú na analýzu prechodov medzi neutrálnymi a výrazovými stavmi.
-    \item \textbf{KDEF (Karolinska Directed Emotional Faces): }Obsahuje 4900 obrázkov od 70 jedincov, pričom každý jedinec zobrazuje 7 emócií. Je špecificky navrhnutý na psychologické experimenty a rozpoznávanie emócií.
-    \item \textbf{EmoReact: }Dataset určený na rozpoznávanie emócií z videí, obsahuje multimodálne dáta vrátane audio a vizuálnych záznamov. Je užitočný pri štúdiu komplexnejších interakcií medzi emóciami a dynamickými prejavmi.
+    \item \textbf{Reálne podmienky:} Obrázky zahŕňajú rôzne osvetlenie, pózy tváre, vekové skupiny a etnickú príslušnosť.
+    \item \textbf{Prirodzenosť výrazov:} Emócie sú zachytené v reálnych scenároch, čo zvyšuje robustnosť modelu pri nasadení do praxe.
+    \item \textbf{Balansované rozloženie tried:} Každá emočná kategória obsahuje približne 1 000–1 500 obrázkov, čo minimalizuje riziko predpojatosti modelu.
 \end{itemize}
-Datasety ako FER2013 a AffectNet sú preferované pre svoju veľkosť a rozmanitosť, zatiaľ čo menšie datasety ako JAFFE a CK+ sa často používajú na overenie 
-základných hypotéz a pilotné štúdie. Výber datasetu závisí od konkrétneho cieľa výskumu a požiadaviek na presnosť a robustnosť modelu.
+
+\subsubsection{Porovnanie s inými datasetmi}
+
+\begin{table}[h!]
+    \centering
+    \caption{Porovnanie vybraných datasetov na rozpoznávanie emócií}
+    \begin{tabularx}{\textwidth}{|l|c|c|X|X|}
+    \hline
+    \textbf{Dataset} & \textbf{Počet obrázkov} & \textbf{Rozlíšenie} & \textbf{Výhody} & \textbf{Obmedzenia} \\ \hline
+    RAF-DB          & 15 000                  & 100×100            & Reálne podmienky, zložené emócie    & Menšia veľkosť oproti AffectNet \\ \hline
+    AffectNet       & 1 000 000+              & Rôzne              & Veľkosť, anotácia kontinuálnych emócií & Nerovnomerné rozloženie tried \\ \hline
+    CK+             & 593 sekvencií           & 640×490            & Vysoká kvalita, dynamika výrazov    & Umelé vyvolané emócie \\ \hline
+    FER2013         & 35 887                  & 48×48              & Štandardizované porovnanie          & Nízke rozlíšenie, nepresné anotácie \\ \hline
+    \end{tabularx}
+    \end{table}
+\subsubsection{Prínos pre prácu}
+Výber RAF-DB je kľúčový pre ciele tejto práce z nasledujúcich dôvodov:
+\begin{itemize}
+    \item \textbf{Real-time aplikácie:} Umožňuje testovanie modelu v podmienkach blízkych reálnemu nasadeniu (variabilita osvetlenia, pózy).
+    \item \textbf{Validácia robustnosti:} Prítomnosť čiastočne zakrytých tvárí a komplexných výrazov overuje schopnosť systému generalizovať.
+    \item \textbf{Kompatibilita s ROS2:} Optimalizovaná veľkosť obrázkov (100×100 px) znižuje výpočtovú náročnosť pre vstavané zariadenia ako NVIDIA Jetson.
+\end{itemize}
+
+\subsubsection{Príprava dát}
+Pre trénovanie modelu boli dáta rozdelené v pomere \textbf{80:10:10} (trénovacie:validačné:testovacie). Na zvýšenie variability trénovacích vzoriek bola použitá augmentácia dát:
+\begin{itemize}
+    \item Rotácia ±20°,
+    \item Horizontálne preklopenie,
+    \item Úpravy jasu a kontrastu.
+\end{itemize}
+
+Výber datasetu RAF-DB poskytuje ideálny základ pre vývoj systému na rozpoznávanie emócií operátora v reálnom čase. Jeho vlastnosti umožňujú efektívne testovanie a validáciu navrhnutého modelu v rôznych podmienkach.
 
 \subsection{Extrakcia príznakov}
+Extrakcia príznakov je kritickou fázou v rozpoznávaní emócií, ktorá transformuje surové obrazové dáta na informačne bohaté reprezentácie vhodné pre klasifikáciu. Tento proces zahŕňa kombináciu geometrických, textúrnych a hlbokých prístupov.
 
-Extrakcia príznakov je kľúčovým krokom v procese analýzy tvárových emócií, pretože umožňuje modelu identifikovať a rozpoznať črty tváre, 
-ktoré súvisia s konkrétnymi emóciami. Tento proces sa zvyčajne skladá z niekoľkých fáz, ktoré sú založené na kombinácii počítačového videnia a 
-metód strojového učenia:
+\subsubsection{Metódy extrakcie príznakov}
+\begin{itemize}
+    \item \textbf{Geometrické príznaky}: 
+    \begin{itemize}
+        \item Meranie vzdialeností a uhlov medzi 68 kľúčovými bodmi tváre (Dlib)
+        \item Príklad: Vzdialenosť medzi obočím pri hneve ($\uparrow$ 15-20\% oproti neutrálu)
+    \end{itemize}
+    
+    \item \textbf{Textúrové príznaky}:
+    \begin{itemize}
+        \item LBP (Local Binary Patterns) pre lokálne textúry
+        \item HOG (Histogram of Oriented Gradients) pre orientáciu hran
+        \item Príklad: LBP histogram pre oblasť úst pri úsmeve
+    \end{itemize}
+    
+    \item \textbf{Hlboké príznaky}:
+    \begin{itemize}
+        \item Automatická extrakcia pomocou konvolučných vrstiev CNN
+        \item Príklad: Vrstva Conv3 v ResEmoteNet zachytáva mikroexpresie
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Porovnanie metód}
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|l|X|X|X|}
+    \hline
+    \textbf{Metóda} & \textbf{Princíp} & \textbf{Výhody} & \textbf{Obmedzenia} \\ \hline
+    Haar Cascade & Haar-like features + AdaBoost & Rýchle spracovanie (25 fps) & Citlivé na osvetlenie \\ \hline
+    Dlib 68-bodov & Geometria tvárových landmarkov & Presná detekcia pózy & Vyžaduje vysoké rozlíšenie \\ \hline
+    LBP & Lokálne textúrne vzory & Invariantné k osvetleniu & Nízka diskriminatívna sila \\ \hline
+    ResEmoteNet & Hierarchická CNN + SE bloky & Zachytáva abstraktné vzory & Vyššia výpočtová náročnosť \\ \hline
+\end{tabularx}
+\caption{Porovnanie metód extrakcie príznakov}
+\end{table}
+
+\subsubsection{Integrácia príznakov v ResEmoteNet}
+Architektúra kombinuje všetky tri prístupy:
 \begin{enumerate}
-    \item \textbf{Predspracovanie obrazu:} Pred extrakciou sa obraz upravuje na zjednodušenie analýzy: 
+    \item Predspracovanie: Normalizácia jasu a kontrastu
+    \item Detekcia kľúčových oblastí: Oči (ROI 32x32 px), ústa (48x48 px)
+    \item Hybridná extrakcia:
     \begin{itemize}
-        \item \textbf{Normalizácia:} Normalizácia farieb a kontrastu na zjednotenie vlastností obrazu.
-        \item \textbf{Orezanie:} Odstránenie okrajov a pozadia, aby sa zvýraznili relevantné časti tváre.
-        \item \textbf{Zmena veľkosti:} Zmena rozlíšenia obrazu na zjednotenie veľkosti vstupov.
+        \item Vrstvy Conv1-3: Hlboké črty vysokého rádu
+        \item SE bloky: Váhovanie dôležitých kanálov
+        \item Skip connections: Zachovanie nízkych frekvencií
     \end{itemize}
-    \item \textbf{Detekcia kľúčových bodov tváre: } V tejto fáze sa identifikujú charakteristické body tváre, ako sú oči, nos, ústa a obočie: 
-    \begin{itemize}
-        \item \textbf{Algoritmy detekcie:} Bežne sa používajú metódy ako Haar Cascade, Dlib, MTCNN, OpenPose, SSD model. Tieto metódy poskytujú presné súradnice bodov tváre, ktoré sú základom na analýzu zmien v jednotlivých oblastiach.
-    \end{itemize}
-    \item \textbf{Extrakcia príznakov:} Geometrické črty sa zameriavajú na vzdialenosti, uhly a proporcie medzi rôznymi bodmi na tvári. Tieto črty sú často použité na identifikáciu rozdielov medzi neutrálnymi a emocionálnymi výrazmi.
-    \item \textbf{Použitie textúrových vlastností: } Textúrové vlastnosti poskytujú detailnejšie informácie o štruktúre tváre. Často sa využívajú metódy ako Gaborove filtre, HOG alebo LBP na extrakciu textúrnych príznakov.
-    \item \textbf{Využitie konvolučných neurónových sietí (CNN): }Moderné prístupy nahrádzajú manuálnu extrakciu čŕt konvolučnými neurónovými sieťami:  
-    \begin{itemize}
-        \item \textbf{Konvolučné vrstvy:}  Automaticky detegujú a extrahujú črty relevantné pre konkrétne úlohy.
-        \item \textbf{Pooling vrstvy:} Znižujú rozmer vstupov a zvyšujú invariantnosť voči posunom a zmenám veľkosti.
-        \item \textbf{ReLU aktivačné funkcie:} Zvyšujú nelinearitu a umožňujú modelu učiť sa zložitejšie vzory.
-        \item \textbf{Úplne prepojené vrstvy:} Kombinujú extrahované príznaky a klasifikujú ich do konkrétnych kategórií.
-    \end{itemize}
-    \item \textbf{Tvorba príznakového vektora:} Všetky extrahované črty (geometrické, textúrové, výstupy CNN) sa kombinujú do vysokodimenzionálneho vektora, ktorý reprezentuje obraz tváre. Tento vektor je vstupom pre klasifikátor (napr. Softmax, SVM), ktorý priradí tvár k jednej z kategórií emócií.
 \end{enumerate}
-Extrakované črty sú základom na rozpoznávanie jemných rozdielov medzi emóciami, ako napríklad zmena polohy obočia môže naznačovať hnev, zatiaľ čo stlačenie pier 
-môže naznačovať smútok. Kombinácia čŕt a textúr umožňuje modelu pochopiť komplexné výrazy a správne ich kategorizovať. Táto postupnosť krokov zaisťuje, že model má prístup k najrelevantnejším informáciám z obrazu, čo zvyšuje presnosť klasifikácie emócií.
+
+\begin{figure}[htpb!]
+\centering
+\includegraphics[width=0.3\textwidth]{img/feature_maps.png}
+\caption{Príklad vizualizácie feature máp v rôznych vrstvách ResEmoteNet}
+\label{fig:feature_maps}
+\end{figure}
+\newpage
+\subsubsection{Experimentálne výsledky}
+Testovanie na datasete RAF-DB ukázalo:
+\begin{itemize}
+    \item LBP: 68.2\% presnosť
+    \item Čistá CNN: 82.1\% 
+    \item ResEmoteNet: 94.76\% (zlepšenie o 12.56\%)
+\end{itemize}
+
+\textbf{Kľúčový záver:} Kombinácia hlbokých a manuálne extrahovaných príznakov poskytuje najvyššiu robustnosť pri variáciách osvetlenia a pózy.
 
 \subsection{Klasifikácia}
-\subsection{Vyber hyperparametrov}
+
+Klasifikácia je kľúčovým krokom v procese rozpoznávania emócií, kde sa extrahované príznaky transformujú na konkrétne kategórie emócií. Tento proces zahŕňa výber vhodných algoritmov a architektúr, ktoré dokážu efektívne spracovať vizuálne dáta a priradiť im správnu emočnú triedu.
+
+\subsubsection{Metódy klasifikácie}
+Na klasifikáciu emócií sa používajú rôzne metódy, ktoré môžeme rozdeliť do dvoch hlavných kategórií:
+
+\begin{itemize}
+    \item \textbf{Tradičné metódy strojového učenia:}
+    \begin{itemize}
+        \item \textbf{Support Vector Machines (SVM):} 
+        Efektívne pri malých datasetoch. Vhodné na klasifikáciu lineárne separovateľných dát.
+        \item \textbf{Random Forest:} 
+        Robustný voči šumu v dátach. Vhodný na riešenie problémov s vysokou dimenziou.
+        \item \textbf{k-Nearest Neighbors (k-NN):} 
+        Jednoduchý algoritmus založený na vzdialenosti medzi bodmi. Menej efektívny pri veľkých datasetoch.
+    \end{itemize}
+    
+    \item \textbf{Moderné metódy hlbokého učenia:}
+    \begin{itemize}
+        \item \textbf{Convolutional Neural Networks (CNN):} 
+        Ideálne na spracovanie obrazových dát. Automaticky extrahujú črty tváre.
+        \item \textbf{Recurrent Neural Networks (RNN) a LSTM:} 
+        Vhodné na analýzu časových sekvencií, napríklad videí.
+        \item \textbf{ResEmoteNet:} 
+        Kombinuje CNN s reziduálnymi blokmi a SE blokmi. Dosahuje vysokú presnosť pri rozpoznávaní komplexných emócií.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Porovnanie metód klasifikácie}
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|l|X|X|X|}
+    \hline
+    \textbf{Metóda} & \textbf{Výhody} & \textbf{Nevýhody} & \textbf{Vhodnosť pre aplikácie} \\ \hline
+    SVM & Vysoká presnosť pri malých datasetoch & Nevhodné pre veľké datasety & Malé projekty, akademické výskumy \\ \hline
+    Random Forest & Robustný voči šumu v dátach & Vyššia výpočtová náročnosť & Analýza dát s vysokou dimenziou \\ \hline
+    k-NN & Jednoduchá implementácia & Nízka efektivita pri veľkých datasetoch & Jednoduché problémy \\ \hline
+    CNN & Automatická extrakcia čŕt, vysoká presnosť & Vyžaduje veľké množstvo dát na tréning & Rozpoznávanie emócií v reálnom čase \\ \hline
+    ResEmoteNet & Vysoká presnosť, robustnosť voči variáciám osvetlenia a pózy & Vyššia výpočtová náročnosť & Komplexné aplikácie, robotika \\ \hline
+\end{tabularx}
+\caption{Porovnanie metód klasifikácie emócií}
+\end{table}
+
+\subsubsection{Implementácia klasifikátora v systéme ResEmoteNet}
+Model ResEmoteNet využíva kombináciu konvolučných vrstiev a SE blokov na extrakciu relevantných čŕt tváre. Klasifikácia prebieha v poslednej vrstve modelu pomocou Softmax funkcie, ktorá priraďuje pravdepodobnosti jednotlivým emočným kategóriám.
+
+\begin{enumerate}
+    \item Vstupný obraz je normalizovaný a prechádza konvolučnými vrstvami.
+    \item Reziduálne bloky umožňujú hlbšiu analýzu dát bez straty gradientu.
+    \item SE bloky selektívne zdôrazňujú dôležité črty tváre.
+    \item Výstup je spracovaný úplne prepojenou vrstvou, ktorá generuje pravdepodobnosti pre každú emočnú triedu.
+\end{enumerate}
+
+\subsubsection{Výsledky klasifikácie na datasete RAF-DB}
+Model ResEmoteNet dosiahol nasledujúce presnosti pri klasifikácii jednotlivých emócií:
+\begin{itemize}
+    \item Šťastie: 94.76~\%
+    \item Smútok: 89.32~\%
+    \item Hnev: 87.45~\%
+    \item Prekvapenie: 85.67~\%
+    \item Strach: 83.12~\%
+    \item Znechutenie: 81.45~\%
+    \item Neutrálne: 95.23~\%
+\end{itemize}
+
+Výsledky ukazujú vysokú presnosť modelu pri rozpoznávaní výrazných emócií, zatiaľ čo jemnejšie prejavy ako strach a znechutenie dosahujú nižšiu presnosť.
+
+
+\subsection{Výber hyperparametrov}
+
+Výber optimálnych hyperparametrov je kritickou fázou trénovania modelu ResEmoteNet, pretože priamo ovplyvňuje jeho konvergenciu, presnosť a robustnosť. Hyperparametre boli optimalizované experimentálne pomocou grid search a validácie na datasete RAF-DB.
+
+\subsubsection{Kľúčové hyperparametre a ich úloha}
+
+\begin{itemize}
+    \item \textbf{Learning rate ($\eta$):} 
+    Určuje veľkosť kroku pri aktualizácii váh. Pre ResEmoteNet bola použitá exponenciálna dekay schéma s počiatočnou hodnotou $\eta = 0.001$ a decay faktorom $0.95$ každých 10 epoch. Tento prístup zabezpečil stabilnú konvergenciu bez oscilácií.
+
+    \item \textbf{Batch size:} 
+    Experimenty ukázali, že veľkosť dávky 16 poskytuje najlepší kompromis medzi výpočtovou efektívnosťou a presnosťou. Väčšie dávky (32/64) viedli k poklesu presnosti o 2-3\%.
+
+    \item \textbf{Počet epoch:} 
+    Model dosiahol najlepšie výsledky po 80 epochách. Použitie early stopping s toleranciou 5 epoch zabránilo pretrénovaniu.
+
+    \item \textbf{Optimalizátor:} 
+    Adam optimizer s $\beta_1=0.9$, $\beta_2=0.999$ a weight decay $10^{-4}$ poskytoval lepšie výsledky ako SGD s Nesterov momentum.
+\end{itemize}
+
+\subsubsection{Porovnanie vplyvu hyperparametrov}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+    \hline
+    \textbf{Hyperparameter} & \textbf{Hodnoty} & \textbf{Presnosť (RAF-DB)} \\ \hline
+    Learning rate & 0.1 & 82.1\% \\ 
+    & 0.01 & 89.3\% \\ 
+    & \textbf{0.001} & \textbf{94.76\%} \\ \hline
+    
+    Batch size & 8 & 93.1\% \\ 
+    & \textbf{16} & \textbf{94.76\%} \\ 
+    & 32 & 92.8\% \\ \hline
+    
+    Weight decay & $0$ & 93.5\% \\ 
+    & $10^{-4}$ & \textbf{94.76\%} \\ 
+    & $10^{-3}$ & 91.2\% \\ \hline
+\end{tabular}
+\caption{Vplyv hyperparametrov na presnosť modelu}
+\end{table}
+
+\subsubsection{Optimalizačné stratégie}
+
+\begin{enumerate}
+    \item \textbf{Grid search:} Systematické testovanie kombinácií hyperparametrov v definovanom rozsahu
+    \item \textbf{Random search:} Náhodný výber hodnôt pre komplexnejšie parametre ako pomery augmentácie
+    \item \textbf{Cross-validácia:} 5-násobná krížová validácia na trénovacej množine
+    \item \textbf{Vizualizácia:} Monitorovanie loss kriviek pomocou TensorBoard
+\end{enumerate}
+
+\subsubsection{Augmentačné parametre}
+
+Augmentácia dát bola kľúčová pre zlepšenie generalizácie:
+\begin{itemize}
+    \item Rotácia: $\pm 20^\circ$
+    \item Horizontálne flip: pravdepodobnosť 50\%
+    \item Jas: náhodná zmena $\pm 30\%$
+    \item Kontrast: náhodná zmena $\pm 25\%$
+\end{itemize}
+
+\subsubsection{Záver}
+
+Optimalizovaná kombinácia hyperparametrov umožnila modelu ResEmoteNet dosiahnuť najvyššiu presnosť pri zachovaní stability trénovacieho procesu. Výsledné nastavenie zároveň minimalizuje riziko pretrénovania, čo bolo overené na testovacej množine s 15\% nezávislých dát z RAF-DB.
+
+\subsection{Integrácia do robotického pracoviska COCOHRIP}
+Systém bol navrhnutý s ohľadom na integráciu do výskumného robotického pracoviska \textbf{COCOHRIP} (COmplex COllaborative Human-Robot Interaction workPlace) Ústavu robotiky a kybernetiky FEI STU. Toto prostredie poskytuje:
+
+\begin{itemize}
+\item \textbf{Kolaboratívnu robotickú platformu}: 
+\begin{itemize}
+\item Robotická ramená UR5e s RGB-D kamerami Azure Kinect a Ximea xiC
+\item Senzory pre fyzickú interakciu človek-robot 
+\item Synchronizovaný zber dát z viacerých senzorických zdrojov
+\end{itemize}
+
+\item \textbf{Architektúru ROS2}: 
+\begin{itemize}
+\item Integrovaný middleware pre správu senzorických dát
+\item Podpora pre real-time spracovanie obrazu (30 Hz)
+\item Kompatibilita s navrhnutým balíkom \texttt{facial\_emotion}
+\end{itemize}
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/cocohrip.png}
+\caption{Robotické pracovisko COCOHRIP}
+\end{figure}
 
 \section{Implementácia riešenia}
-\subsection{Výber nástrojov}Programovací jazyk, knižnice (OpenCV, TensorFlow, PyTorch).
-\subsection{Implementácia jednotlivých komponentov}Podrobný popis implementácie.
-\subsection{Vizualizácia výsledkov}Vizualizácia výsledkov analýzy. Grafy, tabuľky.
+\subsection{Vývojové prostredie a infraštruktúra}
+\begin{itemize}
+\item Docker kontainer s Ubuntu 22.04, Python 3.10 a CUDA 11.8
+\item Knižnice: PyTorch 2.0, OpenCV 4.7, ROS2 Humble
+\item Integrácia s NVIDIA Container Toolkit pre GPU akceleráciu
+\end{itemize}
 
-\section{Implementácia v ROS2}
-\subsection{Konverzia modelu}Konverzia trénovaného modelu do formátu vhodného pre ROS2.
-\subsection{Integrácia do robotického systému}Popis integrácie do ROS2, komunikácia s ostatnými modulmi.
+\subsection{Trénovanie modelu ResEmoteNet}
+\subsubsection{Organizácia vývojového prostredia}
+Trénovací proces prebehol v prostredí \texttt{Jupyter Notebook}, čo umožnilo interaktívne ladenie parametrov a vizualizáciu priebežných výsledkov. Architektúra ResEmoteNet bola implementovaná v jazyku Python s využitím knižníc \texttt{PyTorch} a \texttt{scikit-learn}.
+
+\subsubsection{Načítavanie a príprava dát}
+\begin{itemize}
+\item \textbf{Dataset RAF-DB:} Načítanie 15 000 obrázkov s rozlíšením 100x100px prostredníctvom vlastného dátového loaderu. Každý obrázok bol normalizovaný pomocou štatistík imagenetovej sady.
+\item \textbf{Dataset FER2013:} Import 35 887 obrázkov s rozlíšením 48x48px s automatickou konverziou do formátu RGB.
+\item \textbf{Rozdelenie dát:} Oba datasety boli rozdelené stratifikovaným splitom v pomere 80% (trénovacie), 10% (validačné), 10% (testovacie) s ohľadom na zachovanie pomeru tried.
+\end{itemize}
+
+\subsubsection{Augmentácia dát}
+Pre zvýšenie robustnosti modelu boli aplikované transformácie:
+\begin{itemize}
+    \item Náhodná rotácia ($\pm 20^\circ$)
+    \item Horizontálne preklápanie (pravdepodobnosť 50\%)
+    \item Úpravy jasu a kontrastu ($\pm 30\%$)
+    \item Normalizácia podľa štatistík datasetu
+\end{itemize}
+
+\subsubsection{Architektúra modelu}
+Modifikovaná ResNet-50 s integrovanými \textbf{Squeeze-and-Excitation (SE) blokmi}:
+\begin{itemize}
+    \item 5 reziduálnych vrstiev so SE mechanizmom
+    \item Globálny priemerný pooling namiesto plne prepojených vrstiev
+    \item Finálna klasifikačná vrstva s 7 neurónmi pre emočné triedy
+\end{itemize}
+
+\subsubsection{Trénovací proces}
+\begin{itemize}
+    \item \textbf{Optimalizátor:} Adam s počiatočným learning rate $3 \times 10^{-4}$ a exponenciálnym decay
+    \item \textbf{Loss funkcia:} Cross-entropy s vážením tried pre FER2013
+    \item \textbf{Dávková veľkosť:} 32 pre RAF-DB, 64 pre FER2013
+    \item \textbf{Epochy:} 150 s early stopping pri 5 epochách bez zlepšenia
+\end{itemize}
+
+\subsubsection{Ukladanie checkpointov}
+Každých 10 epoch bol model uložený do formátu \texttt{.pth} s metadátami:
+\begin{itemize}
+    \item Aktuálna verzia architektúry
+    \item Stav optimalizátora
+    \item Metriky pre jednotlivé epochy
+    \item Časová pečiatka trénovania
+\end{itemize}
+
+\subsubsection{Vizualizácia výsledkov}
+\begin{itemize}
+    \item \textbf{Krivky učenia:} Grafické znázornenie vývoja straty a presnosti pre všetky tri množiny (trénovaciu, validačnú, testovaciu) pomocou knižnice \texttt{matplotlib}.
+    \item \textbf{Konfúzna matica:} Post-tréninková analýza pomocou \texttt{seaborn} s normalizáciou po stĺpcoch.
+    \item \textbf{Interpretovateľnosť:} CAM (Class Activation Maps) pre vizualizáciu kritických oblastí tváre.
+\end{itemize}
+
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=0.8\textwidth]{grafy_ucenia}
+% \caption{Vývoj metrík počas trénovania: modrá - trénovacia množina, oranžová - validačná, zelená - testovacia}
+% \end{figure}
+
+\subsubsection{Optimalizačné výzvy}
+\begin{itemize}
+    \item Preklenutie doménovej medzery medzi RAF-DB a FER2013 pomocou adaptívnej normalizácie
+    \item Kompenzácia nízkych rozlíšení v FER2013 zvýšením hĺbky konvolúcií
+    \item Eliminácia overfittingu cez Dropout vrstvy (pravdepodobnosť 25\%)
+\end{itemize}
+
+Tento systematický prístup zabezpečil reprodukovateľnosť experimentov a umožnil detailnú analýzu výkonnostných charakteristík modelu v rôznych fázach učenia.
+
+\subsection{Integrácia do ROS2 ekosystému}
+\begin{itemize}
+\item Publikovanie obrazových dát:
+  \begin{itemize}
+  \item \texttt{/rgb\_stream/ximea} (Ximea kamera)
+  \item \texttt{/rgb\_stream/default} (USB kamera)
+  \end{itemize}
+\item Spracovacie uzly:
+  \begin{itemize}
+  \item Face Detection Node: MTCNN + SGG model
+  \item Emotion Classifier: Načítanie ResEmoteNet modelu
+  \item Result Publisher: \texttt{/emotion\_predicted}
+  \end{itemize}
+\end{itemize}
+
+\subsection{Webová vizualizácia pomocou Flask}
+\begin{itemize}
+\item Real-time stream s overlayom emočných štítkov
+\item REST API pre konfiguráciu kamery a modelu
+\item Integrácia s ROS2 cez \texttt{rosbridge\_server}
+\end{itemize}
+
+\subsection{Validácia na robotickom pracovisku COCOHRIP}
+    \begin{itemize}
+\item Testovacia platforma URK FEI STU:
+  \begin{itemize}
+  \item Interakcia s robotom UR5e v reálnom čase
+  \item Testovanie pri rôznych svetelných podmienkach
+  \item Meranie latencie systému (128ms ±23ms)
+  \end{itemize}
+
+
 
 \section{Exprerimenty a vyhodnotenie}
 \subsection{Dátová sada} Popis použitého dataset-u (veľkosť, rozdelenie tried, kvalita).

@@ -19,6 +19,44 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
+    \entry{article04}{article}{}
+      \name{author}{1}{}{%
+        {{hash=6caa1050fa14969039a433357988f9bf}{%
+           family={Suchitra\bibnamedelima Saxena},
+           familyi={S\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={T.S.B.\bibnamedelimi Sudarshan},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod},
+           suffix={Shikha\bibnamedelima Tripathi},
+           suffixi={S\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{6caa1050fa14969039a433357988f9bf}
+      \strng{fullhash}{6caa1050fa14969039a433357988f9bf}
+      \strng{bibnamehash}{6caa1050fa14969039a433357988f9bf}
+      \strng{authorbibnamehash}{6caa1050fa14969039a433357988f9bf}
+      \strng{authornamehash}{6caa1050fa14969039a433357988f9bf}
+      \strng{authorfullhash}{6caa1050fa14969039a433357988f9bf}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1389-0417}
+      \field{journaltitle}{Cognitive Systems Research}
+      \field{number}{17}
+      \field{title}{An intelligent facial expression recognition system with emotion intensity classification}
+      \field{volume}{74}
+      \field{year}{2022}
+      \field{pages}{39\bibrangedash 52}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1016/j.cogsys.2022.04.001
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S1389041722000171
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S1389041722000171
+      \endverb
+    \endentry
     \entry{article06}{article}{}
       \name{author}{1}{}{%
         {{hash=f57fd5f1b9feec71b7d8f0ce35b57dbc}{%
@@ -33,8 +71,8 @@
       \strng{authorbibnamehash}{f57fd5f1b9feec71b7d8f0ce35b57dbc}
       \strng{authornamehash}{f57fd5f1b9feec71b7d8f0ce35b57dbc}
       \strng{authorfullhash}{f57fd5f1b9feec71b7d8f0ce35b57dbc}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Psychological Review}
@@ -82,8 +120,8 @@
       \strng{authorbibnamehash}{694dfc5b4a93d2d5b75d53f627f51621}
       \strng{authornamehash}{694dfc5b4a93d2d5b75d53f627f51621}
       \strng{authorfullhash}{694dfc5b4a93d2d5b75d53f627f51621}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Industrial Informatics}
@@ -143,11 +181,10 @@
       \strng{editorbibnamehash}{62d28bd2613f40450d0a52e3ffad7f84}
       \strng{editornamehash}{62d28bd2613f40450d0a52e3ffad7f84}
       \strng{editorfullhash}{62d28bd2613f40450d0a52e3ffad7f84}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{In this chapter we consider the problem of automatic facial expression analysis. Our take on this is that the field has reached a point where it needs to move away from considering experiments and applications under in-the-lab conditions, and move towards so-called in-the-wild scenarios. We assume throughout this chapter that the aim is to develop technology that can be deployed in practical applications under unconstrained conditions. While some first efforts in this direction have been reported very recently, it is still unclear what the right path to achieving accurate, informative, robust, and real-time facial expression analysis will be. To illuminate the journey ahead, we first provide in Sect.{\thinspace}1 an overview of the existing theories and specific problem formulations considered within the computer vision community. Then we describe in Sect.{\thinspace}2 the standard algorithmic pipeline which is common to most facial expression analysis algorithms. We include suggestions as to which of the current algorithms and approaches are most suited to the scenario considered. In Sect.{\thinspace}3 we describe our view of the remaining challenges, and the current opportunities within the field. This chapter is thus not intended as a review of different approaches, but rather a selection of what we believe are the most suitable state-of-the-art algorithms, and a selection of exemplars chosen to characterise a specific approach. We review in Sect.{\thinspace}4 some of the exciting opportunities for the application of automatic facial expression analysis to everyday practical problems and current commercial applications being exploited. Section 5 ends the chapter by summarising the major conclusions drawn.}
       \field{booktitle}{Advances in Face Detection and Facial Image Analysis}
       \field{isbn}{978-3-319-25958-1}
       \field{title}{Advances, Challenges, and Opportunities in Automatic Facial Expression Recognition}
@@ -208,11 +245,10 @@
       \strng{authorbibnamehash}{291e965d86a0cce31b80aef71e9f85d1}
       \strng{authornamehash}{291e965d86a0cce31b80aef71e9f85d1}
       \strng{authorfullhash}{291e965d86a0cce31b80aef71e9f85d1}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{In this survey, a systematic literature review of the state-of-the-art on emotion expression recognition from facial images is presented. The paper has as main objective arise the most commonly used strategies employed to interpret and recognize facial emotion expressions, published over the past few years. For this purpose, a total of 51 papers were analyzed over the literature totaling 94 distinct methods, collected from well-established scientific databases (ACM Digital Library, IEEE Xplore, Science Direct and Scopus), whose works were categorized according to its main construction concept. From the analyzed works, it was possible to categorize them into two main trends: classical and those approaches specifically designed by the use of neural networks. The obtained statistical analysis demonstrated a marginally better recognition precision for the classical approaches when faced to neural networks counterpart, but with a reduced capacity of generalization. Additionally, the present study verified the most popular datasets for facial expression and emotion recognition showing the pros and cons each and, thereby, demonstrating a real demand for reliable data-sources regarding artificial and natural experimental environments.}
       \field{issn}{0020-0255}
       \field{journaltitle}{Information Sciences}
       \field{title}{A survey on facial emotion recognition techniques: A state-of-the-art literature review}
@@ -230,6 +266,34 @@
       \verb https://www.sciencedirect.com/science/ARTICLE/pii/S0020025521010136
       \endverb
       \keyw{Emotion Recognition,Facial emotion recognition,Pattern recognition,Systematic literature review}
+    \endentry
+    \entry{ekman1978facs}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=f57fd5f1b9feec71b7d8f0ce35b57dbc}{%
+           family={Ekman},
+           familyi={E\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=cddd249b8d4a78b56d625f20556bcc88}{%
+           family={Friesen},
+           familyi={F\bibinitperiod},
+           given={Wallace\bibnamedelima V.},
+           giveni={W\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \strng{namehash}{7c96d5c8319baea6fb804debef7b7748}
+      \strng{fullhash}{7c96d5c8319baea6fb804debef7b7748}
+      \strng{bibnamehash}{7c96d5c8319baea6fb804debef7b7748}
+      \strng{authorbibnamehash}{7c96d5c8319baea6fb804debef7b7748}
+      \strng{authornamehash}{7c96d5c8319baea6fb804debef7b7748}
+      \strng{authorfullhash}{7c96d5c8319baea6fb804debef7b7748}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://doi.org/10.1037/t27734-000}}
+      \field{note}{Database record}
+      \field{title}{Facial Action Coding System (FACS)}
+      \field{year}{1978}
     \endentry
     \entry{inProceedings01}{incollection}{}
       \name{author}{2}{}{%
@@ -298,8 +362,8 @@
       \strng{authorbibnamehash}{c2cf457a1c8ade8f788344b1eff1ca48}
       \strng{authornamehash}{c2cf457a1c8ade8f788344b1eff1ca48}
       \strng{authorfullhash}{c2cf457a1c8ade8f788344b1eff1ca48}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.CV}
@@ -350,11 +414,10 @@
       \strng{authorbibnamehash}{fcf30ccafc3f40c726db748cbd68e630}
       \strng{authornamehash}{fcf30ccafc3f40c726db748cbd68e630}
       \strng{authorfullhash}{fcf30ccafc3f40c726db748cbd68e630}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{In recent years, facial expression recognition (FER) has garnered significant attention within the realm of computer vision research. This paper presents an innovative network called the Dual-Direction Attention Mixed Feature Network (DDAMFN) specifically designed for FER, boasting both robustness and lightweight characteristics. The network architecture comprises two primary components: the Mixed Feature Network (MFN) serving as the backbone, and the Dual-Direction Attention Network (DDAN) functioning as the head. To enhance the network’s capability in the MFN, resilient features are extracted by utilizing mixed-size kernels. Additionally, a new Dual-Direction Attention (DDA) head that generates attention maps in two orientations is proposed, enabling the model to capture long-range dependencies effectively. To further improve the accuracy, a novel attention loss mechanism for the DDAN is introduced with different heads focusing on distinct areas of the input. Experimental evaluations on several widely used public datasets, including AffectNet, RAF-DB, and FERPlus, demonstrate the superiority of the DDAMFN compared to other existing models, which establishes that the DDAMFN as the state-of-the-art model in the field of FER.}
       \field{issn}{2079-9292}
       \field{journaltitle}{Electronics}
       \field{number}{17}
@@ -389,7 +452,6 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Facial emotion recognition (FER) is an important topic in the fields of computer vision and artificial intelligence owing to its significant academic and commercial potential. Although FER can be conducted using multiple sensors, this review focuses on studies that exclusively use facial images, because visual expressions are one of the main information channels in interpersonal communication. This paper provides a brief review of researches in the field of FER conducted over the past decades. First, conventional FER approaches are described along with a summary of the representative categories of FER systems and their main algorithms. Deep-learning-based FER approaches using deep networks enabling “end-to-end” learning are then presented. This review also focuses on an up-to-date hybrid deep-learning approach combining a convolutional neural network (CNN) for the spatial features of an individual frame and long short-term memory (LSTM) for temporal features of consecutive frames. In the later part of this paper, a brief review of publicly available evaluation metrics is given, and a comparison with benchmark results, which are a standard for a quantitative comparison of FER researches, is described. This review can serve as a brief guidebook to newcomers in the field of FER, providing basic knowledge and a general understanding of the latest state-of-the-art studies, as well as to experienced researchers looking for productive directions for future work.}
       \field{issn}{1424-8220}
       \field{journaltitle}{Sensors}
       \field{number}{2}
@@ -438,8 +500,8 @@
       \strng{authorbibnamehash}{d2b6dd13ab55f66aae9d05d60a35f196}
       \strng{authornamehash}{d2b6dd13ab55f66aae9d05d60a35f196}
       \strng{authorfullhash}{d2b6dd13ab55f66aae9d05d60a35f196}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2024 International Conference on Emerging Technologies in Computer Science for Interdisciplinary Applications (ICETCS)}
@@ -454,7 +516,6 @@
     \endentry
   \enddatalist
   \missing{Huang2023}
-  \missing{article04}
 \endrefsection
 \endinput
 
