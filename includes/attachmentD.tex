@@ -1,0 +1,227 @@
+\label{attachment:jupyter}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+
+\lstset{style=pythonstyle}
+
+\begin{lstlisting}[language=Python, caption={Python skript použitý na trenovanie modelu}, label={lst:emotion-recognition}]
+% Obsah Jupyter notebooku
+import torch
+print("CUDA available:", torch.cuda.is_available())
+print("Device count:", torch.cuda.device_count())
+print("Current device:", torch.cuda.current_device())
+print("Device name:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "None")
+torch.cuda.empty_cache()
+
+import torch
+import pandas as pd
+import numpy as np
+from tqdm import tqdm
+
+from torch.utils.data import DataLoader
+from torchvision import transforms
+import torch.optim as optim
+import matplotlib.pyplot as plt
+
+from approach.ResEmoteNet import ResEmoteNet
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"Using {device} device")
+
+# Transform the dataset
+transform = transforms.Compose([
+        transforms.Resize((64, 64)),
+        transforms.Grayscale(num_output_channels=3),
+        transforms.RandomHorizontalFlip(),
+        transforms.ToTensor(),
+        transforms.Normalize(
+        mean=[0.485, 0.456, 0.406],
+        std=[0.229, 0.224, 0.225]
+        )
+])
+# Load the model
+model = ResEmoteNet()
+model.to('cuda')
+# Print the number of parameters
+total_params = sum(p.numel() for p in model.parameters())
+print(f'{total_params:,} total parameters.')
+
+import os
+from torch.utils.data import DataLoader, random_split
+from torchvision import datasets, transforms
+
+def load_data(base_dir, batch_size=16, transform=None):
+    """
+    Function to load train and test datasets and return their DataLoaders.
+
+    Args:
+        base_dir (str): Base directory containing train/test subdirectories.
+        batch_size (int): Batch size for the DataLoader.
+        transform (callable, optional): Transformations to apply to the images.
+
+    Returns:
+        tuple: Train DataLoader, Validation DataLoader
+    """
+    # Define train and test directories
+    train_dir = os.path.join(base_dir, "train")
+    val_dir = os.path.join(base_dir, "test")
+    
+    # Use torchvision.datasets.ImageFolder to automatically handle class folders
+    train_dataset = datasets.ImageFolder(root=train_dir, transform=transform)
+    test_dataset = datasets.ImageFolder(root=val_dir, transform=transform)
+    
+    label_names = train_dataset.classes
+
+    # Split train_dataset into training and validation sets
+    val_size = 1533
+    train_size = len(train_dataset) - val_size
+    train_subset, val_subset = random_split(train_dataset, [train_size, val_size])
+
+    # DataLoaders
+    train_loader = DataLoader(train_subset, batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(val_subset, batch_size=batch_size, shuffle=False)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+    
+
+    # Print dataset sizes
+    print(f"Number of images in train loader: {len(train_loader.dataset)}")
+    print(f"Number of images in val loader: {len(val_loader.dataset)}")
+    print(f"Number of images in test loader: {len(test_loader.dataset)}")
+
+    return train_loader, test_loader, val_loader, label_names
+
+
+# Load data
+base_dir = "/workspace/RAF-DB"
+train_loader, test_loader, val_loader, label_names = load_data(base_dir=base_dir, batch_size=16, transform=transform)
+
+# Inspect a batch
+train_images, train_labels = next(iter(train_loader))
+print(f"Train batch: Images shape {train_images.shape}, Labels shape {train_labels.shape}")
+
+test_images, test_labels = next(iter(test_loader))
+print(f"Train batch: Images shape {test_images.shape}, Labels shape {test_labels.shape}")
+
+Number of images in train loader: 12273
+Number of images in val loader: 1533
+Number of images in test loader: 1533
+Train batch: Images shape torch.Size([16, 3, 64, 64]), Labels shape torch.Size([16])
+Train batch: Images shape torch.Size([16, 3, 64, 64]), Labels shape torch.Size([16])
+
+# Hyperparameters
+criterion = torch.nn.CrossEntropyLoss()
+optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9, weight_decay=1e-4)
+
+patience = 15
+best_val_acc = 0
+patience_counter = 0
+epoch_counter = 0
+
+num_epochs = 100
+
+train_losses = []
+val_losses = []
+train_accuracies = []
+val_accuracies = []
+test_losses = []
+test_accuracies = []
+
+# Start training
+for epoch in range(num_epochs):
+        model.train()
+        running_loss = 0.0
+        correct = 0
+        total = 0
+
+        for data in tqdm(train_loader, desc=f"Epoch {epoch+1}/{num_epochs}"):
+                inputs, labels = data[0].to(device), data[1].to(device)
+                optimizer.zero_grad()
+                outputs = model(inputs)
+                loss = criterion(outputs, labels)
+                loss.backward()
+                optimizer.step()
+
+                running_loss += loss.item()
+                _, predicted = torch.max(outputs.data, 1)
+                total += labels.size(0)
+                correct += (predicted == labels).sum().item()
+
+                train_loss = running_loss / len(train_loader)
+                train_acc = correct / total
+                train_losses.append(train_loss)
+                train_accuracies.append(train_acc)
+
+                model.eval()
+                test_running_loss = 0.0
+                test_correct = 0
+                test_total = 0
+                with torch.no_grad():
+                for data in test_loader:
+                        inputs, labels = data[0].to(device), data[1].to(device)
+                        outputs = model(inputs)
+                        loss = criterion(outputs, labels)
+                        test_running_loss += loss.item()
+                        _, predicted = torch.max(outputs.data, 1)
+                        test_total += labels.size(0)
+                        test_correct += (predicted == labels).sum().item()
+
+                test_loss = test_running_loss / len(test_loader)
+                test_acc = test_correct / test_total
+                test_losses.append(test_loss)
+                test_accuracies.append(test_acc)
+
+                model.eval()
+                val_running_loss = 0.0
+                val_correct = 0
+                val_total = 0
+                with torch.no_grad():
+                for data in val_loader:
+                        inputs, labels = data[0].to(device), data[1].to(device)
+                        outputs = model(inputs)
+                        loss = criterion(outputs, labels)
+                        val_running_loss += loss.item()
+                        _, predicted = torch.max(outputs.data, 1)
+                        val_total += labels.size(0)
+                        val_correct += (predicted == labels).sum().item()
+
+                val_loss = val_running_loss / len(val_loader)
+                val_acc = val_correct / val_total
+                val_losses.append(val_loss)
+                val_accuracies.append(val_acc)
+
+                print(f"Epoch {epoch+1}, Train Loss: {train_loss}, Train Accuracy: {train_acc}, Test Loss: {test_loss}, Test Accuracy: {test_acc}, Val Loss: {val_loss}, Val Accuracy: {val_acc}")
+                epoch_counter += 1
+                
+                if val_acc > best_val_acc:
+                        best_val_acc = val_acc
+                        patience_counter = 0 
+                        torch.save(model.state_dict(), 'best_model_RAF-DB_1.pth')
+                        else:
+                        patience_counter += 1
+                        print(f"No improvement in validation accuracy for {patience_counter} epochs.")
+                
+                if patience_counter > patience:
+                        print("Stopping early due to lack of improvement in validation accuracy.")
+                        break
+\end{lstlisting}

@@ -1,25 +1,89 @@
-\begin{algorithm}
-\caption{Vypočítaj $y = x^n$}  
-\label{alg:calculation-1}                         
-\begin{algorithmic}                    
-    \REQUIRE $n \geq 0 \vee x \neq 0$
-    \ENSURE $y = x^n$
-    \STATE $y \Leftarrow 1$
-    \IF{$n < 0$}
-        \STATE $X \Leftarrow 1 / x$
-        \STATE $N \Leftarrow -n$
-    \ELSE
-        \STATE $X \Leftarrow x$
-        \STATE $N \Leftarrow n$
-    \ENDIF
-    \WHILE{$N \neq 0$}
-        \IF{$N$ is even}
-            \STATE $X \Leftarrow X \times X$
-            \STATE $N \Leftarrow N / 2$
-        \ELSE[$N$ is odd]
-            \STATE $y \Leftarrow y \times X$
-            \STATE $N \Leftarrow N - 1$
-        \ENDIF
-    \ENDWHILE
-\end{algorithmic}
-\end{algorithm}
+\label{attachment:cpp_code}
+
+% Definícia štýlu pre CMakeLists.txt
+\lstdefinestyle{cmakestyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    morekeywords={cmake_minimum_required, project, add_executable, target_link_libraries, find_package, include_directories}
+}
+
+% C++ kód
+\begin{lstlisting}[language=C++, caption={Implementácia rozpoznávania emócií v C++}, label={lst:emotion-cpp}]
+#include "rclcpp/rclcpp.hpp"
+#include "std_msgs/msg/string.hpp"
+
+class PredictionSubscriber : public rclcpp::Node {
+public:
+    PredictionSubscriber() : Node("prediction_subscriber") {
+        subscription_ = this->create_subscription<std_msgs::msg::String>(
+            "emotion_prediction", 10,
+            std::bind(&PredictionSubscriber::topic_callback, this, std::placeholders::_1));
+    }
+
+private:
+    void topic_callback(const std_msgs::msg::String::SharedPtr msg) const {
+        RCLCPP_INFO(this->get_logger(), "Received prediction: '%s'", msg->data.c_str());
+    }
+
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+};
+
+int main(int argc, char **argv) {
+    rclcpp::init(argc, argv);
+    std::cout << "Prediction subscriber started" << std::endl;
+    rclcpp::spin(std::make_shared<PredictionSubscriber>());
+    rclcpp::shutdown();
+    return 0;
+}
+\end{lstlisting}
+
+% CMakeLists.txt
+\begin{lstlisting}[style=cmakestyle, caption={CMakeLists.txt pre projekt rozpoznávania emócií}, label={lst:cmake}]
+cmake_minimum_required(VERSION 3.8)
+project(facial_expression)
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+# Nájdeme potrebné balíky
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(OpenCV REQUIRED)
+
+# Kompilácia C++ uzla
+add_executable(prediction_node src/prediction.cpp)
+ament_target_dependencies(prediction_node rclcpp std_msgs OpenCV)
+
+# Inštalácia C++ uzla
+install(TARGETS prediction_node
+  DESTINATION lib/${PROJECT_NAME})
+
+# Povolenie spúšťania Python uzla
+find_package(ament_cmake_python REQUIRED)
+
+# Nastavenie exekutovateľného Python skriptu
+install(PROGRAMS
+  scripts/prediction.py
+  DESTINATION lib/${PROJECT_NAME})
+# Install launch files
+install(DIRECTORY launch/
+  DESTINATION share/${PROJECT_NAME}/
+)
+ament_package()
+\end{lstlisting}

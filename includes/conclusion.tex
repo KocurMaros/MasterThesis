@@ -1,1 +1,11 @@
-Conclusion is going to be where? \newline Here.
+Cieľom tejto diplomovej práce bolo navrhnúť, implementovať a vyhodnotiť systém na rozpoznávanie emócií operátora na základe výrazu tváre s dôrazom na použiteľnosť v kontexte interakcie človeka a robota. Motivácia vychádzala zo snahy o zlepšenie kvality komunikácie a spolupráce medzi človekom a robotickým systémom prostredníctvom poskytovania spätnej väzby o emocionálnom rozpoložení operátora. Vzhľadom na rastúci význam afektívnych technológií sa tento cieľ ukázal ako aktuálny a výskumne hodnotný.
+
+V práci boli splnené všetky hlavné úlohy zadania. Boli analyzované súčasné metódy rozpoznávania emócií vrátane tradičných prístupov a moderných algoritmov založených na hlbokom učení. Dôkladne boli preskúmané princípy biometrických systémov, techniky detekcie tváre a klasifikácie emócií. Výsledkom bola implementovana architektúra systému ResEmoteNet, ktorá kombinuje konvolučné vrstvy, SE bloky a reziduálne bloky. Tento model bol trénovaný na verejných datasetoch ako FER2013 a RAF-DB, čo zabezpečilo jeho vysokú generalizovateľnosť.
+
+Implementácia riešenia bola vykonaná v prostredí ROS2, čím bola zabezpečená jeho možná integrácia do robotických systémov. Systém bol testovaný a validovaný na reálnych aj simulovaných dátach v rôznych podmienkach. Experimentálne výsledky ukázali, že model dosahuje vysokú presnosť pri klasifikácii väčšiny základných emócií. Najnižšiu úspešnosť model vykazoval pri detekcii komplexnejších emócií ako strach a smútok, čo koreluje aj s výsledkami dotazníkového experimentu, kde mali s identifikáciou týchto emócií problémy aj ľudskí pozorovatelia.
+
+Systém bol ďalej testovaný s rôznymi kamerami a v odlišných svetelných podmienkach, čo potvrdilo jeho robustnosť a praktickú využiteľnosť. Ukázalo sa, že návrh systému je dostatočne efektívny na to, aby mohol byť nasadený aj na zariadeniach s obmedzeným výpočtovým výkonom.
+
+Medzi hlavné prínosy práce patrí vytvorenie funkčného, trénovateľného a rozšíriteľného systému, ktorý je pripravený na reálne nasadenie v robotických aplikáciách. Práca zároveň identifikovala viaceré oblasti na ďalší výskum, ako je rozšírenie systému o ďalšie vstupy, zlepšenie presnosti pre jemné emócie, alebo nasadenie v multimodálnych interakčných systémoch.
+
+Záverom možno konštatovať, že navrhnutý systém spĺňa požiadavky zadania, predstavuje významný krok k emocionálne inteligentnej robotike a otvára priestor na ďalšie zlepšenia a praktické aplikácie v oblastiach, kde je porozumenie ľudským emóciám kľúčové.

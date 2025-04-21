@@ -1,0 +1,133 @@
+\label{attachment:manual}
+
+\subsection{Návod na trénovanie modelu}
+
+Tento návod vás prevedie procesom trénovania modelu pre rozpoznávanie emócií pomocou Docker kontajnera a webového rozhrania.
+
+\subsubsection{Požiadavky}
+Na trénovanie modelu potrebujete:
+\begin{itemize}
+    \item Nainštalovaný Docker (\url{https://docs.docker.com/get-docker/})
+    \item Nainštalovaný Docker Compose (\url{https://docs.docker.com/compose/install/})
+    \item Minimálne 8 GB RAM a 4 GB GPU pamäte
+    \item Dostatočné miesto na disku (minimálne 10 GB)
+\end{itemize}
+
+\subsubsection{Postup trénovania}
+
+\begin{enumerate}
+    \item \textbf{Príprava projektu}
+    \begin{lstlisting}[basicstyle=\ttfamily\small]
+    git clone https://github.com/KocurMaros/master_thesis_practical
+    cd master_thesis_practical
+    \end{lstlisting}
+    
+    \item \textbf{Zostavenie Docker kontajnera}\\
+    V koreňovom adresári projektu spustite:
+    \begin{lstlisting}[basicstyle=\ttfamily\small]
+    docker-compose build
+    \end{lstlisting}
+    Tento príkaz zostaví Docker kontajner podľa definícií v súboroch Dockerfile a docker-compose.yml.
+    
+    \item \textbf{Spustenie kontajnera}\\
+    Po úspešnom zostavení spustite kontajner:
+    \begin{lstlisting}[basicstyle=\ttfamily\small]
+    docker-compose up
+    \end{lstlisting}
+    
+    \item \textbf{Prístup k webovému rozhraniu}\\
+    Po spustení kontajnera otvorte webový prehliadač a prejdite na adresu:
+    \begin{lstlisting}[basicstyle=\ttfamily\small]
+    http://localhost:5000
+    \end{lstlisting}
+    
+    \item \textbf{Spustenie trénovania}\\
+    Vo webovom rozhraní:
+    \begin{itemize}
+        \item Vyberte dataset, ktorý chcete použiť na trénovanie
+        \item Nastavte hyperparametre (počet epoch, batch size, learning rate)
+        \item Kliknite na tlačidlo "Spustiť trénovanie"
+        \item Sledujte priebeh trénovania a výsledné metriky
+    \end{itemize}
+    
+    \item \textbf{Export natrénovaného modelu}\\
+    Po ukončení trénovania si môžete stiahnuť natrénovaný model kliknutím na tlačidlo "Exportovať model".
+\end{enumerate}
+
+\subsection{Návod na testovanie s ROS2}
+
+Tento návod popisuje, ako spustiť systém rozpoznávania emócií pomocou ROS2 Humble na Ubuntu 22.04.
+
+\subsubsection{Požiadavky}
+Na testovanie potrebujete:
+\begin{itemize}
+    \item Ubuntu 22.04 LTS
+    \item ROS2 Humble (\url{https://docs.ros.org/en/humble/Installation.html})
+    \item Kamera kompatibilná s ROS2
+    \item Natrénovaný model (výstup z procesu trénovania)
+\end{itemize}
+
+\subsubsection{Inštalácia a zostavenie}
+\begin{enumerate}
+    \item \textbf{Príprava ROS2 workspace}
+    \begin{lstlisting}[basicstyle=\ttfamily\small]
+    mkdir -p ~/ros2_ws/src
+    cd ~/ros2_ws/
+    cp -r /path/to/your/master_thesis_practical/facial_expression ~/ros2_ws/src/
+    \end{lstlisting}
+    
+    \item \textbf{Zostavenie balíka}
+    \begin{lstlisting}[basicstyle=\ttfamily\small]
+    colcon build --symlink-install --packages-select emotion_recognition
+    \end{lstlisting}
+    
+    \item \textbf{Načítanie prostredia ROS2}
+    \begin{lstlisting}[basicstyle=\ttfamily\small]
+    source install/setup.bash
+    \end{lstlisting}
+\end{enumerate}
+
+\subsubsection{Spustenie systému}
+\begin{enumerate}
+    \item \textbf{Spustenie video streamu}\\
+    Najprv spustite skript pre získavanie videa z kamery:
+    \begin{lstlisting}[basicstyle=\ttfamily\small]
+    ./scripts/video_stream.sh
+    \end{lstlisting}
+    
+    \item \textbf{Spustenie rozpoznávania emócií}\\
+    Po spustení video streamu spustite rozpoznávanie emócií:
+    \begin{lstlisting}[basicstyle=\ttfamily\small]
+    ./scripts/run_facial_expression.sh
+    \end{lstlisting}
+    Tento skript aktivuje:
+    \begin{itemize}
+        \item Detekciu tváre
+        \item Predikčný node pre rozpoznávanie emócií
+        \item Webový server pre vizualizáciu výsledkov
+    \end{itemize}
+    
+    \item \textbf{Prístup k výsledkom}\\
+    Výsledky rozpoznávania emócií sú dostupné:
+    \begin{itemize}
+        \item Vo webovom rozhraní: http://localhost:8080
+        \item V ROS2 topicoch:
+        \begin{lstlisting}[basicstyle=\ttfamily\small]
+        ros2 topic echo /emotion_prediction    # výsledok predikcie
+        ros2 topic echo /face_detection        # detekované tváre
+        \end{lstlisting}
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Riešenie problémov}
+\begin{itemize}
+    \item \textbf{Problém s kamerou:} Skontrolujte, či je kamera rozpoznaná systémom pomocou príkazu \texttt{v4l2-ctl --list-devices}
+    \item \textbf{Problém s ROS2 nodmi:} Skontrolujte stav nodov pomocou \texttt{ros2 node list}
+    \item \textbf{Chyba predikcie:} Uistite sa, že cesta k modelu v konfiguračnom súbore je správna
+\end{itemize}
+
+\subsubsection{Ukončenie systému}
+Na ukončenie všetkých bežiacich nodov stlačte \textbf{Ctrl+C} v termináloch, kde sú spustené skripty, alebo použite:
+\begin{lstlisting}[basicstyle=\ttfamily\small]
+ros2 lifecycle set /emotion_recognition_node shutdown
+\end{lstlisting}

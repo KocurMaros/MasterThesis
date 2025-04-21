@@ -1,0 +1,4 @@
+
+correct data: 364
+incorrect data: 207
+accuracy: 63.74781085814361%

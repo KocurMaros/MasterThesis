@@ -1,4 +1,5 @@
 \section{Úvod}
+\label{sec:intro}
 S rozvojom umelej inteligencie a strojového učenia sa otvárajú nové možnosti pre interakciu medzi človekom a strojom. Jednou z najdôležitejších oblastí výskumu je rozpoznávanie emócií na základe výrazu tváre, 
 ktoré umožňuje strojom porozumieť emocionálnemu stavu používateľa. V kontexte robotických systémov je dôležité, aby roboty boli schopné rozoznať emócie človeka, čo môže zlepšiť komunikáciu, 
 kooperáciu a bezpečnosť pri spoločnej práci \cite{article04}.
@@ -13,33 +14,33 @@ V záujme konzistentnosti a presnosti v aplikáciách, ako je zdravotníctvo, ro
 Pochopenie úrovne spokojnosti alebo podráždenia používateľa môže napríklad pomôcť upraviť reakcie systému a zlepšiť výsledky interakcií \cite{article06}.
 
 Emócie zohrávajú dôležitú úlohu v procese rozhodovania, riadenia a interakcie. Schopnosť robotického systému porozumieť emocionálnemu stavu používateľa umožňuje jeho prispôsobenie konkrétnym podmienkam a 
-potrebám operátora. Napríklad v priemysle môžu robotické systémy identifikovať stres alebo únavu operátora, čím prispievajú k zvýšeniu bezpečnosti a efektivity​. Okrem toho, v oblasti zdravotnej starostlivosti 
-môže rozpoznávanie emócií pomôcť monitorovať psychický stav pacientov a prispieť k ich lepšej starostlivosti​ \cite{article03}. 
+potrebám operátora. Napríklad v priemysle môžu robotické systémy identifikovať stres alebo únavu operátora, čím prispievajú k zvýšeniu bezpečnosti a efektivity. Okrem toho, v oblasti zdravotnej starostlivosti 
+môže rozpoznávanie emócií pomôcť monitorovať psychický stav pacientov a prispieť k ich lepšej starostlivosti \cite{article03}. 
 
-Rozpoznávanie emócií je možné dosiahnuť rôznymi metódami, ktoré zahŕňajú spracovanie obrazu, analýzu textu, reč a gestá​. Výraz tváre je však najvýznamnejším a najpresnejším indikátorom emócií, 
+Rozpoznávanie emócií je možné dosiahnuť rôznymi metódami, ktoré zahŕňajú spracovanie obrazu, analýzu textu, reč a gestá. Výraz tváre je však najvýznamnejším a najpresnejším indikátorom emócií, 
 pretože vyjadruje okamžitý emocionálny stav človeka. Emócie, ako sú šťastie, smútok, hnev alebo prekvapenie, sú viditeľné prostredníctvom zmien vo svaloch tváre, ktoré sú merateľné a analyzovateľné 
 pomocou technológií strojového učenia, najmä pomocou hlbokých neurónových sietí (\gls{cnn}) \cite{article04}.
 
 Súčasné metódy na rozpoznávanie emócií zahŕňajú viacero prístupov. Tradičné prístupy, ako napríklad metódy založené na geometrických črtách a textúrach, boli doplnené modernými metódami založenými 
-na hlbokom učení, ktoré dosahujú vysokú presnosť. Neurónové siete sú schopné automaticky extrahovať črty tváre bez potreby manuálneho zásahu, čo výrazne zvyšuje efektivitu systému​. Tieto pokročilé 
-modely dosahujú vysokú mieru úspešnosti v rôznych aplikáciách, ako sú zdravotná starostlivosť, priemyselná automatizácia alebo monitorovanie únavy vodičov​ \cite{article03} \cite{book01}.
+na hlbokom učení, ktoré dosahujú vysokú presnosť. Neurónové siete sú schopné automaticky extrahovať črty tváre bez potreby manuálneho zásahu, čo výrazne zvyšuje efektivitu systému. Tieto pokročilé 
+modely dosahujú vysokú mieru úspešnosti v rôznych aplikáciách, ako sú zdravotná starostlivosť, priemyselná automatizácia alebo monitorovanie únavy vodičov \cite{article03} \cite{book01}.
 
 \subsection{Motivácia}
 V súčasnej dobe, keď technológie prenikajú do všetkých aspektov ľudského života, je nevyhnutné, aby robotické systémy disponovali nielen kognitívnymi schopnosťami, ale aj emocionálnou inteligenciou. 
 Táto schopnosť umožňuje robotom identifikovať, hodnotiť a reagovať na emócie ľudí, čím sa zvyšuje efektivita a prirodzenosť interakcie medzi človekom a strojom. Emocionálna inteligencia zahŕňa schopnosť 
-rozpoznávať vlastné emócie, emócie iných, a adekvátne na ne reagovať.​
+rozpoznávať vlastné emócie, emócie iných, a adekvátne na ne reagovať.
 
 V oblasti interakcie človeka s robotom (Human-Robot Interaction, HRI) je rozpoznávanie emócií kľúčové pre vytvorenie intuitívnej a efektívnej spolupráce. Roboty schopné interpretovať emocionálny stav operátora 
 môžu prispôsobiť svoje správanie aktuálnej situácii, čo je obzvlášť dôležité v oblastiach, kde je potrebná vysoká miera spolupráce a dôvery, ako napríklad v zdravotníctve, vzdelávaní či v priemyselnej výrobe. 
-Napríklad v zdravotníctve môžu roboty asistovať pacientom s emocionálnou podporou, monitorovať ich psychický stav a poskytovať adekvátne reakcie na základe rozpoznaných emócií \cite{article01}.​
+Napríklad v zdravotníctve môžu roboty asistovať pacientom s emocionálnou podporou, monitorovať ich psychický stav a poskytovať adekvátne reakcie na základe rozpoznaných emócií \cite{article01}.
 
 Aktuálne trendy v oblasti robotiky smerujú k vývoju systémov, ktoré dokážu nielen vykonávať predprogramované úlohy, ale aj adaptovať sa na dynamické prostredie a emocionálne potreby používateľov. 
 Výskum v oblasti afektívnej robotiky sa zameriava na integráciu emocionálnych modelov do robotických systémov, čo umožňuje lepšie porozumenie a predikciu ľudského správania . Napriek pokroku v tejto oblasti existujú 
-výzvy spojené s presnosťou rozpoznávania emócií, interpretáciou komplexných emocionálnych stavov a zabezpečením etického využitia týchto technológií \cite{article01}.​
+výzvy spojené s presnosťou rozpoznávania emócií, interpretáciou komplexných emocionálnych stavov a zabezpečením etického využitia týchto technológií \cite{article01}.
 
 Implementácia systému na identifikáciu emócií operátora na základe výrazu tváre predstavuje významný krok k zlepšeniu interakcie medzi človekom a robotom. Takýto systém môže prispieť k vyššej efektivite, 
 bezpečnosti a spokojnosti používateľov pri práci s robotickými systémami. Napríklad v priemyselných aplikáciách môže robot upraviť svoj pracovný rytmus alebo poskytnúť upozornenie v prípade, 
-že deteguje stres alebo únavu operátora, čím sa predchádza možným chybám alebo nehodám.​
+že deteguje stres alebo únavu operátora, čím sa predchádza možným chybám alebo nehodám.
 
 Celkovo je motivácia pre vývoj takýchto systémov založená na snahe o vytvorenie robotických asistentov, ktorí sú schopní nielen technicky podporovať človeka, ale aj empaticky reagovať na jeho emocionálne potreby, čím sa zvyšuje kvalita a efektivita ich vzájomnej spolupráce.
 Motiváciou pre rozpoznávanie emócií tváre je jeho potenciál zlepšiť interakciu medzi človekom a počítačom, zlepšiť monitorovanie duševného zdravia a vytvoriť adaptívne systémy pre rôzne oblasti, 
@@ -53,19 +54,21 @@ V práci sa uvažuje s využitím RGB kamery, avšak je otvorený priestor aj pr
 
 Práca sa zameriava na splnenie nasledujúcich čiastkových cieľov:
 
-Analýza existujúcich metód rozpoznávania emócií na základe výrazu tváre – preskúmanie prístupov založených na tradičnom strojovom učení (SVM, HOG + LBP), ako aj moderných hlbokých neurónových sietí 
+\begin{itemize}
+    \item Analýza existujúcich metód rozpoznávania emócií na základe výrazu tváre – preskúmanie prístupov založených na tradičnom strojovom učení (SVM, HOG + LBP), ako aj moderných hlbokých neurónových sietí 
 (\gls{cnn}, ResNet, SE-ResNet, atď.)
 
-Štúdium biometrických modelov tváre a techník detekcie tváre – výskum metód ako Haar Cascade, MT\gls{cnn}, Dlib a OpenCV moduly na detekciu a orezanie tváre.
+    \item Štúdium biometrických modelov tváre a techník detekcie tváre – výskum metód ako Haar Cascade, MT\gls{cnn}, Dlib a OpenCV moduly na detekciu a orezanie tváre.
 
-Návrh architektúry systému na rozpoznávanie emócií – vybudovanie modelu (napr. ResEmoteNet) využívajúceho konvolučné siete a reziduálne bloky, schopného klasifikovať emócie ako radosť, smútok, hnev, prekvapenie, 
-odpor a strach​.
+    \item Návrh architektúry systému na rozpoznávanie emócií – vybudovanie modelu (napr. ResEmoteNet) využívajúceho konvolučné siete a reziduálne bloky, schopného klasifikovať emócie ako radosť, smútok, hnev, prekvapenie, 
+odpor a strach.
 
-Tréning a testovanie systému na open-source databázach – použitie datasetov ako FER2013, RAF-DB, AffectNet a KDEF na overenie presnosti a generalizácie modelu​.
+    \item Tréning a testovanie systému na open-source databázach – použitie datasetov ako FER2013, RAF-DB, AffectNet a KDEF na overenie presnosti a generalizácie modelu.
 
-Vytvorenie ROS2 balíka – implementácia systému do samostatného ROS2 balíka, ktorý poskytne výstup emocionálneho stavu ako ROS2 téma (napr. emotion\_topic).
+    \item Vytvorenie ROS2 balíka – implementácia systému do samostatného ROS2 balíka, ktorý poskytne výstup emocionálneho stavu ako ROS2 téma (napr. emotion\_topic).
 
-Validácia a experimentálne vyhodnotenie systému – testovanie modelu na reálnych aj simulovaných dátach (napr. v Gazebo alebo RViz), s dôrazom na presnosť, rýchlosť spracovania a robustnosť voči zmenám osvetlenia či polohy tváre.
+    \item Validácia a experimentálne vyhodnotenie systému – testovanie modelu na reálnych aj simulovaných dátach (napr. v Gazebo alebo RViz), s dôrazom na presnosť, rýchlosť spracovania a robustnosť voči zmenám osvetlenia či polohy tváre.
+\end{itemize}
 
 Cieľom je vytvoriť systém, ktorý bude nielen presný a spoľahlivý, ale aj dostatočne efektívny na to, aby mohol byť nasadený v reálnom čase na vstavaných výpočtových zariadeniach ako 
 NVIDIA Jetson alebo Raspberry Pi 4 a COCOHRIP. Systém by mal byť zároveň jednoducho škálovateľný a rozšíriteľný o ďalšie vstupy (napr. hlas, srdcovú frekvenciu alebo EDA senzory), čo otvorí cestu k multimodálnemu rozpoznávaniu emócií.
@@ -77,6 +80,7 @@ Cieľom práce je vytvoriť systém, ktorý bude schopný rozpoznať emócie v r
     \label{fig:schema}
 \end{figure}
 \section{Teoretické základy}
+\label{sec:theory}
 \subsection{Emócie a ich prejav}
 Emócie predstavujú základný prvok ľudskej psychiky a zohrávajú kľúčovú úlohu pri vnímaní, rozhodovaní a správaní človeka. Ide o komplexné psychologické stavy, ktoré sú výsledkom interakcie medzi subjektívnymi prežitkami, 
 fyziologickými reakciami a behaviorálnymi prejavmi. 
@@ -100,12 +104,12 @@ Z výskumného pohľadu je preto nevyhnutné dôkladne porozumieť tomu, ako sa 
 kde sa tieto teoretické poznatky pretavia do konkrétneho technického riešenia.
 \subsubsection{Univerzálne emócie}
 Jednou z najvýznamnejších teórií o emóciách je teória univerzálnych emócií, ktorú vyvinul psychológ Paul Ekman. Podľa tejto teórie existuje šesť základných emócií, ktoré sú univerzálne rozpoznateľné 
-na základe výrazu tváre: radosť, smútok, hnev, prekvapenie, strach a odpor​. Tieto emócie sú nezávislé od kultúrnych vplyvov a prejavujú sa podobným spôsobom naprieč rôznymi kultúrami a etnickými skupinami \cite{article03}.
+na základe výrazu tváre: radosť, smútok, hnev, prekvapenie, strach a odpor. Tieto emócie sú nezávislé od kultúrnych vplyvov a prejavujú sa podobným spôsobom naprieč rôznymi kultúrami a etnickými skupinami \cite{article03}.
 \subsubsection{Kultúrne rozdiely v prejave emócií}
 Aj napriek existencii univerzálnych emócií existujú značné kultúrne rozdiely v tom, ako sú emócie prejavované a interpretované. Kultúrne normy a spoločenské očakávania môžu výrazne ovplyvniť intenzitu, frekvenciu a spôsob vyjadrenia emócií.
 
 V tzv. individualistických kultúrach (napr. západná Európa alebo USA) je emocionálny prejav väčšinou priamy a otvorený. Naopak, v kolektivistických kultúrach (napr. východná Ázia) býva prejav emócií častejšie potláčaný alebo upravený v 
-záujme zachovania harmónie v skupine​.
+záujme zachovania harmónie v skupine.
 
 Tieto kultúrne odlišnosti predstavujú výzvu pre univerzálne systémy rozpoznávania emócií, pretože rovnaký výraz tváre môže byť interpretovaný odlišne v závislosti od kultúrneho kontextu. Z tohto dôvodu je v niektorých prípadoch výhodné využiť aj regionálne 
 adaptované modely, alebo multimodálne systémy, ktoré pracujú s doplňujúcimi vstupmi (reč, gestá, fyziologické signály).
@@ -140,10 +144,10 @@ Tieto kroky je možné realizovať pomocou klasických metód počítačového v
 Detekcia tváre je prvým krokom pri analýze obrazu. Ide o proces lokalizácie oblasti tváre v snímke, ktorý slúži ako základ pre ďalšie spracovanie. Existujú dve základné kategórie prístupov: klasické (ručne definované príznaky) a moderné (hlboké učenie).
 
 \paragraph{Viola-Jones (Haar Cascade)}
-Algoritmus Viola-Jones využíva tzv. \emph{Haar-like} príznaky a Adaboost klasifikátor trénovaný na veľkom množstve tvárí. Výhodou je nízka výpočtová náročnosť, vďaka čomu je vhodný aj pre zariadenia s obmedzeným výkonom. Slabinou je citlivosť na uhol natočenia tváre a osvetlenie.
+Algoritmus Viola-Jones využíva tzv. Haar-like príznaky a Adaboost klasifikátor trénovaný na veľkom množstve tvárí. Výhodou je nízka výpočtová náročnosť, vďaka čomu je vhodný aj pre zariadenia s obmedzeným výkonom. Slabinou je citlivosť na uhol natočenia tváre a osvetlenie.
 
 \paragraph{SSD Face Detection}
-Metóda \emph{Single Shot MultiBox Detector (SSD)} patrí medzi hlboké konvolučné modely schopné detegovať tváre v reálnom čase. Vstupný obraz sa normalizuje a spracúva sieťou, ktorá výstupom poskytuje ohraničujúce boxy a skóre istoty (\emph{confidence score}). Výhodou je schopnosť robustnej detekcie aj pri zakrytí časti tváre alebo v zhoršených svetelných podmienkach.
+Metóda Single Shot MultiBox Detector (SSD) patrí medzi hlboké konvolučné modely schopné detegovať tváre v reálnom čase. Vstupný obraz sa normalizuje a spracúva sieťou, ktorá výstupom poskytuje ohraničujúce boxy a skóre istoty (confidence score). Výhodou je schopnosť robustnej detekcie aj pri zakrytí časti tváre alebo v zhoršených svetelných podmienkach.
 
 \paragraph{Iné pokročilé metódy}
 Ďalšie populárne detektory zahŕňajú:
@@ -171,7 +175,7 @@ Moderné metódy sa bežne trénujú na datasetoch ako WIDER-Face alebo FDDB a d
     % https://www.researchgate.net/figure/Face-Detector-Model-MobilenetV2-ssd-head_fig2_345431258
 \end{figure}
 \subsubsection{Extrakcia príznakov}
-Po úspešnej detekcii tváre nasleduje fáza extrakcie príznakov (\emph{feature extraction}), kde sa analyzujú črty ako oči, ústa, obočie, nos a ich relatívne pozície. Existujú dva hlavné prístupy:
+Po úspešnej detekcii tváre nasleduje fáza extrakcie príznakov (feature extraction), kde sa analyzujú črty ako oči, ústa, obočie, nos a ich relatívne pozície. Existujú dva hlavné prístupy:
 
 \begin{itemize}
     \item \textbf{Geometrické príznaky}: meranie vzdialeností a uhlov medzi bodmi (napr. vzdialenosť medzi očami),
@@ -183,9 +187,9 @@ Moderné prístupy využívajú \textbf{konvolučné neurónové siete (\gls{cnn
 \subsubsection{Klasifikácia}
 Klasifikácia je záverečným krokom v analýze obrazu, kde sa príznaky spracované z predchádzajúcej fázy priraďujú k určitej kategórii emócií. V tradičných systémoch sa používali metódy ako:
 \begin{itemize}
-    \item \emph{Support Vector Machines (SVM)},
-    \item \emph{Random Forest},
-    \item \emph{K-Nearest Neighbors (k-NN)}.
+    \item Support Vector Machines (SVM),
+    \item Random Forest,
+    \item K-Nearest Neighbors (k-NN).
 \end{itemize}
 
 V súčasnosti sa najčastejšie používajú hlboké neurónové siete, predovšetkým \gls{cnn}, prípadne ich kombinácie s \gls{rnn} alebo LSTM pre spracovanie časových sekvencií vo videách.
@@ -225,10 +229,10 @@ V prípade rozpoznávania emócií z výrazu tváre je typickým scenárom práv
 Rozpoznávanie tváre má oproti iným biometrickým metódam viacero výhod:
 
 \begin{itemize}
-    \item \emph{neinvazívnosť a bezkontaktnosť},
-    \item \emph{vhodnosť pre sledovanie v reálnom čase},
-    \item \emph{vysoká akceptovateľnosť u používateľov},
-    \item \emph{možnosť kombinácie s inými modalitami (hlas, gesta, emócie)}.
+    \item neinvazívnosť a bezkontaktnosť,
+    \item vhodnosť pre sledovanie v reálnom čase,
+    \item vysoká akceptovateľnosť u používateľov,
+    \item možnosť kombinácie s inými modalitami (hlas, gesta, emócie).
 \end{itemize}
 
 Medzi hlavné výzvy patrí:
@@ -243,13 +247,14 @@ Medzi hlavné výzvy patrí:
 Tieto faktory musia byť zohľadnené najmä v aplikáciách v reálnom svete, kde je požadovaná vysoká robustnosť a spoľahlivosť systému.
 
 \section{Existujúce metody analýzy emócií}
+\label{sec:existing_methods}
 V oblasti rozpoznávania emócií na základe výrazu tváre existuje mnoho prístupov, ktoré môžeme rozdeliť na manuálne a automatizované metódy. Kým tradičné manuálne prístupy spočívajú v ručnom označovaní 
 výrazov tváre, moderné metódy využívajú automatické algoritmy, často založené na neurónových sieťach (NN).
 
 \subsection{Ručne značenie}
 Ručne značenie (manuálna anotácia) spočíva v označovaní kľúčových bodov na tvári a následnom priradení výrazov tváre k určitým emočným kategóriám. Tento proces je časovo náročný a vyžaduje expertov 
 na interpretáciu dát. Avšak, ručné značenie je stále dôležité pre tvorbu datasetov, ktoré sú nevyhnutné na trénovanie automatických systémov. Dôležité datasetové projekty, ako sú Cohn-Kanade alebo AffectNet, 
-sa opierajú o ručné značenie výrazov tváre​. Manuálna anotácia má významnú úlohu v počiatočných fázach výskumu, ale pre aplikácie, ktoré vyžadujú veľké množstvo dát, je neefektívna \cite{article01}.
+sa opierajú o ručné značenie výrazov tváre. Manuálna anotácia má významnú úlohu v počiatočných fázach výskumu, ale pre aplikácie, ktoré vyžadujú veľké množstvo dát, je neefektívna \cite{article01}.
 
 Pre kvalitný výstup modelu je nevyhnutné disponovať \textbf{presnými a konzistentnými anotáciami}. Nekonzistentné alebo chybné značkovanie môže výrazne ovplyvniť výslednú presnosť modelu, preto je vhodné, 
 aby anotáciu vykonávali vyškolení ľudia a prípadne sa zabezpečila viacnásobná anotácia (napr. metóda majority voting).
@@ -291,10 +296,11 @@ Tieto systémy sú navrhnuté tak, aby dokázali identifikovať a klasifikovať 
     \item nečakané výrazy (kombinácie viacerých emócií).
 \end{itemize}
 
-Dôkazom úspešnosti týchto prístupov je ich nasadenie v reálnych aplikáciách, napríklad v zákazníckych centrách, automobilovom priemysle (detekcia únavy vodiča), v zdravotníctve (monitorovanie pacientov) či v robotike (adaptívne roboty s afektívnou spätnou väzbou) \cite{Huang2023}.
+Dôkazom úspešnosti týchto prístupov je ich nasadenie v reálnych aplikáciách, napríklad v zákazníckych centrách, automobilovom priemysle (detekcia únavy vodiča), v zdravotníctve (monitorovanie pacientov) či v robotike (adaptívne roboty s afektívnou spätnou väzbou) \cite{inProceedings01}.
 
 
 \section{Návrh riešenia}        %section 4
+\label{sec:solution_design}
 \subsection{Porovnanie vybraných metód}
 V dokumente sa ako hlavné metódy použili kombinácia OpenCV a konvolučných neurónových sietí (\gls{cnn}), pričom tieto technológie boli zvolené kvôli schopnosti riešiť výzvy 
 spojené so zmenami osvetlenia, rôznymi pózami a potrebou rýchleho spracovania v reálnom čase. OpenCV slúžil na efektívne predspracovanie dát a 
@@ -642,6 +648,7 @@ Systém bol navrhnutý s ohľadom na integráciu do výskumného robotického pr
 \end{figure}
 
 \section{Implementácia riešenia}
+\label{sec:implementation}
 \subsection{Vývojové prostredie a infraštruktúra}
 \begin{itemize}
 \item Docker kontainer s Ubuntu 22.04, Python 3.10 a CUDA 11.8
@@ -657,7 +664,7 @@ Trénovací proces prebehol v prostredí \texttt{Jupyter Notebook}, čo umožnil
 \begin{itemize}
 \item \textbf{Dataset RAF-DB:} Načítanie 15 000 obrázkov s rozlíšením 100x100px prostredníctvom vlastného dátového loaderu. Každý obrázok bol normalizovaný pomocou štatistík imagenetovej sady.
 \item \textbf{Dataset FER2013:} Import 35 887 obrázkov s rozlíšením 48x48px s automatickou konverziou do formátu RGB.
-\item \textbf{Rozdelenie dát:} Oba datasety boli rozdelené stratifikovaným splitom v pomere 80% (trénovacie), 10% (validačné), 10% (testovacie) s ohľadom na zachovanie pomeru tried.
+\item \textbf{Rozdelenie dát:} Oba datasety boli rozdelené stratifikovaným splitom v pomere 80\% (trénovacie), 10\% (validačné), 10\% (testovacie) s ohľadom na zachovanie pomeru tried.
 \end{itemize}
 
 \subsubsection{Augmentácia dát}
@@ -746,80 +753,179 @@ Tento systematický prístup zabezpečil reprodukovateľnosť experimentov a umo
   \item Testovanie pri rôznych svetelných podmienkach
   \item Meranie latencie systému (128ms ±23ms)
   \end{itemize}
-
+\end{itemize}
 
 
 \section{Exprerimenty a vyhodnotenie}
-\subsection{Dátová sada} Popis použitého dataset-u (veľkosť, rozdelenie tried, kvalita).
-\subsection{Metriky} Výber vhodných metrik (presnosť, úplnosť, F1-skóre, ROC krivka).
-\begin{figure}[!htpb]
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/confusion.png}
-    \caption{Confusion matrix.}
-    \label{fig:confusion}
-\end{figure}
-\begin{figure}[!htpb]
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/train_graphs.png}
-    \caption{Trénovacie grafy.}
-    \label{fig:roc}
-\end{figure}
-\newpage
+\label{sec:experiments}
+\subsection{Úvod}
+V tejto kapitole prezentujeme a analyzujeme experimenty, ktoré boli uskutočnené s cieľom overiť účinnosť navrhnutého systému na rozpoznávanie emócií na základe výrazu tváre. Systém bol testovaný nielen na otvorených datasetoch, ale aj v reálnych podmienkach, pričom sme overovali jeho správanie pri rôznych osvetleniach, na rôznych typoch kamier a v interakcii so skutočnými ľuďmi.
 
-\subsection{Výsledky} Vyhodnotenie výsledkov experimentov. Prehľadné zhrnutie výsledkov, porovnanie s inými prácami.
+Jedným z hlavných cieľov experimentov bolo porovnať výkonnosť modelu so schopnosťami ľudských účastníkov pri identifikácii emócií z výrazu tváre. Na tento účel bol vytvorený dotazník, v ktorom respondenti označovali emócie na základe rovnakých vizuálnych vstupov, aké boli poskytnuté trénovanému modelu. Týmto spôsobom bolo možné objektívne porovnať rozdiely v úspešnosti medzi človekom a strojom.
+
+Okrem dotazníkového experimentu sme tiež uskutočnili testovanie systému na reálnych zariadeniach. Testy prebiehali na rôznych kamerových platformách vrátane bežnej webkamery, kamery Azure Kinect a priemyselnej kamery Ximea. Zatiaľ čo rozdiely medzi jednotlivými kamerami boli minimálne, najväčší vplyv na presnosť predikcie mali svetelné podmienky. Zmeny v osvetlení, tieňovanie tváre alebo preexponovanie niektorých oblastí výrazne ovplyvňovali výsledky klasifikácie, čím sa potvrdila potreba robustných riešení schopných adaptácie na rôzne prostredia.
+
+Nasledujúce podkapitoly detailne opisujú jednotlivé experimenty, prezentujú výsledky formou metrík a konfúznych matíc a poskytujú diskusiu o silných a slabých stránkach navrhnutého systému.
+\subsection{Testovanie na re\'alnych d\'atach}
+
+V r\'amci overenia praktickej pou\v{z}ite\v{l}nosti syst\'emu bolo vykonan\'e testovanie na re\'alnych \v{l}u\v{d}och v r\'oznych prostrediach a podmienkach. Cie\v{l}om tohto experimentu bolo zhodnoti\v{t}, ako si model porad\'i s predikciou em\'oci\'i v prostred\'i, ktor\'e sa l\'i\v{s}i od \v{s}tandardizovan\'ych datasetov pou\v{z}it\'ych po\v{c}as tr\'eningu.
+
+\subsubsection{Priebeh testovania}
+Experiment prebiehal v re\'alnom \v{c}ase, pri\v{c}om \'u\v{c}astn\'ici boli sn\'iman\'i kamerou po\v{c}as toho, ako vyjadrovali r\'ozne em\'ocie. Tieto em\'ocie boli preddefinovan\'e (napr. \v{s}\v{t}astie, sm\'utok, strach, hnev, znechutenie, prekvapenie, neutr\'alna em\'ocia), a \'u\v{c}astn\'ici sa ich sna\v{z}ili nasimulova\v{t} \v{c}o najvernej\v{s}ie. V\'ystupy z kamery boli n\'asledne spracovan\'e tr\'enovan\'ym modelom, ktor\'y okam\v{z}ite ur\v{c}il pravdepodobn\'u em\'ociu na z\'aklade aktu\'alneho v\'yrazu tv\'are.
+
+\subsubsection{Probl\'emov\'e em\'ocie: strach a sm\'utok}
+Po\v{c}as testovania sa uk\'azalo, \v{z}e najv\"a\v{c}\v{s}ie probl\'emy mal model (rovnako ako \v{l}udsk\'i hodnotitelia) s rozl\'i\v{s}en\'im medzi em\'ociami \textbf{strach} a \textbf{sm\'utok}. D\^ovodom je ich v\'yrazn\'a vizu\'alna podobnos\v{t}, najm\"a v oblasti o\v{c}\'i a obo\v{c}ia. Obidve em\'ocie s\'u \v{c}asto sprev\'adzan\'e stiahnut\'ym obo\v{c}\'im, zn\'i\v{z}enou aktivitou v oblasti \'ust a celkov\'ym poklesom v\'yrazu, \v{c}o sp\^osobuje ich z\'amenu. Navy\v{s}e, ak \'u\v{c}astn\'ici neprejavili em\'ociu dostato\v{c}ne intenz\'ivne, doch\'adzalo k nespr\'avnym klasifik\'aci\'am, ke\v{d} model vyhodnotil v\'yraz ako \textbf{neutr\'alny} alebo zamenil em\'ociu s najbli\v{z}\v{s}\'im vizu\'alnym prejavom.
+
+\subsubsection{Pozorovania}
+\begin{itemize}
+    \item V pr\'ipade \textbf{strachu} sa \v{c}asto st\'avalo, \v{z}e model em\'ociu neklasifikoval spr\'avne, ak bola tv\'ar nedostato\v{c}ne nasvieten\'a. Jemn\'e znaky, ako roz\v{s}\'iren\'e o\v{c}i \v{c}i nap\"atie v tv\'ari, sa stratili pri slab\v{s}om osvetlen\'i.
+    \item \textbf{Sm\'utok} bol niekedy rozpoznan\'y ako \textbf{znechutenie}, ak sa \'u\v{c}astn\'ikovi zvr\'asnila tv\'ar nevhodn\'ym sp\^osobom alebo bola kamera pr\'i\v{l}i\v{s} n\'izko.
+    \item V niektor\'ych pr\'ipadoch sa prejavil rozdiel medzi \textbf{simulovanou} a \textbf{skuto\v{c}nou} em\'ociou -- model mal probl\'em rozpozna\v{t} \uv{nahran\'y} v\'yraz, ktor\'y neobsahoval typick\'e mikrov\'yrazy spojen\'e s danou n\'aladou.
+\end{itemize}
+
+\subsubsection{Zhrnutie}
+Tento experiment uk\'azal, \v{z}e hoci model dosahuje velmi dobr\'e v\'ysledky v kontrolovan\'ych podmienkach, jeho v\'ykonnos\v{t} m\^o\v{z}e by\v{t} ovplyvnen\'a prirodzenos\v{t}ou v\'yrazu a sveteln\'ymi podmienkami. Preto je d\^ole\v{z}it\'e pri praktickom nasaden\'i po\v{c}\'ita\v{t} s mo\v{z}nos\v{t}ou ch\'yb pri em\'oci\'ach, ktor\'e s\'u vizu\'alne podobn\'e alebo subt\'ilne.
+
+\textbf{Príklady z praxe.}
+
+\subsection{Dotazn\'ikov\'y experiment s \v{l}u\v{d}mi}
+
+V snahe porovna\v{t} schopnosti modelu s \v{l}udskou percepciou em\'oci\'i bol vytvoren\'y dotazn\'ik, v ktorom respondenti klasifikovali em\'ocie z\'obrazen\'e na rovnak\'ych vstupn\'ych fotografi\'ach, ak\'e boli predlo\v{z}en\'e modelu. Ka\v{z}d\'y respondent mal za \'ulohu priradi\v{t} jednu z preddefinovan\'ych em\'oci\'i (\v{s}\v{t}astie, sm\'utok, hnev, strach, znechutenie, prekvapenie, neutr\'alna) ku ka\v{z}dej fotografii.
+
+\subsubsection{Zber a spracovanie odpoved\'i}
+Dotazn\'ik bol vyplnen\'y 11 respondentmi, ktor\'i klasifikovali s\'erie 52 obrazov. Ich odpovede boli analyzovan\'e a vyhodnotili sme individu\'alne presnosti a celkov\'y priemer. Celkov\'a priemern\'a \'uspe\v{s}nos\v{t} \v{l}ud\'i dosiahla \textbf{64.4\%}, s hodnoteniami medzi 55.8\% a 73.6\%.
+
+\begin{figure}[!htpb]
+\centering
+    \includegraphics[width=0.8\textwidth]{img/experiments/google_form.png}
+    % \title{Dotazn\'ik pre hodnotenie em\'oci\'i}
+    \caption{Dotazn\'ik pre hodnotenie em\'oci\'i}
+    \label{fig:google_form}
+\end{figure}
+\subsubsection{Naj\v{c}astej\v{s}ie chyby \v{l}ud\'i}
+\begin{itemize}
+    \item \textbf{Strach} bol \v{c}asto zamie\v{n}an\'y za \textbf{hnev}.
+    \item \textbf{Prekvapenie} si respondenti \v{c}asto plietli so \textbf{neutr\'aln\'ym}.
+\end{itemize}
+
+\subsubsection{Porovnanie s modelom}
+Model bol testovan\'y na rovnak\'ych vstupoch ako respondenti a dosiahol celkov\'u presnos\v{t} \textbf{90.4\%}. Zatia\v{l} \v{c}o \v{l}udia mali probl\'emy s niektor\'ymi em\'ociami, model vykazoval stabilne v\'ysledky s najv\"a\v{c}\v{s}ou chybovos\v{t}ou pri \textbf{prekvapen\'i} a \textbf{znechuten\'i}.
 \begin{figure}[!htpb]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/neutral.png}
-        \caption{Neutral}
-        \label{fig:neutral}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/fear.png}
-        \caption{Fear}
-        \label{fig:fear}
-    \end{subfigure}
-    \vskip\baselineskip
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/disgust.png}
-        \caption{Disgust}
-        \label{fig:disgust}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/surprise.png}
-        \caption{Surprise}
-        \label{fig:surprise}
-    \end{subfigure}
-    \caption{Examples of different facial expressions.}
-    \label{fig:expressions}
+    \includegraphics[width=0.8\textwidth]{img/experiments/confusion_nn_google_data.png}
+    % \title{Dotazn\'ik pre hodnotenie em\'oci\'i}
+    \caption{Neur\'ov\'a sie\v{t} s rovnak\'ymi vstupmi ako respondenti}
+    \label{fig:nn_google_data}
 \end{figure}
-\newpage
-\subsection{Analýza výsledkov} Analýza výsledkov, príčiny chýb, možné zlepšenia.
+\subsection{Vizualiz\'acia v\'ysledkov}
+\begin{itemize}
+    \item Prilo\v{z}en\'a je konf\'uzna matica pre hodnotenia \v{l}ud\'i.
+    \item Prilo\v{z}en\'a je konf\'uzna matica pre model.
+    \item Graf porovn\'avaj\'uci priemern\'u presnos\v{t} \v{l}ud\'i a modelu.
+\end{itemize}
 
+\subsubsection{Zhrnutie}
+Dotazn\'ikov\'y experiment uk\'azal, \v{z}e hoci \v{l}udia maj\'u schopnos\v{t} intuit\'ivne rozpozna\v{t} em\'ocie, model tr\'enovan\'y na rozsiahlych datasetoch dok\'aze dosahova\v{t} podstatne vy\v{s}\v{s}iu presnos\v{t}. Pri interpret\'acii em\'oci\'i m\^o\v{z}e by\v{t} rozhoduj\'uca konzistentnos\v{t} a pozornos\v{t} na detail, ktor\'e model zvl\'ada lep\v{s}ie ako n\'ahodn\'y respondent.
+
+\subsection{Testovanie s r\'oznymi zariadeniami a podmienkami}
+
+Na zhodnotenie robustnosti modelu bolo testovanie roz\v{s}\'{i}ren\'e o r\'ozne typy vstupn\'ych zariaden\'i a sveteln\'ych podmienok. Pou\v{z}it\'e boli viacer\'e kamery, konkr\'etne be\v{z}n\'a webkamera, kamera Azure Kinect a priemyseln\'a kamera Ximea.
+
+\subsubsection{Výsledky na rôznych zariadeniach}
+Pri testovan\'i na r\'oznych kamer\'ach boli zaznamenan\'e len minim\'alne rozdiely vo v\'ykone modelu. Presnos\v{t} klasifik\'acie zostala vysok\'a, \v{c}o potvrdzuje, \v{z}e model je schopn\'y efekt\'ivne pracova\v{t} s r\'oznymi typmi obrazov\'ych vstupov.
+
+\subsubsection{Vplyv svetelných podmienok}
+Najv\"a\v{c}\v{s}ie rozdiely boli pozorovan\'e pri zmene sveteln\'ych podmienok:
+\begin{itemize}
+    \item pri silnom alebo nehomog\'ennom osvetlen\'i bola z\'achytnos\v{t} mikrov\'yrazov zhor\v{s}en\'a,
+    \item v pr\'ipade slab\'eho svetla alebo tie\v{n}ovania tv\'are sa zvy\v{s}ila chybovos\v{t}, najm\"a pri subtiln\'ych em\'oci\'ach ako strach alebo znechutenie,
+    \item zmeny kontrastu a preexponovanie niektor\'ych \v{c}ast\\'i tv\'are viedli k chybn\'ym klasifik\'aci\'am.
+\end{itemize}
+
+\subsubsection{Zhrnutie}
+Testovanie uk\'azalo, \v{z}e model je dostato\v{c}ne robustn\'y na r\'ozne hardv\'erov\'e konfigur\'acie, ale jeho v\'ykonnos\v{t} je citliv\'a na sveteln\'e podmienky. Preto je odpor\'u\v{c}an\'e pri praktickom nasaden\'i zabezpe\v{c}i\v{t} stabiln\'e a kvalitn\'e osvetlenie pri sn\'iman\'i tv\'are.
+
+\subsection{Porovnanie s výsledkami modelu}
+
+Porovnanie výstupov modelu a odpovedí ľudských účastníkov bolo realizované na identickej množine 52 snímok tvárí, ktoré zobrazovali jednotlivé základné emócie. Každý účastník dotazníka mal za úlohu priradiť jednej z týchto fotografií jednu z preddefinovaných emócií: radosť, smútok, hnev, strach, prekvapenie, znechutenie alebo neutrálny výraz. Tieto isté snímky boli následne spracované trénovaným modelom ResEmoteNet, čím bolo zabezpečené objektívne porovnanie medzi človekom a systémom.
+
+Priemerná úspešnosť ľudských účastníkov dosiahla 64,4 \%, pričom jednotlivé výsledky sa pohybovali v rozmedzí od 55,8 \% do 73,6 \%. Naopak, model dosiahol presnosť 90,4 \%, čo poukazuje na jeho výrazne vyššiu konzistentnosť pri určovaní emócií.
+
+Najvyššiu mieru zhody medzi človekom a modelom bolo možné pozorovať pri emócii radosť, ktorá bola ľahko rozpoznateľná vďaka charakteristickým znakom ako sú zdvihnuté kútiky úst a vrásky v oblasti očí. Neutrálny výraz bol správne klasifikovaný modelom vo väčšine prípadov, avšak u ľudí bol častejšie zamieňaný za mierne pozitívne alebo negatívne emócie.
+
+Rozdiely medzi modelom a respondentmi sa výraznejšie prejavili pri emóciách strach a znechutenie. Tieto emócie boli zameniteľné aj medzi samotnými ľuďmi, čo naznačuje, že ich vizuálne prejavy sú menej jednoznačné a môžu sa prekrývať so smútkom alebo hnevom. Model v týchto prípadoch vykazoval vyššiu stabilitu v predikcii, no niekedy tiež dochádzalo k zámene s príbuznou emóciou.
+
+Výsledky taktiež ukázali, že niektorí respondenti mali tendenciu vyhodnocovať výrazy viac intuitívne, zatiaľ čo model pracoval výhradne na základe vizuálnych čŕt. Tento rozdiel v prístupe sa prejavil najmä pri výrazoch, ktoré boli menej výrazné alebo simulované bez silného emočného podkladu. V takých prípadoch sa stávalo, že ľudia reagovali odlišne než model – niekedy presnejšie, inokedy menej.
+
+Celkovo možno konštatovať, že model dosahuje vyššiu presnosť ako priemerný ľudský hodnotiteľ, predovšetkým v kategóriách s dobre definovanými znakmi. Napriek tomu ľudia dokážu v niektorých prípadoch lepšie rozpoznať jemné nuansy a neverbálne signály, čo naznačuje, že spojenie oboch prístupov môže priniesť ešte spoľahlivejšie riešenia pre budúce aplikácie.
+
+\subsection{Analýza výsledkov}
+
+Výsledky experimentov ukázali, že model ResEmoteNet dosahuje vysokú presnosť pri rozpoznávaní emócií, najmä v kontrolovaných podmienkach s dobrým osvetlením a priamym pohľadom do kamery. Najspoľahlivejšie boli identifikované emócie radosť a neutrálny výraz, ktoré majú výrazné vizuálne znaky. Naopak, emócie ako strach a znechutenie boli častejšie zamieňané, a to aj medzi ľudskými hodnotiteľmi.
+
+Dotazníkový experiment preukázal, že ľudia dosahovali priemernú úspešnosť okolo 64 \%, zatiaľ čo model vykazoval presnosť cez 90 \%, čo potvrdzuje jeho stabilitu. Zároveň sa ukázalo, že svetelné podmienky a prirodzenosť výrazu majú zásadný vplyv na presnosť rozpoznania, a preto je potrebné zabezpečiť kvalitné vstupné dáta.
+
+Systém preukázal robustnosť voči rôznym kamerovým zariadeniam, no ostáva citlivý na nehomogénne alebo slabé osvetlenie. Výsledky potvrdili, že navrhnuté riešenie je vhodné na praktické použitie, pričom ďalšie zlepšenia možno dosiahnuť zapojením doplnkových modalít alebo využitím časového kontextu (napr. v podobe videa).
+
+\subsection{Zhrnutie experimentov}
+
+Experimenty preukázali, že navrhnutý systém na rozpoznávanie emócií na základe výrazu tváre je schopný spoľahlivo identifikovať základné emócie v reálnom čase a v rôznych podmienkach. Model \textit{ResEmoteNet} dosiahol vysokú presnosť najmä pri emóciách, ktoré majú jednoznačné vizuálne znaky – ako radosť, prekvapenie a neutrálny výraz. Porovnanie s výsledkami ľudských hodnotení potvrdilo, že model pracuje konzistentnejšie a s vyššou presnosťou ako priemerný človek.
+
+\subsubsection{Silné stránky systému}
+\begin{itemize}
+  \item Vysoká presnosť klasifikácie v kontrolovaných podmienkach,
+  \item Robustnosť voči typu použitej kamery (webkamera, RGB-D, priemyselná kamera),
+  \item Reálne časové spracovanie obrazu a vhodnosť pre nasadenie v robotických systémoch,
+  \item Výrazne lepšie výsledky oproti ľudským hodnotiteľom pri rovnakých vstupoch.
+\end{itemize}
+
+\subsubsection{Slabé stránky systému}
+\begin{itemize}
+  \item Zvýšená chybovosť pri zhoršených svetelných podmienkach a zakrytí častí tváre,
+  \item Občasné zámene podobných emócií (napr. strach -- smútok, znechutenie -- hnev),
+  \item Nízka spoľahlivosť pri simulovaných (neautentických) výrazoch bez prirodzených mikrovýrazov.
+\end{itemize}
+
+\subsubsection{Odporúčané metodológie a nástroje pre ďalší výskum}
+\begin{itemize}
+  \item Rozšírenie systému o multimodálne vstupy (napr. hlas, fyziologické signály),
+  \item Zapojenie časového kontextu – využitie videosekvencií a modelov 3D CNN,
+  \item Použitie adaptívneho osvetlenia alebo infračervených senzorov na elimináciu vplyvu svetelných podmienok,
+  \item Experimentálne testovanie na väčšej vzorke účastníkov v prirodzených pracovných podmienkach (napr. pri reálnej interakcii človek--robot).
+\end{itemize}
+
+Z pohľadu praktického nasadenia je systém pripravený na integráciu do robotických platforiem, pričom jeho výkonnosť môže byť ďalej zlepšovaná kombináciou s ďalšími technológiami pre rozpoznávanie stavu operátora.
 
 \section{Záver}
-\subsection{Zhodnotenie práce}Zhodnotenie dosiahnutých výsledkov.
-\subsection{Obmedzenia práce}Obmedzenia práce, možné zlepšenia.
-\subsection{Budúce smerovanie}Možné smerovanie ďalšej práce.
+\label{sec:conclusion}
+\subsection{Zhodnotenie práce}
 
-\section{Doplnujece poznamky }
-Literatúra: Pravidelne citujte relevantnú literatúru.
-Obrázky a diagramy: Používajte obrázky a diagramy na ilustráciu komplexných konceptov.
-Kód: Ak je to možné, pridajte ukážky kódu.
-Tabuľky: Používajte tabuľky na porovnanie výsledkov.
-Táto štruktúra poskytuje komplexný rámec pre vašu prácu. Môžete ju prispôsobiť podľa svojich konkrétnych potrieb a zistení.
-\section{Plán práce na ďalši semester}
-\begin{itemize}
-    \item Implementácia iné štruktúry neuronovej siete pre dosiahnutie lepších výsledkov.
-    \item Testovanie systému na simulovaných a reálnych dátach.
-    \item Integrácia systému do robotických platforiem.
-    \item Experimenty a vyhodnotenie výsledkov.
-    \item Napísanie záverečnej práce.
-    \item Obhajoba záverečnej práce.
-\end{itemize}
+Cieľom diplomovej práce bolo navrhnúť, implementovať a experimentálne overiť systém na rozpoznávanie emócií operátora na základe výrazu tváre. Tento cieľ bol úspešne naplnený prostredníctvom vytvorenia modulu využívajúceho model ResEmoteNet, ktorý bol trénovaný na dátach z reálnych databáz a integrovaný do robotického systému v prostredí \gls{ros}.
+
+Navrhnutý systém dosahoval vysokú presnosť pri klasifikácii základných emócií, pričom najlepšie výsledky boli dosiahnuté pri kategóriách radosť, prekvapenie a neutrálny výraz. Systém bol úspešne otestovaný v rôznych podmienkach a s rôznymi typmi kamier, čo potvrdzuje jeho praktickú využiteľnosť v reálnom prostredí. V rámci dotazníkového experimentu bolo preukázané, že presnosť modelu je vyššia ako u bežných ľudských hodnotiteľov.
+
+Z hľadiska zadania boli splnené všetky hlavné úlohy práce vrátane analýzy súčasných metód, návrhu architektúry systému, implementácie a testovania, ako aj vytvorenia samostatného \gls{ros} balíka pre jednoduchú integráciu. Výsledný systém predstavuje funkčné a rozšíriteľné riešenie, ktoré je možné nasadiť v rámci moderných kolaboratívnych robotických platforiem.
+
+\subsection{Obmedzenia práce}
+
+Aj napriek dosiahnutým pozitívnym výsledkom má navrhnutý systém niekoľko obmedzení, ktoré je potrebné zohľadniť pri jeho praktickom nasadení.
+
+Jedným z hlavných obmedzení je citlivosť na svetelné podmienky. V prípade nehomogénneho alebo slabého osvetlenia môže dôjsť k zníženiu presnosti detekcie a klasifikácie emócií, najmä pri jemných alebo menej výrazných výrazoch tváre. Taktiež pri čiastočnom zakrytí tváre (napr. rukou, vlasmi alebo rúškom) sa výkonnosť modelu znižuje, čo je dôležité najmä v reálnych aplikáciách s nekontrolovaným prostredím.
+
+Ďalším obmedzením je absencia časového kontextu – systém pracuje s jednotlivými snímkami bez zohľadnenia dynamiky výrazu tváre v čase. To obmedzuje jeho schopnosť rozpoznať prechodné alebo komplexnejšie emócie, ktoré sa prejavujú postupne.
+
+Model bol trénovaný a testovaný na dátach z verejných datasetov a obmedzenej skupiny respondentov. Hoci výsledky naznačujú dobrú generalizáciu, pre úplnú robustnosť by bolo vhodné testovať systém na väčšom a diverzifikovanejšom súbore účastníkov, ako aj v rôznych pracovných scenároch.
+
+Napokon, systém sa zameriava výlučne na vizuálnu modalitu, čím môže prísť o doplňujúce informácie z iných zdrojov, ako sú reč, tón hlasu alebo fyziologické parametre. Tieto vstupy by mohli zlepšiť presnosť a spoľahlivosť pri hodnotení emočného stavu operátora v komplexných situáciách.
+
+\subsection{Budúce smerovanie}
+
+Na základe identifikovaných obmedzení a získaných poznatkov z experimentov možno navrhnúť viacero smerov pre ďalší výskum a vývoj systému.
+
+Jednou z hlavných oblastí rozšírenia je zapojenie ďalších modalít do procesu rozpoznávania emócií. Kombinácia vizuálnych údajov s rečou, tónom hlasu, pohybom tela by mohla zvýšiť presnosť a spoľahlivosť systému najmä v náročných podmienkach.
+
+Ďalším prirodzeným krokom je spracovanie videosekvencií a zohľadnenie časového kontextu pomocou modelov ako 3D konvolučných sietí. Táto funkcionalita by umožnila identifikovať dynamiku výrazu tváre a mikrovýrazy, ktoré sú kľúčové pre rozpoznanie niektorých prechodných emócií.
+
+V neposlednom rade je žiaduce realizovať dlhodobé testovanie v reálnom nasadení – napríklad v priemyselnom alebo zdravotníckom prostredí – kde sa dá overiť správanie systému v praxi, vrátane spätnej väzby od koncových používateľov. Takéto testovanie by poskytlo cenné poznatky pre ďalšiu iteráciu návrhu.
+
+Rozšírenie systému týmto smerom prispeje k vytvoreniu komplexnejšieho a prirodzenejšieho spôsobu interakcie medzi človekom a robotickým systémom.
