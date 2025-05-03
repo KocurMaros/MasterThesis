@@ -698,6 +698,12 @@ Tento systematický prístup zabezpečil reprodukovateľnosť experimentov a umo
   \item Result Publisher: \texttt{/emotion\_predicted}
   \end{itemize}
 \end{itemize}
+\begin{figure}[!htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/subscriber.png}
+    \caption{ROS subscriber na detekované emócie}
+    \label{fig:ros2_architecture}
+\end{figure}
 
 \subsection{Webová vizualizácia pomocou Flask}
 \begin{itemize}
@@ -706,13 +712,28 @@ Tento systematický prístup zabezpečil reprodukovateľnosť experimentov a umo
 \item Integrácia s ROS2 cez \texttt{rosbridge\_server}
 \end{itemize}
 
+\begin{figure}[!htpb]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\textwidth]{img/web_1.png}
+        \caption{Webová vizualizácia výsledkov rozpoznávania emócií - znechutenie}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\textwidth]{img/web_2.png}
+        \caption{Webová vizualizácia výsledkov rozpoznávania emócií - šťastie}
+    \end{subfigure}
+    \caption{Príklady webovej vizualizácie systému pri testovaní na reálnych používateľoch}
+    \label{fig:web_examples}
+\end{figure}
+
 \subsection{Validácia na robotickom pracovisku COCOHRIP}
     \begin{itemize}
 \item Testovacia platforma URK FEI STU:
   \begin{itemize}
   \item Interakcia s robotom UR5e v reálnom čase
   \item Testovanie pri rôznych svetelných podmienkach
-  \item Meranie latencie systému (128ms ±23ms)
+  \item Meranie latencie systému (500 ms)
   \end{itemize}
 \end{itemize}
 
