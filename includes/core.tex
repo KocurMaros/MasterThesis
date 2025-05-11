@@ -6,6 +6,12 @@ kooperáciu a bezpečnosť pri spoločnej práci \cite{article04}.
 
 Psychológ Paul Ekman pomenoval šesť základných emócií - šťastie, smútok, hnev, strach, prekvapenie a znechutenie - ktoré sú často základom pre zavedené kategórie emócií pri rozpoznávaní tváre. 
 Výber týchto emócií bol založený na ich univerzálnom rozpoznávaní a pozorovaní naprieč kultúrami, čo ich predurčuje na použitie v systémoch rozpoznávania tváre.
+\begin{figure}[!htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/emotions.png}
+    \caption{Ekmanove základné emócie. 1. neutrálna, 2. hnev, 3. znechutenie, 4. strach, 5. šťastie, 6. smútenie, 7. prekvapenie \cite{figure_ekman}.} 
+    \label{fig:ekman}
+\end{figure}
 
 Podľa Ekmanovho výskumu sa tieto pocity odrážajú v konkrétnych výrazoch tváre, ktoré dokážu automaticky rozpoznať ľudia zo všetkých kultúrnych prostredí. Jeho práca vytvorila fundamentálny základ 
 pre strojové učenie a psychológiu, najmä pri vytváraní systémov, ktoré dokážu dešifrovať výrazy tváre na určenie emocionálneho stavu jednotlivca.
@@ -23,7 +29,7 @@ pomocou technológií strojového učenia, najmä pomocou hlbokých neurónovýc
 
 Súčasné metódy na rozpoznávanie emócií zahŕňajú viacero prístupov. Tradičné prístupy, ako napríklad metódy založené na geometrických črtách a textúrach, boli doplnené modernými metódami založenými 
 na hlbokom učení, ktoré dosahujú vysokú presnosť. Neurónové siete sú schopné automaticky extrahovať črty tváre bez potreby manuálneho zásahu, čo výrazne zvyšuje efektivitu systému. Tieto pokročilé 
-modely dosahujú vysokú mieru úspešnosti v rôznych aplikáciách, ako sú zdravotná starostlivosť, priemyselná automatizácia \cite{article03} \cite{book01}.
+modely dosahujú vysokú mieru úspešnosti v rôznych aplikáciách, ako sú zdravotná starostlivosť alebo priemyselná automatizácia \cite{article03} \cite{book01}.
 
 \subsection{Motivácia}
 V súčasnej dobe, keď technológie prenikajú do všetkých aspektov ľudského života, je nevyhnutné, aby robotické systémy disponovali nielen kognitívnymi schopnosťami, ale aj emocionálnou inteligenciou. 
@@ -58,7 +64,7 @@ Práca sa zameriava na splnenie nasledujúcich čiastkových cieľov:
     \item Analýza existujúcich metód rozpoznávania emócií na základe výrazu tváre – preskúmanie prístupov založených na tradičnom strojovom učení (SVM, HOG + LBP), ako aj moderných hlbokých neurónových sietí 
 (\gls{cnn}, ResNet, SE-ResNet, atď.)
 
-    \item Štúdium biometrických modelov tváre a techník detekcie tváre – výskum metód ako Haar Cascade, MT\gls{cnn}, Dlib a OpenCV moduly na detekciu a orezanie tváre.
+    \item Štúdium biometrických modelov tváre a techník detekcie tváre – skúmanie metód ako Haar Cascade, MT\gls{cnn}, Dlib a OpenCV moduly na detekciu a orezanie tváre.
 
     \item Návrh architektúry systému na rozpoznávanie emócií – vybudovanie modelu (napr. ResEmoteNet) využívajúceho konvolučné siete a reziduálne bloky, schopného klasifikovať emócie ako radosť, smútok, hnev, prekvapenie, 
 odpor a strach.
@@ -82,6 +88,7 @@ Cieľom práce je vytvoriť systém, ktorý bude schopný rozpoznať emócie v r
 \section{Teoretické základy}
 \label{sec:theory}
 \subsection{Emócie a ich prejav}
+\label{sec:emotions}
 Emócie predstavujú základný prvok ľudskej psychiky a zohrávajú kľúčovú úlohu pri vnímaní, rozhodovaní a správaní človeka. Ide o komplexné psychologické stavy, ktoré sú výsledkom interakcie medzi subjektívnymi prežitkami, 
 fyziologickými reakciami a behaviorálnymi prejavmi. 
 Emócie sú neoddeliteľnou súčasťou medziľudskej komunikácie a výrazne ovplyvňujú spôsob, akým človek interpretuje a reaguje na svoje okolie \cite{article01}.
@@ -92,7 +99,7 @@ indikátor emocionálneho stavu, ktorý je zároveň vhodný na analýzu pomocou
 
 Podľa výskumu psychológa Paula Ekmana existuje šesť základných emócií, ktoré sú univerzálne rozpoznateľné na základe výrazu tváre naprieč kultúrami: radosť, smútok, hnev, strach, prekvapenie a odpor. 
 Tieto emócie majú charakteristické črty, ktoré sú podmienené aktivitou konkrétnych svalových skupín v tvári. 
-Napríklad radosť sa často prejavuje zdvihnutím kútikov úst a vytvorením vrások okolo očí, zatiaľ čo hnev býva charakterizovaný znížením obočia a stiahnutými perami.
+Napríklad radosť sa často prejavuje zdvihnutím kútikov úst a vytvorením vrások okolo očí, zatiaľ čo hnev býva charakterizovaný znížením obočia a stiahnutými perami \cite{article03}.
 
 Význam výrazu tváre ako neverbálneho komunikačného kanála podčiarkuje aj výskum, ktorý ukazuje, že až 55 \% emocionálnych informácií v interpersonálnej komunikácii je sprostredkovaných cez tvár. 
 Tento údaj zdôrazňuje dôležitosť správnej analýzy mimiky pri snahe strojovo identifikovať emócie.
@@ -102,9 +109,7 @@ a v robotike zvyšovať adaptabilitu robotických systémov pri práci s ľuďmi
 
 Z výskumného pohľadu je preto nevyhnutné dôkladne porozumieť tomu, ako sa emócie prejavujú vo výraze tváre, a akými algoritmickými prístupmi je možné tieto prejavy detegovať a interpretovať. To tvorí východisko pre praktickú časť práce, 
 kde sa tieto teoretické poznatky pretavia do konkrétneho technického riešenia.
-\subsubsection{Univerzálne emócie}
-Jednou z najvýznamnejších teórií o emóciách je teória univerzálnych emócií, ktorú vyvinul psychológ Paul Ekman. 
-Tieto emócie sú nezávislé od kultúrnych vplyvov a prejavujú sa podobným spôsobom naprieč rôznymi kultúrami a etnickými skupinami \cite{article03}.
+
 \subsubsection{Kultúrne rozdiely v prejave emócií}
 Aj napriek existencii univerzálnych emócií existujú značné kultúrne rozdiely v tom, ako sú emócie prejavované a interpretované. Kultúrne normy a spoločenské očakávania môžu výrazne ovplyvniť intenzitu, frekvenciu a spôsob vyjadrenia emócií.
 
@@ -118,7 +123,7 @@ adaptované modely, alebo multimodálne systémy, ktoré pracujú s doplňujúci
 Výraz tváre je jedným z najdôležitejších vizuálnych prejavov emocionálneho stavu človeka. Ide o dynamický proces, pri ktorom sa aktivujú rôzne skupiny mimických svalov a vytvárajú charakteristické konfigurácie typické pre jednotlivé emócie. Napríklad zdvihnutie kútikov úst je typické pre radosť, stiahnutie obočia smerom dovnútra pre hnev a zdvihnutie vnútorných častí obočia často signalizuje smútok.
 
 Tieto konfigurácie boli formalizované v rámci systému FACS (Facial Action Coding System), ktorý vyvinul Ekman spolu s Friesenom. 
-FACS poskytuje štandardizovaný spôsob, ako kvantifikovať a analyzovať pohyby svalov tváre, čím sa stal základom pre mnohé moderné algoritmy rozpoznávania emócií. \cite{ekman1978facs}
+FACS poskytuje štandardizovaný spôsob, ako kvantifikovať a analyzovať pohyby svalov tváre, čím sa stal základom pre mnohé moderné algoritmy rozpoznávania emócií \cite{ekman1978facs}.
 
 Vzhľadom na to, že výraz tváre je jedným z najvýraznejších a najinformatívnejších neverbálnych prejavov človeka, biometrické systémy ho často využívajú ako kľúčový vizuálny vstup. Jeho vysoká výpovedná hodnota z pohľadu emocionálneho rozpoloženia, ako aj relatívna jednoduchosť snímania, robia z tváre ideálny objekt pre pasívne rozpoznávanie v reálnom čase. 
 Táto vizuálna modalita je preto prirodzene preferovaná v aplikáciách počítačového videnia a umelej inteligencie, kde hrá zásadnú rolu pri autentifikácii osôb aj pri odhadovaní ich psychického stavu.
@@ -132,7 +137,7 @@ Analýza obrazu je kľúčovým prvkom systému rozpoznávania emócií, pretož
     \item \textbf{Klasifikácia} -- priradenie emócie na základe získaných čŕt.
 \end{itemize}
 
-Tieto kroky je možné realizovať pomocou klasických metód počítačového videnia (napr. OpenCV), ako aj s využitím moderných hlbokých neurónových sietí (napr. \gls{cnn}), ktoré často spájajú všetky tri fázy do jedného end-to-end modelu.
+Tieto kroky je možné realizovať pomocou klasických metód počítačového videnia, ako aj s využitím moderných hlbokých neurónových sietí, ktoré často spájajú všetky tri fázy do jedného end-to-end modelu.
 
 \subsubsection{Detekcia tváre}
 Detekcia tváre je prvým krokom pri analýze obrazu. Ide o proces lokalizácie oblasti tváre v snímke, ktorý slúži ako základ pre ďalšie spracovanie. Existujú dve základné kategórie prístupov: klasické (ručne definované príznaky) a moderné (hlboké učenie).
@@ -156,7 +161,7 @@ Moderné metódy sa bežne trénujú na datasetoch ako WIDER-Face alebo FDDB a d
 \begin{figure}[!htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{img/haar_cascade.png}
-    \caption{Detekcia tváre pomocou Haar Cascade.} 
+    \caption{Detekcia tváre pomocou Haar Cascade \cite{haar_cascade_model}.} 
     \label{fig:haar_cascade}
     % https://medium.com/@baselanaya/faces-detection-using-haar-cascade-3e175aef84f5
 \end{figure}
@@ -164,10 +169,11 @@ Moderné metódy sa bežne trénujú na datasetoch ako WIDER-Face alebo FDDB a d
 \begin{figure}[!htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{img/ssd_model.png}
-    \caption{Detekcia tváre pomocou SSD modelu.} 
+    \caption{Detekcia tváre pomocou SSD modelu \cite{SSD_model}.} 
     \label{fig:ssd_model}
     % https://www.researchgate.net/figure/Face-Detector-Model-MobilenetV2-ssd-head_fig2_345431258
 \end{figure}
+\vspace{4.5cm}
 \subsubsection{Extrakcia príznakov}
 Po úspešnej detekcii tváre nasleduje fáza extrakcie príznakov (feature extraction), kde sa analyzujú črty ako oči, ústa, obočie, nos a ich relatívne pozície. Existujú dva hlavné prístupy:
 
@@ -176,7 +182,7 @@ Po úspešnej detekcii tváre nasleduje fáza extrakcie príznakov (feature extr
     \item \textbf{Textúrne príznaky}: využívajú sa filtre ako Gabor, LBP (Local Binary Patterns) alebo HOG (Histogram of Oriented Gradients).
 \end{itemize}
 
-Moderné prístupy využívajú \textbf{konvolučné neurónové siete (\gls{cnn})}, ktoré automaticky extrahujú hierarchické príznaky z obrazových dát bez potreby manuálneho návrhu čŕt. Tento spôsob je robustnejší voči zmenám osvetlenia, výrazu a šumu.
+Moderné prístupy využívajú \gls{cnn}, ktoré automaticky extrahujú hierarchické príznaky z obrazových dát bez potreby manuálneho návrhu čŕt. Tento spôsob je robustnejší voči zmenám osvetlenia, výrazu a šumu.
 
 \subsubsection{Klasifikácia}
 Klasifikácia je záverečným krokom v analýze obrazu, kde sa príznaky spracované z predchádzajúcej fázy priraďujú k určitej kategórii emócií. V tradičných systémoch sa používali metódy ako:
@@ -190,7 +196,7 @@ V súčasnosti sa najčastejšie používajú hlboké neurónové siete, predov�
 
 \subsection{Biometria}
 
-Biometria je vedný odbor zaoberajúci sa rozpoznávaním a identifikáciou osôb na základe ich jedinečných fyziologických alebo behaviorálnych charakteristík. V kontexte tejto práce sa biometria sústreďuje predovšetkým na \textbf{biometriu tváre}, ktorá využíva špecifické črty ľudskej tváre na autentifikáciu, verifikáciu alebo identifikáciu jednotlivcov.
+Biometria je vedný odbor zaoberajúci sa rozpoznávaním a identifikáciou osôb na základe ich jedinečných fyziologických alebo behaviorálnych charakteristík. V kontexte tejto práce sa biometria sústreďuje predovšetkým na biometriu tváre, ktorá využíva špecifické črty ľudskej tváre na autentifikáciu, verifikáciu alebo identifikáciu jednotlivcov.
 
 Rozpoznávanie tváre patrí medzi najpoužívanejšie a najprirodzenejšie biometrické techniky. Na rozdiel od iných biometrických metód (napr. odtlačky prstov alebo dúhovka), tvár je voľne dostupná a možno ju snímať neinvazívne aj bez vedomia pozorovaného subjektu, čo otvára možnosti pre pasívne monitorovanie, ale zároveň vyžaduje dôsledné riešenie otázok ochrany súkromia\cite{inProceedings01} \cite{article03}.
 
@@ -243,7 +249,7 @@ Tieto faktory musia byť zohľadnené najmä v aplikáciách v reálnom svete, k
 V oblasti rozpoznávania emócií na základe výrazu tváre existuje mnoho prístupov, ktoré môžeme rozdeliť na manuálne a automatizované metódy. Kým tradičné manuálne prístupy spočívajú v ručnom označovaní 
 výrazov tváre, moderné metódy využívajú automatické algoritmy, často založené na neurónových sieťach (NN).
 
-\subsection{Ručne značenie}
+\subsection{Ručné značenie}
 Ručne značenie (manuálna anotácia) spočíva v označovaní kľúčových bodov na tvári a následnom priradení výrazov tváre k určitým emočným kategóriám. Tento proces je časovo náročný a vyžaduje expertov 
 na interpretáciu dát. Avšak, ručné značenie je stále dôležité pre tvorbu datasetov, ktoré sú nevyhnutné na trénovanie automatických systémov. Dôležité datasetové projekty, ako sú Cohn-Kanade alebo AffectNet, 
 sa opierajú o ručné značenie výrazov tváre. Manuálna anotácia má významnú úlohu v počiatočných fázach výskumu, ale pre aplikácie, ktoré vyžadujú veľké množstvo dát, je neefektívna \cite{article01}.
@@ -268,9 +274,9 @@ Zásadnou výhodou \gls{cnn} je ich robustnosť voči variabilite v osvetlení, 
 Pre aplikácie rozpoznávania emócií sa najčastejšie využívajú nasledovné typy hlbokých neurónových sietí:
 
 \begin{itemize}
-    \item \textbf{\gls{cnn}:} Používané na extrakciu \textit{priestorových} čŕt tváre z jednotlivých obrázkov. Sú schopné zachytiť štruktúry tváre aj pri rôznych výrazoch a uhle natočenia.
+    \item \textbf{\gls{cnn}:} Používané na extrakciu priestorových čŕt tváre z jednotlivých obrázkov. Sú schopné zachytiť štruktúry tváre aj pri rôznych výrazoch a uhle natočenia.
     
-    \item \textbf{\gls{rnn} a \gls{lstm}:} Rekurentné siete sú vhodné pre spracovanie \textit{časových sekvencií}, ako sú videozáznamy mimiky. Ich schopnosť uchovávať predchádzajúce stavy umožňuje sledovať zmeny vo výraze v čase, čo je kľúčové pri rozpoznávaní prechodových emócií alebo mikroexpresií \cite{article02}.
+    \item \textbf{\gls{rnn} a \gls{lstm}:} Rekurentné siete sú vhodné pre spracovanie časových sekvencií, ako sú videozáznamy mimiky. Ich schopnosť uchovávať predchádzajúce stavy umožňuje sledovať zmeny vo výraze v čase, čo je kľúčové pri rozpoznávaní prechodových emócií alebo mikroexpresií \cite{article02}.
     
     \item \textbf{\gls{dcnn}:} Hlboké konvolučné siete predstavujú pokročilejší variant \gls{cnn}, ktorý zahŕňa väčší počet vrstiev a často aj reziduálne alebo SE bloky. Používajú sa v systémoch s dôrazom na vysokú presnosť a zložitejšiu klasifikáciu emócií v náročných podmienkach.
 \end{itemize}
@@ -283,7 +289,7 @@ Tieto systémy sú navrhnuté tak, aby dokázali identifikovať a klasifikovať 
 
 \begin{itemize}
     \item nehomogénne alebo slabé osvetlenie,
-    \item čiastočné zakrytie tváre (napr. rúškou, rukou, okuliarmi),
+    \item čiastočné zakrytie tváre (napr. rúškom, rukou, okuliarmi),
     \item rôzne etnické alebo vekové skupiny,
     \item nečakané výrazy (kombinácie viacerých emócií).
 \end{itemize}
@@ -299,7 +305,7 @@ V tejto práci boli analyzované a porovnané viaceré prístupy k rozpoznávani
 Naopak, architektúry založené na konvolučných neurónových sieťach (CNN) dokážu automaticky extrahovať relevantné črty tváre a lepšie sa vyrovnať s rôznorodosťou v osvetlení, pózach a výrazoch. Porovnané boli viaceré známe CNN modely, vrátane:
 \begin{itemize}
     \item VGGFace – hlboká architektúra s jednoduchou štruktúrou, ktorá však má veľký počet parametrov a vyššie výpočtové nároky.
-    \item ResNet – sieť s reziduálnymi blokmi, ktorá vďaka svojmu návrhu lepšie rieši problém mizejúcich gradientov pri hlbších modeloch.
+    \item ResNet – sieť s reziduálnymi blokmi, ktorá vďaka svojmu návrhu lepšie rieši problém miznúcich gradientov pri hlbších modeloch.
     \item SE-ResNet – rozšírenie ResNetu o SE (Squeeze-and-Excitation) bloky, ktoré umožňujú lepšie zvýrazniť významné kanály.
     \item ResEmoteNet – vlastná modifikovaná architektúra použitá v tejto práci, ktorá kombinuje výhody reziduálnych a SE blokov, pričom je optimalizovaná na klasifikáciu emócií v reálnom čase.
 \end{itemize}
@@ -358,7 +364,7 @@ ResEmoteNet predstavuje významný pokrok v oblasti rozpoznávania emócií na z
 \begin{figure}[!htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{img/architecture.png}
-    \caption{Architektúra systému na rozpoznávanie emócií operátora pomocou RGB kamery.} 
+    \caption{Architektúra systému na rozpoznávanie emócií operátora pomocou RGB kamery \cite{misc01}.} 
     \label{fig:architecture}
 \end{figure}
 \newpage
@@ -751,6 +757,11 @@ Model ResEmoteNet dosiahol nasledujúce presnosti pri klasifikácii jednotlivýc
 
 Výsledky ukazujú vysokú presnosť modelu pri rozpoznávaní výrazných emócií, zatiaľ čo jemnejšie prejavy ako strach a znechutenie dosahujú nižšiu presnosť.
 
+\begin{figure}[!htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/emotions_dataset.png}
+    \caption{Príklad obrázkov emócii z datasetu. 1. neutrálna, 2. hnev, 3. znechutenie, 4. strach, 5. šťastie, 6. smútenie, 7. prekvapenie \cite{li2017reliable}.} 
+\end{figure}
 
 
 \section{Exprerimenty a vyhodnotenie}
