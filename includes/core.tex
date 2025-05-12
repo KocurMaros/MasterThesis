@@ -800,7 +800,7 @@ Nasledujúce podkapitoly detailne opisujú jednotlivé experimenty, prezentujú 
 V r\'amci overenia praktickej pou\v{z}ite\v{l}nosti syst\'emu bolo vykonan\'e testovanie na re\'alnych \v{l}u\v{d}och v r\'oznych prostrediach a podmienkach. Cie\v{l}om tohto experimentu bolo zhodnoti\v{t}, ako si model porad\'i s predikciou em\'oci\'i v prostred\'i, ktor\'e sa l\'i\v{s}i od \v{s}tandardizovan\'ych datasetov pou\v{z}it\'ych po\v{c}as tr\'eningu.
 
 \subsubsection{Priebeh testovania}
-Experiment prebiehal v re\'alnom \v{c}ase, pri\v{c}om \'u\v{c}astn\'ici boli sn\'iman\'i kamerou po\v{c}as toho, ako vyjadrovali r\'ozne em\'ocie. Tieto em\'ocie boli preddefinovan\'e (napr. \v{s}\v{t}astie, sm\'utok, strach, hnev, znechutenie, prekvapenie, neutr\'alna em\'ocia), a \'u\v{c}astn\'ici sa ich sna\v{z}ili nasimulova\v{t} \v{c}o najvernej\v{s}ie. V\'ystupy z kamery boli n\'asledne spracovan\'e tr\'enovan\'ym modelom, ktor\'y okam\v{z}ite ur\v{c}il pravdepodobn\'u em\'ociu na z\'aklade aktu\'alneho v\'yrazu tv\'are.
+Experiment prebiehal v re\'alnom \v{c}ase na piatich \'u\v{c}astn\'ikoch, pri\v{c}om \'u\v{c}astn\'ici boli sn\'iman\'i kamerou po\v{c}as toho, ako vyjadrovali r\'ozne em\'ocie. Tieto em\'ocie boli preddefinovan\'e (napr. \v{s}\v{t}astie, sm\'utok, strach, hnev, znechutenie, prekvapenie, neutr\'alna em\'ocia), a \'u\v{c}astn\'ici sa ich sna\v{z}ili nasimulova\v{t} \v{c}o najvernej\v{s}ie. V\'ystupy z kamery boli n\'asledne spracovan\'e tr\'enovan\'ym modelom, ktor\'y okam\v{z}ite ur\v{c}il pravdepodobn\'u em\'ociu na z\'aklade aktu\'alneho v\'yrazu tv\'are.
 
 \subsubsection{Probl\'emov\'e em\'ocie: strach a sm\'utok}
 Po\v{c}as testovania sa uk\'azalo, \v{z}e najv\"a\v{c}\v{s}ie probl\'emy mal model (rovnako ako \v{l}udsk\'i hodnotitelia) s rozl\'i\v{s}en\'im medzi em\'ociami \textbf{strach} a \textbf{sm\'utok}. D\^ovodom je ich v\'yrazn\'a vizu\'alna podobnos\v{t}, najm\"a v oblasti o\v{c}\'i a obo\v{c}ia. Obidve em\'ocie s\'u \v{c}asto sprev\'adzan\'e stiahnut\'ym obo\v{c}\'im, zn\'i\v{z}enou aktivitou v oblasti \'ust a celkov\'ym poklesom v\'yrazu, \v{c}o sp\^osobuje ich z\'amenu. Navy\v{s}e, ak \'u\v{c}astn\'ici neprejavili em\'ociu dostato\v{c}ne intenz\'ivne, doch\'adzalo k nespr\'avnym klasifik\'aci\'am, ke\v{d} model vyhodnotil v\'yraz ako \textbf{neutr\'alny} alebo zamenil em\'ociu s najbli\v{z}\v{s}\'im vizu\'alnym prejavom.
@@ -822,7 +822,7 @@ Tento experiment uk\'azal, \v{z}e hoci model dosahuje velmi dobr\'e v\'ysledky v
 V snahe porovna\v{t} schopnosti modelu s \v{l}udskou percepciou em\'oci\'i bol vytvoren\'y dotazn\'ik, v ktorom respondenti klasifikovali em\'ocie z\'obrazen\'e na rovnak\'ych vstupn\'ych fotografi\'ach, ak\'e boli predlo\v{z}en\'e modelu. Ka\v{z}d\'y respondent mal za \'ulohu priradi\v{t} jednu z preddefinovan\'ych em\'oci\'i (\v{s}\v{t}astie, sm\'utok, hnev, strach, znechutenie, prekvapenie, neutr\'alna) ku ka\v{z}dej fotografii.
 
 \subsubsection{Zber a spracovanie odpoved\'i}
-Dotazn\'ik bol vyplnen\'y 11 respondentmi, ktor\'i klasifikovali s\'erie 52 obrazov. Ich odpovede boli analyzovan\'e a vyhodnotili sme individu\'alne presnosti a celkov\'y priemer. Celkov\'a priemern\'a \'uspe\v{s}nos\v{t} \v{l}ud\'i dosiahla \textbf{64.4\%}, s hodnoteniami medzi 55.8\% a 73.6\%.
+Dotazn\'ik bol vyplnen\'y 11 respondentmi, ktor\'i klasifikovali s\'erie 52 obrazov náhodne vybraných z datasetu. Ich odpovede boli analyzovan\'e a vyhodnotili sme individu\'alne presnosti a celkov\'y priemer. Celkov\'a priemern\'a \'uspe\v{s}nos\v{t} \v{l}ud\'i dosiahla \textbf{64.4\%}, s hodnoteniami medzi 55.8\% a 73.6\%.
 
 \begin{figure}[!htpb]
 \centering
@@ -880,10 +880,23 @@ Porovnanie výstupov modelu a odpovedí ľudských účastníkov bolo realizovan
 
 Priemerná úspešnosť ľudských účastníkov dosiahla 64,4 \%, pričom jednotlivé výsledky sa pohybovali v rozmedzí od 55,8 \% do 73,6 \%. Naopak, model dosiahol presnosť 90,4 \%, čo poukazuje na jeho výrazne vyššiu konzistentnosť pri určovaní emócií.
 
-Najvyššiu mieru zhody medzi človekom a modelom bolo možné pozorovať pri emócii radosť, ktorá bola ľahko rozpoznateľná vďaka charakteristickým znakom ako sú zdvihnuté kútiky úst a vrásky v oblasti očí. Neutrálny výraz bol správne klasifikovaný modelom vo väčšine prípadov, avšak u ľudí bol častejšie zamieňaný za mierne pozitívne alebo negatívne emócie.
+Najvyššiu mieru zhody medzi človekom a modelom bolo možné pozorovať pri emócii radosť \ref{fig:happy_dataset}, ktorá bola ľahko rozpoznateľná vďaka charakteristickým znakom ako sú zdvihnuté kútiky úst a vrásky v oblasti očí. Neutrálny výraz bol správne klasifikovaný modelom vo väčšine prípadov, avšak u ľudí bol častejšie zamieňaný za mierne pozitívne alebo negatívne emócie.
 
-Rozdiely medzi modelom a respondentmi sa výraznejšie prejavili pri emóciách strach a znechutenie. Tieto emócie boli zameniteľné aj medzi samotnými ľuďmi, čo naznačuje, že ich vizuálne prejavy sú menej jednoznačné a môžu sa prekrývať so smútkom alebo hnevom. Model v týchto prípadoch vykazoval vyššiu stabilitu v predikcii, no niekedy tiež dochádzalo k zámene s príbuznou emóciou.
+\begin{figure}[!htpb]
+    \centering
+    \includegraphics[width=0.65\textwidth]{img/stastny_dataset.png}
+    \caption{Príklad emócie radosť z datasetu.}
+    \label{fig:happy_dataset}
+\end{figure}
+\newpage
+Rozdiely medzi modelom a respondentmi sa výraznejšie prejavili pri emóciách strach a znechutenie, na obrázku \ref{fig:mix_dataset} možno vidieť miernu podobu daných emócii. Tieto emócie boli zameniteľné aj medzi samotnými ľuďmi, čo naznačuje, že ich vizuálne prejavy sú menej jednoznačné a môžu sa prekrývať so smútkom alebo hnevom. Model v týchto prípadoch vykazoval vyššiu stabilitu v predikcii, no niekedy tiež dochádzalo k zámene s príbuznou emóciou.
 
+\begin{figure}[!htpb]
+    \centering
+    \includegraphics[width=0.65\textwidth]{img/mix_emotions.png}
+    \caption{Príklad emócie strach, strach, znechutenie a znechutenie z datasetu.}
+    \label{fig:mix_dataset}
+\end{figure}
 Výsledky taktiež ukázali, že niektorí respondenti mali tendenciu vyhodnocovať výrazy viac intuitívne, zatiaľ čo model pracoval výhradne na základe vizuálnych čŕt. Tento rozdiel v prístupe sa prejavil najmä pri výrazoch, ktoré boli menej výrazné alebo simulované bez silného emočného podkladu. V takých prípadoch sa stávalo, že ľudia reagovali odlišne než model – niekedy presnejšie, inokedy menej.
 
 Celkovo možno konštatovať, že model dosahuje vyššiu presnosť ako priemerný ľudský hodnotiteľ, predovšetkým v kategóriách s dobre definovanými znakmi. Napriek tomu ľudia dokážu v niektorých prípadoch lepšie rozpoznať jemné nuansy a neverbálne signály, čo naznačuje, že spojenie oboch prístupov môže priniesť ešte spoľahlivejšie riešenia pre budúce aplikácie.
