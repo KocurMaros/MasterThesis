@@ -299,6 +299,18 @@ Dôkazom úspešnosti týchto prístupov je ich nasadenie v reálnych aplikáci�
 
 \section{Návrh riešenia}        %section 4
 \label{sec:solution_design}
+\begin{figure}[!htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/main_diagram.png}
+    \caption{Diagram zapojenia hardwaru na pracovisku.}
+    \label{fig:main_diagram}
+\end{figure}
+Diagram \ref{fig:main_diagram} znázorňuje architektúru robotického pracoviska COCOHRIP, kde je centrálnym prvkom počítač (PC), ktorý riadi všetky procesy a zabezpečuje komunikáciu medzi senzormi a robotickým ramenom. K PC sú pripojené dve kamery – Ximea a Azure Kinect – ktoré slúžia ako senzory na snímanie obrazu. Tieto kamery odosielajú svoje dáta priamo do počítača, kde prebieha ich ďalšie spracovanie cez ROS uzly (ROS Nodes).
+
+ROS uzly prijímajú obrazové dáta z kamier a publikujú ich na príslušné ROS topic-y: pre kameru Ximea na /rgb\_stream/ximea a pre Azure Kinect na /rgb\_stream/default. Zároveň je v systéme implementovaný modul COCOHRIP, ktorý na základe spracovaných dát generuje riadiace signály pre robotické rameno. Tieto signály sú následne odosielané do robotického ramena, ktoré vykonáva požadované úlohy.
+
+Celý systém je navrhnutý tak, že všetky senzory (kamery) sú priamo prepojené s počítačom, ktorý zabezpečuje ich správu, spracovanie dát a riadenie aktorov, teda robotického ramena, čím je zabezpečená efektívna a koordinovaná spolupráca jednotlivých komponentov pracoviska.
+
 \subsection{Porovnanie vybraných metód}
 V tejto práci boli analyzované a porovnané viaceré prístupy k rozpoznávaniu emócií z výrazu tváre, pričom pozornosť bola venovaná najmä metódam využívajúcim techniky hlbokého učenia. Tradičné prístupy, ako sú kombinácie geometrických a textúrnych príznakov (napr. HOG + LBP) so strojovým učením (napr. SVM), vykazujú určitú úroveň úspešnosti najmä pri dobre osvetlených a centrálne zarovnaných snímkach, avšak ich robustnosť v reálnych podmienkach je obmedzená.
 
@@ -689,8 +701,17 @@ Každých 10 epoch bol model uložený do formátu \texttt{.pth} s metadátami:
 \end{itemize}
 
 Tento systematický prístup zabezpečil reprodukovateľnosť experimentov a umožnil detailnú analýzu výkonnostných charakteristík modelu v rôznych fázach učenia.
-
+\newpage
 \subsection{Integrácia do ROS2 ekosystému}
+
+\begin{figure}[!htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/predikovanie_diagram.png}
+    \caption{Architektúra systému pre rozpoznávanie emócií v ROS2}
+    \label{fig:ros2_architecture}
+\end{figure}
+
+
 \begin{itemize}
 \item Publikovanie obrazových dát:
   \begin{itemize}
