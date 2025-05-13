@@ -58,7 +58,12 @@ LEARNING_RATE = 1e-4
 \end{lstlisting}
 
 \textbf{Spustenie systému}  
+
+Pred spustením systému, je potrebné skontrolovať, či ovladače kamery sú správne nainštalované. V prípade, použitia kamry s Python API, ktoré niesu súčasťou python package managera, je potrebné vytvoriť symlink na ovládače kamery alebo nakopírovať API do virtuálného prostredia.
 \begin{lstlisting}[language=bash]
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 cd /path/to/master_thesis_practical/ros_package/facial_expression
 sudo chmod +x ./video_stream.sh
 sudo chmod +x ./run_facial_expression.sh
