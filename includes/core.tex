@@ -55,14 +55,14 @@ ako je vzdelávanie, marketing a robotika \cite{article01}.
 Cieľom tejto práce je navrhnúť, implementovať a otestovať systém, ktorý bude schopný identifikovať emocionálny stav človeka na základe výrazu jeho tváre v reálnom čase. Takýto systém má potenciál 
 výrazne zlepšiť interakciu človeka s robotickým systémom, najmä v prostredí, kde je dôležitá adaptácia robota na aktuálny psychický stav operátora.
 
-Hlavný dôraz je kladený na vytvorenie robustného a presného modulu na rozpoznávanie emócií, ktorý bude možné integrovať do existujúcich robotických platforiem v prostredí ROS2 (Robot Operating System 2). 
-V práci sa uvažuje s využitím RGB kamery.
+Hlavný dôraz je kladený na vytvorenie robustného a presného modulu na rozpoznávanie emócií, ktorý bude možné integrovať do existujúcich robotických platforiem v prostredí \gls{ros}2. 
+V práci sa uvažuje s využitím \gls{rgb} kamery.
 
 Práca sa zameriava na splnenie nasledujúcich čiastkových cieľov:
 
 \begin{itemize}
     \item Analýza existujúcich metód rozpoznávania emócií na základe výrazu tváre – preskúmanie prístupov založených na tradičnom strojovom učení (SVM, HOG + LBP), ako aj moderných hlbokých neurónových sietí 
-(\gls{cnn}, ResNet, SE-ResNet, atď.)
+(\gls{cnn}, \gls{resnet}, \gls{se}-\gls{resnet}, atď.)
 
     \item Štúdium biometrických modelov tváre a techník detekcie tváre – skúmanie metód ako Haar Cascade, MT\gls{cnn}, Dlib a OpenCV moduly na detekciu a orezanie tváre.
 
@@ -71,13 +71,13 @@ odpor a strach.
 
     \item Tréning a testovanie systému na open-source databázach – použitie datasetov ako FER2013, RAF-DB, AffectNet a KDEF na overenie presnosti a generalizácie modelu.
 
-    \item Vytvorenie ROS2 balíka – implementácia systému do samostatného ROS2 balíka, ktorý poskytne výstup emocionálneho stavu ako ROS2 téma (napr. emotion\_topic).
+    \item Vytvorenie \gls{ros}2 balíka – implementácia systému do samostatného \gls{ros}2 balíka, ktorý poskytne výstup emocionálneho stavu ako \gls{ros}2 téma (napr. emotion\_topic).
 
     \item Validácia a experimentálne vyhodnotenie systému – testovanie modelu na reálnych aj simulovaných dátach, s dôrazom na presnosť, rýchlosť spracovania a robustnosť voči zmenám osvetlenia či polohy tváre.
 \end{itemize}
 
 Cieľom je vytvoriť systém, ktorý bude nielen presný a spoľahlivý, ale aj dostatočne efektívny na to, aby mohol byť nasadený v reálnom čase na vstavaných výpočtových zariadeniach ako 
-NVIDIA Jetson alebo Raspberry Pi 4 a COCOHRIP. Systém by mal byť zároveň jednoducho škálovateľný a rozšíriteľný o ďalšie vstupy (napr. hlas, srdcovú frekvenciu alebo EDA senzory), čo otvorí cestu k multimodálnemu rozpoznávaniu emócií.
+NVIDIA Jetson alebo Raspberry Pi 4 a \gls{coco}. Systém by mal byť zároveň jednoducho škálovateľný a rozšíriteľný o ďalšie vstupy (napr. hlas, srdcovú frekvenciu alebo EDA senzory), čo otvorí cestu k multimodálnemu rozpoznávaniu emócií.
 Cieľom práce je vytvoriť systém, ktorý bude schopný rozpoznať emócie v reálnom čase.\
 \begin{figure}[!htpb]
     \centering
@@ -145,8 +145,8 @@ Detekcia tváre je prvým krokom pri analýze obrazu. Ide o proces lokalizácie 
 \paragraph{Viola-Jones (Haar Cascade)}
 Algoritmus Viola-Jones využíva tzv. Haar-like príznaky a Adaboost klasifikátor trénovaný na veľkom množstve tvárí. Výhodou je nízka výpočtová náročnosť, vďaka čomu je vhodný aj pre zariadenia s obmedzeným výkonom. Slabinou je citlivosť na uhol natočenia tváre a osvetlenie.
 
-\paragraph{SSD Face Detection}
-Metóda Single Shot MultiBox Detector (SSD) patrí medzi hlboké konvolučné modely schopné detegovať tváre v reálnom čase. Vstupný obraz sa normalizuje a spracúva sieťou, ktorá výstupom poskytuje ohraničujúce boxy a skóre istoty (confidence score). Výhodou je schopnosť robustnej detekcie aj pri zakrytí časti tváre alebo v zhoršených svetelných podmienkach.
+\paragraph{\gls{ssd} Face Detection}
+Metóda \gls{ssd} patrí medzi hlboké konvolučné modely schopné detegovať tváre v reálnom čase. Vstupný obraz sa normalizuje a spracúva sieťou, ktorá výstupom poskytuje ohraničujúce boxy a skóre istoty (confidence score). Výhodou je schopnosť robustnej detekcie aj pri zakrytí časti tváre alebo v zhoršených svetelných podmienkach.
 
 \paragraph{Iné pokročilé metódy}
 Ďalšie populárne detektory zahŕňajú:
@@ -247,7 +247,7 @@ Tieto faktory musia byť zohľadnené najmä v aplikáciách v reálnom svete, k
 \section{Existujúce metody analýzy emócií}
 \label{sec:existing_methods}
 V oblasti rozpoznávania emócií na základe výrazu tváre existuje mnoho prístupov, ktoré môžeme rozdeliť na manuálne a automatizované metódy. Kým tradičné manuálne prístupy spočívajú v ručnom označovaní 
-výrazov tváre, moderné metódy využívajú automatické algoritmy, často založené na neurónových sieťach (NN).
+výrazov tváre, moderné metódy využívajú automatické algoritmy, často založené na \gls{nn}.
 
 \subsection{Ručné značenie}
 Ručne značenie (manuálna anotácia) spočíva v označovaní kľúčových bodov na tvári a následnom priradení výrazov tváre k určitým emočným kategóriám. Tento proces je časovo náročný a vyžaduje expertov 
@@ -278,7 +278,7 @@ Pre aplikácie rozpoznávania emócií sa najčastejšie využívajú nasledovn�
     
     \item \textbf{\gls{rnn} a \gls{lstm}:} Rekurentné siete sú vhodné pre spracovanie časových sekvencií, ako sú videozáznamy mimiky. Ich schopnosť uchovávať predchádzajúce stavy umožňuje sledovať zmeny vo výraze v čase, čo je kľúčové pri rozpoznávaní prechodových emócií alebo mikroexpresií \cite{article02}.
     
-    \item \textbf{\gls{dcnn}:} Hlboké konvolučné siete predstavujú pokročilejší variant \gls{cnn}, ktorý zahŕňa väčší počet vrstiev a často aj reziduálne alebo SE bloky. Používajú sa v systémoch s dôrazom na vysokú presnosť a zložitejšiu klasifikáciu emócií v náročných podmienkach.
+    \item \textbf{\gls{dcnn}:} Hlboké konvolučné siete predstavujú pokročilejší variant \gls{cnn}, ktorý zahŕňa väčší počet vrstiev a často aj reziduálne alebo \gls{se} bloky. Používajú sa v systémoch s dôrazom na vysokú presnosť a zložitejšiu klasifikáciu emócií v náročných podmienkach.
 \end{itemize}
 
 \subsubsection{Príklady použitia počítačového videnia}
@@ -305,9 +305,9 @@ Dôkazom úspešnosti týchto prístupov je ich nasadenie v reálnych aplikáci�
     \caption{Diagram zapojenia hardwaru na pracovisku.}
     \label{fig:main_diagram}
 \end{figure}
-Diagram \ref{fig:main_diagram} znázorňuje architektúru robotického pracoviska COCOHRIP, kde je centrálnym prvkom počítač (PC), ktorý riadi všetky procesy a zabezpečuje komunikáciu medzi senzormi a robotickým ramenom. K PC sú pripojené dve kamery – Ximea a Azure Kinect – ktoré slúžia ako senzory na snímanie obrazu. Tieto kamery odosielajú svoje dáta priamo do počítača, kde prebieha ich ďalšie spracovanie cez ROS uzly (ROS Nodes).
+Diagram \ref{fig:main_diagram} znázorňuje architektúru robotického pracoviska \gls{coco}, kde je centrálnym prvkom počítač (PC), ktorý riadi všetky procesy a zabezpečuje komunikáciu medzi senzormi a robotickým ramenom. K PC sú pripojené dve kamery – Ximea a Azure Kinect – ktoré slúžia ako senzory na snímanie obrazu. Tieto kamery odosielajú svoje dáta priamo do počítača, kde prebieha ich ďalšie spracovanie cez ROS uzly (ROS Nodes).
 
-ROS uzly prijímajú obrazové dáta z kamier a publikujú ich na príslušné ROS topic-y: pre kameru Ximea na /rgb\_stream/ximea a pre Azure Kinect na /rgb\_stream/default. Zároveň je v systéme implementovaný modul COCOHRIP, ktorý na základe spracovaných dát generuje riadiace signály pre robotické rameno. Tieto signály sú následne odosielané do robotického ramena, ktoré vykonáva požadované úlohy.
+ROS uzly prijímajú obrazové dáta z kamier a publikujú ich na príslušné ROS topic-y: pre kameru Ximea na /rgb\_stream/ximea a pre Azure Kinect na /rgb\_stream/default. Zároveň je v systéme implementovaný modul \gls{coco}, ktorý na základe spracovaných dát generuje riadiace signály pre robotické rameno. Tieto signály sú následne odosielané do robotického ramena, ktoré vykonáva požadované úlohy.
 
 Celý systém je navrhnutý tak, že všetky senzory (kamery) sú priamo prepojené s počítačom, ktorý zabezpečuje ich správu, spracovanie dát a riadenie aktorov, teda robotického ramena, čím je zabezpečená efektívna a koordinovaná spolupráca jednotlivých komponentov pracoviska.
 
@@ -317,9 +317,9 @@ V tejto práci boli analyzované a porovnané viaceré prístupy k rozpoznávani
 Naopak, architektúry založené na konvolučných neurónových sieťach (CNN) dokážu automaticky extrahovať relevantné črty tváre a lepšie sa vyrovnať s rôznorodosťou v osvetlení, pózach a výrazoch. Porovnané boli viaceré známe CNN modely, vrátane:
 \begin{itemize}
     \item VGGFace – hlboká architektúra s jednoduchou štruktúrou, ktorá však má veľký počet parametrov a vyššie výpočtové nároky.
-    \item ResNet – sieť s reziduálnymi blokmi, ktorá vďaka svojmu návrhu lepšie rieši problém miznúcich gradientov pri hlbších modeloch.
-    \item SE-ResNet – rozšírenie ResNetu o SE (Squeeze-and-Excitation) bloky, ktoré umožňujú lepšie zvýrazniť významné kanály.
-    \item ResEmoteNet – vlastná modifikovaná architektúra použitá v tejto práci, ktorá kombinuje výhody reziduálnych a SE blokov, pričom je optimalizovaná na klasifikáciu emócií v reálnom čase.
+    \item \gls{resnet} – sieť s reziduálnymi blokmi, ktorá vďaka svojmu návrhu lepšie rieši problém miznúcich gradientov pri hlbších modeloch.
+    \item \gls{se}-\gls{resnet} – rozšírenie \gls{resnet}u o \gls{se} bloky, ktoré umožňujú lepšie zvýrazniť významné kanály.
+    \item ResEmoteNet – vlastná modifikovaná architektúra použitá v tejto práci, ktorá kombinuje výhody reziduálnych a \gls{se} blokov, pričom je optimalizovaná na klasifikáciu emócií v reálnom čase.
 \end{itemize}
 
 V navrhovanom systéme sa ako hlavná metóda detekcie tváre z videa využíva model SSD (Single Shot MultiBox Detector), ktorý je schopný robustne lokalizovať tváre aj pri rôznych uhloch pohľadu, čiastočnom zakrytí a meniacich sa svetelných podmienkach. SSD bol zvolený pre svoju rýchlosť a presnosť v reálnom čase, čo ho predurčuje na použitie v interaktívnych robotických aplikáciách.
@@ -333,7 +333,7 @@ V navrhovanom systéme sa ako hlavná metóda detekcie tváre z videa využíva 
 \newpage
 \subsection{Architektúra systému ResEmoteNet}
 
-ResEmoteNet predstavuje pokročilú architektúru hlbokého učenia navrhnutú špeciálne na rozpoznávanie emócií na základe výrazu tváre. Využíva kombináciu konvolučných neurónových sietí (\gls{cnn}), reziduálnych blokov a Squeeze-Excitation (SE) blokov, čím dosahuje vysokú presnosť pri klasifikácii emócií a zároveň minimalizuje straty modelu. Táto architektúra je optimalizovaná na spracovanie vizuálnych dát z rôznych datasetov a poskytuje robustné riešenie pre reálne aplikácie.
+ResEmoteNet predstavuje pokročilú architektúru hlbokého učenia navrhnutú špeciálne na rozpoznávanie emócií na základe výrazu tváre. Využíva kombináciu konvolučných neurónových sietí (\gls{cnn}), reziduálnych blokov a \gls{se} blokov, čím dosahuje vysokú presnosť pri klasifikácii emócií a zároveň minimalizuje straty modelu. Táto architektúra je optimalizovaná na spracovanie vizuálnych dát z rôznych datasetov a poskytuje robustné riešenie pre reálne aplikácie.
 
 \subsubsection{Hlavné komponenty architektúry}
 
@@ -344,14 +344,14 @@ ResEmoteNet predstavuje pokročilú architektúru hlbokého učenia navrhnutú �
     \item \textbf{Reziduálne bloky:} 
     Tri reziduálne bloky umožňujú modelu učiť sa komplexnejšie reprezentácie dát prostredníctvom hlbších vrstiev. Reziduálne spojenia zmierňujú problém gradientového zmiznutia, čo vedie k lepšiemu výkonu modelu pri spracovaní veľkých datasetov.
     
-    \item \textbf{Squeeze-Excitation (SE) bloky:} 
-    SE bloky selektívne zdôrazňujú dôležité črty tváre a potláčajú menej relevantné informácie. Tento mechanizmus zlepšuje reprezentáciu čŕt a prispieva k vyššej presnosti klasifikácie.
+    \item \textbf{\gls{se} bloky:} 
+    \gls{se} bloky selektívne zdôrazňujú dôležité črty tváre a potláčajú menej relevantné informácie. Tento mechanizmus zlepšuje reprezentáciu čŕt a prispieva k vyššej presnosti klasifikácie.
 \end{itemize}
 
 \subsubsection{Prínosy architektúry ResEmoteNet}
 
 \begin{itemize}
-    \item \textbf{Redukcia strát:} Integrácia SE blokov pomáha minimalizovať straty modelu, čím sa zvyšuje celkový výkon.
+    \item \textbf{Redukcia strát:} Integrácia \gls{se} blokov pomáha minimalizovať straty modelu, čím sa zvyšuje celkový výkon.
     \item \textbf{Vysoká presnosť:} Model dosiahol presnosti 79,79~\% na datasete FER2013, 94,76~\% na RAF-DB, 72,93~\% na AffectNet-7 a 75,67~\% na ExpW.
     \item \textbf{Robustnosť:} Vynikajúca odolnosť voči variáciám osvetlenia, pózy a zakrytia tváre.
     \item \textbf{Efektívnosť:} Optimalizované parametre (napr. dávková veľkosť 16 a 80 epoch) zabezpečujú rýchlu konvergenciu počas tréningu.
@@ -369,7 +369,7 @@ ResEmoteNet bol testovaný na štyroch otvorených datasetoch:
 
 \subsubsection{Schéma architektúry systému}
 
-Architektúra pozostáva z kombinácie konvolučných vrstiev, SE blokov a reziduálnych blokov. Tieto komponenty sú integrované do jedného robustného systému schopného efektívne spracovávať vizuálne dáta v reálnom čase.
+Architektúra pozostáva z kombinácie konvolučných vrstiev, \gls{se} blokov a reziduálnych blokov. Tieto komponenty sú integrované do jedného robustného systému schopného efektívne spracovávať vizuálne dáta v reálnom čase.
 
 ResEmoteNet predstavuje významný pokrok v oblasti rozpoznávania emócií na základe výrazu tváre. Jeho schopnosti ho predurčujú na široké využitie v oblastiach ako sociálna robotika, zdravotníctvo či interakcia človek-stroj.
 
@@ -408,9 +408,9 @@ Hlavným datasetom použitým v tejto práci je \textbf{RAF-DB (Real-world Affec
 \subsubsection{Prínos pre prácu}
 Výber RAF-DB je kľúčový pre ciele tejto práce z nasledujúcich dôvodov:
 \begin{itemize}
-    \item \textbf{Real-time aplikácie:} Umožňuje testovanie modelu v podmienkach blízkych reálnemu nasadeniu (variabilita osvetlenia, pózy).
+    \item \textbf{Aplikácie reálneho času:} Umožňuje testovanie modelu v podmienkach blízkych reálnemu nasadeniu (variabilita osvetlenia, pózy).
     \item \textbf{Validácia robustnosti:} Prítomnosť čiastočne zakrytých tvárí a komplexných výrazov overuje schopnosť systému generalizovať.
-    \item \textbf{Kompatibilita s ROS2:} Optimalizovaná veľkosť obrázkov (100×100 px) znižuje výpočtovú náročnosť pre vstavané zariadenia ako NVIDIA Jetson.
+    \item \textbf{Kompatibilita s \gls{ros}2:} Optimalizovaná veľkosť obrázkov (100×100 px) znižuje výpočtovú náročnosť pre vstavané zariadenia ako NVIDIA Jetson.
 \end{itemize}
 
 \subsubsection{Príprava dát}
@@ -457,7 +457,7 @@ Extrakcia príznakov je kritickou fázou v rozpoznávaní emócií, ktorá trans
     Haar Cascade & Haar-like features + AdaBoost & Rýchle spracovanie (25 fps) & Citlivé na osvetlenie \\ \hline
     Dlib 68-bodov & Geometria tvárových landmarkov & Presná detekcia pózy & Vyžaduje vysoké rozlíšenie \\ \hline
     LBP & Lokálne textúrne vzory & Invariantné k osvetleniu & Nízka diskriminatívna sila \\ \hline
-    ResEmoteNet & Hierarchická CNN + SE bloky & Zachytáva abstraktné vzory & Vyššia výpočtová náročnosť \\ \hline
+    ResEmoteNet & Hierarchická CNN + \gls{se} bloky & Zachytáva abstraktné vzory & Vyššia výpočtová náročnosť \\ \hline
 \end{tabularx}
 \caption{Porovnanie metód extrakcie príznakov}
 \end{table}
@@ -470,7 +470,7 @@ Architektúra kombinuje všetky tri prístupy:
     \item Hybridná extrakcia:
     \begin{itemize}
         \item Vrstvy Conv1-3: Hlboké črty vysokého rádu
-        \item SE bloky: Váhovanie dôležitých kanálov
+        \item \gls{se} bloky: Váhovanie dôležitých kanálov
         \item Skip connections: Zachovanie nízkych frekvencií
     \end{itemize}
 \end{enumerate}
@@ -517,7 +517,7 @@ Na klasifikáciu emócií sa používajú rôzne metódy, ktoré môžeme rozdel
         \item \textbf{Recurrent Neural Networks (RNN) a LSTM:} 
         Vhodné na analýzu časových sekvencií, napríklad videí.
         \item \textbf{ResEmoteNet:} 
-        Kombinuje CNN s reziduálnymi blokmi a SE blokmi. Dosahuje vysokú presnosť pri rozpoznávaní komplexných emócií.
+        Kombinuje CNN s reziduálnymi blokmi a \gls{se} blokmi. Dosahuje vysokú presnosť pri rozpoznávaní komplexných emócií.
     \end{itemize}
 \end{itemize}
 
@@ -537,12 +537,12 @@ Na klasifikáciu emócií sa používajú rôzne metódy, ktoré môžeme rozdel
 \end{table}
 
 \subsubsection{Implementácia klasifikátora v systéme ResEmoteNet}
-Model ResEmoteNet využíva kombináciu konvolučných vrstiev a SE blokov na extrakciu relevantných čŕt tváre. Klasifikácia prebieha v poslednej vrstve modelu pomocou Softmax funkcie, ktorá priraďuje pravdepodobnosti jednotlivým emočným kategóriám.
+Model ResEmoteNet využíva kombináciu konvolučných vrstiev a \gls{se} blokov na extrakciu relevantných čŕt tváre. Klasifikácia prebieha v poslednej vrstve modelu pomocou Softmax funkcie, ktorá priraďuje pravdepodobnosti jednotlivým emočným kategóriám.
 
 \begin{enumerate}
     \item Vstupný obraz je normalizovaný a prechádza konvolučnými vrstvami.
     \item Reziduálne bloky umožňujú hlbšiu analýzu dát bez straty gradientu.
-    \item SE bloky selektívne zdôrazňujú dôležité črty tváre.
+    \item \gls{se} bloky selektívne zdôrazňujú dôležité črty tváre.
     \item Výstup je spracovaný úplne prepojenou vrstvou, ktorá generuje pravdepodobnosti pre každú emočnú triedu.
 \end{enumerate}
 
@@ -601,8 +601,8 @@ Augmentácia dát bola kľúčová pre zlepšenie generalizácie:
 
 Optimalizovaná kombinácia hyperparametrov umožnila modelu ResEmoteNet dosiahnuť najvyššiu presnosť pri zachovaní stability trénovacieho procesu. Výsledné nastavenie zároveň minimalizuje riziko pretrénovania, čo bolo overené na testovacej množine s 15\% nezávislých dát z RAF-DB.
 
-\subsection{Integrácia do robotického pracoviska COCOHRIP}
-Systém bol navrhnutý s ohľadom na integráciu do výskumného robotického pracoviska \textbf{COCOHRIP} (COmplex COllaborative Human-Robot Interaction workPlace) Ústavu robotiky a kybernetiky FEI STU. Toto prostredie poskytuje:
+\subsection{Integrácia do robotického pracoviska \gls{coco}}
+Systém bol navrhnutý s ohľadom na integráciu do výskumného robotického pracoviska \textbf{\gls{coco}} (COmplex COllaborative Human-Robot Interaction workPlace) Ústavu robotiky a kybernetiky FEI STU. Toto prostredie poskytuje:
 
 \begin{itemize}
 \item \textbf{Kolaboratívnu robotickú platformu}: 
@@ -612,10 +612,10 @@ Systém bol navrhnutý s ohľadom na integráciu do výskumného robotického pr
 \item Synchronizovaný zber dát z viacerých senzorických zdrojov
 \end{itemize}
 
-\item \textbf{Architektúru ROS2}: 
+\item \textbf{Architektúru \gls{ros}2}: 
 \begin{itemize}
 \item Integrovaný middleware pre správu senzorických dát
-\item Podpora pre real-time spracovanie obrazu (30 Hz)
+\item Podpora pre spracovanie obrazu v realnom čase (30 Hz)
 \item Kompatibilita s navrhnutým balíkom \texttt{facial\_emotion}
 \end{itemize}
 \end{itemize}
@@ -623,7 +623,7 @@ Systém bol navrhnutý s ohľadom na integráciu do výskumného robotického pr
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{img/cocohrip.png}
-\caption{Robotické pracovisko COCOHRIP}
+\caption{Robotické pracovisko \gls{coco}}
 \end{figure}
 
 \section{Implementácia riešenia}
@@ -631,7 +631,7 @@ Systém bol navrhnutý s ohľadom na integráciu do výskumného robotického pr
 \subsection{Vývojové prostredie a infraštruktúra}
 \begin{itemize}
 \item Docker kontainer s Ubuntu 22.04, Python 3.10 a CUDA 11.8
-\item Knižnice: PyTorch 2.0, OpenCV 4.7, ROS2 Humble
+\item Knižnice: PyTorch 2.0, OpenCV 4.7, \gls{ros}2 Humble
 \item Integrácia s NVIDIA Container Toolkit pre GPU akceleráciu
 \end{itemize}
 
@@ -656,9 +656,9 @@ Pre zvýšenie robustnosti modelu boli aplikované transformácie:
 \end{itemize}
 
 \subsubsection{Architektúra modelu}
-Modifikovaná ResNet-50 s integrovanými \textbf{Squeeze-and-Excitation (SE) blokmi}:
+Modifikovaná \gls{resnet}-50 s integrovanými \gls{se} blokmi:
 \begin{itemize}
-    \item 5 reziduálnych vrstiev so SE mechanizmom
+    \item 5 reziduálnych vrstiev so \gls{se} mechanizmom
     \item Globálny priemerný pooling namiesto plne prepojených vrstiev
     \item Finálna klasifikačná vrstva s 7 neurónmi pre emočné triedy
 \end{itemize}
@@ -702,12 +702,12 @@ Každých 10 epoch bol model uložený do formátu \texttt{.pth} s metadátami:
 
 Tento systematický prístup zabezpečil reprodukovateľnosť experimentov a umožnil detailnú analýzu výkonnostných charakteristík modelu v rôznych fázach učenia.
 \newpage
-\subsection{Integrácia do ROS2 ekosystému}
+\subsection{Integrácia do \gls{ros} 2 ekosystému}
 
 \begin{figure}[!htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{img/predikovanie_diagram.png}
-    \caption{Architektúra systému pre rozpoznávanie emócií v ROS2}
+    \caption{Architektúra systému pre rozpoznávanie emócií v \gls{ros} 2}
     \label{fig:ros2_architecture}
 \end{figure}
 
@@ -729,14 +729,14 @@ Tento systematický prístup zabezpečil reprodukovateľnosť experimentov a umo
     \centering
     \includegraphics[width=0.7\textwidth]{img/subscriber.png}
     \caption{ROS subscriber na detekované emócie}
-    \label{fig:ros2_architecture}
+    \label{fig:ros2_terminal}
 \end{figure}
-
+\newpage
 \subsection{Webová vizualizácia pomocou Flask}
 \begin{itemize}
-\item Real-time stream s overlayom emočných štítkov
+\item Záznam v reálnom čase s prekritím emočných štítkov
 \item REST API pre konfiguráciu kamery a modelu
-\item Integrácia s ROS2 cez \texttt{rosbridge\_server}
+\item Integrácia s \gls{ros}2 cez \texttt{rosbridge\_server}
 \end{itemize}
 
 \begin{figure}[!htpb]
@@ -754,7 +754,7 @@ Tento systematický prístup zabezpečil reprodukovateľnosť experimentov a umo
     \label{fig:web_examples}
 \end{figure}
 
-\subsection{Validácia na robotickom pracovisku COCOHRIP}
+\subsection{Validácia na robotickom pracovisku \gls{coco}}
     \begin{itemize}
 \item Testovacia platforma URK FEI STU:
   \begin{itemize}
