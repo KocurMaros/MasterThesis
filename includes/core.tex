@@ -77,7 +77,7 @@ odpor a strach.
 \end{itemize}
 
 Cieľom je vytvoriť systém, ktorý bude nielen presný a spoľahlivý, ale aj dostatočne efektívny na to, aby mohol byť nasadený v reálnom čase na vstavaných výpočtových zariadeniach ako 
-NVIDIA Jetson alebo Raspberry Pi 4 a \gls{coco}. Systém by mal byť zároveň jednoducho škálovateľný a rozšíriteľný o ďalšie vstupy (napr. hlas, srdcovú frekvenciu alebo EDA senzory), čo otvorí cestu k multimodálnemu rozpoznávaniu emócií.
+NVIDIA Jetson alebo Raspberry Pi 4 a \gls{coco} viď obr. \ref{fig:coco}. Systém by mal byť zároveň jednoducho škálovateľný a rozšíriteľný o ďalšie vstupy (napr. hlas, srdcovú frekvenciu alebo EDA senzory), čo otvorí cestu k multimodálnemu rozpoznávaniu emócií.
 Cieľom práce je vytvoriť systém, ktorý bude schopný rozpoznať emócie v reálnom čase.\
 \begin{figure}[!htpb]
     \centering
@@ -305,9 +305,9 @@ Dôkazom úspešnosti týchto prístupov je ich nasadenie v reálnych aplikáci�
     \caption{Diagram zapojenia hardwaru na pracovisku.}
     \label{fig:main_diagram}
 \end{figure}
-Diagram \ref{fig:main_diagram} znázorňuje architektúru robotického pracoviska \gls{coco}, kde je centrálnym prvkom počítač (PC), ktorý riadi všetky procesy a zabezpečuje komunikáciu medzi senzormi a robotickým ramenom. K PC sú pripojené dve kamery – Ximea a Azure Kinect – ktoré slúžia ako senzory na snímanie obrazu. Tieto kamery odosielajú svoje dáta priamo do počítača, kde prebieha ich ďalšie spracovanie cez ROS uzly (ROS Nodes).
+Diagram \ref{fig:main_diagram} znázorňuje architektúru robotického pracoviska \gls{coco} (\ref{fig:coco}), kde je centrálnym prvkom počítač (PC), ktorý riadi všetky procesy a zabezpečuje komunikáciu medzi senzormi a robotickým ramenom. K PC sú pripojené dve kamery – Ximea a Azure Kinect – ktoré slúžia ako senzory na snímanie obrazu. Tieto kamery odosielajú svoje dáta priamo do počítača, kde prebieha ich ďalšie spracovanie cez ROS uzly (ROS Nodes).
 
-ROS uzly prijímajú obrazové dáta z kamier a publikujú ich na príslušné ROS topic-y: pre kameru Ximea na /rgb\_stream/ximea a pre Azure Kinect na /rgb\_stream/default. Zároveň je v systéme implementovaný modul \gls{coco}, ktorý na základe spracovaných dát generuje riadiace signály pre robotické rameno. Tieto signály sú následne odosielané do robotického ramena, ktoré vykonáva požadované úlohy.
+ROS uzly prijímajú obrazové dáta z kamier a publikujú ich na príslušné ROS topic-y: pre kameru Ximea na /rgb\_stream/ximea a pre Azure Kinect na /rgb\_stream/default. Zároveň je v systéme implementovaný modul \gls{coco} (\ref{fig:coco}), ktorý na základe spracovaných dát generuje riadiace signály pre robotické rameno. Tieto signály sú následne odosielané do robotického ramena, ktoré vykonáva požadované úlohy.
 
 Celý systém je navrhnutý tak, že všetky senzory (kamery) sú priamo prepojené s počítačom, ktorý zabezpečuje ich správu, spracovanie dát a riadenie aktorov, teda robotického ramena, čím je zabezpečená efektívna a koordinovaná spolupráca jednotlivých komponentov pracoviska.
 
@@ -622,8 +622,9 @@ Systém bol navrhnutý s ohľadom na integráciu do výskumného robotického pr
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.7\textwidth]{img/cocohrip.png}
+\includegraphics[width=1.0\textwidth]{img/cocohrip2.png}
 \caption{Robotické pracovisko \gls{coco}}
+\label{fig:coco}
 \end{figure}
 
 \section{Implementácia riešenia}
